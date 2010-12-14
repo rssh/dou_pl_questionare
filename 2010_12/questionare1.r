@@ -5,12 +5,13 @@
 #
 # Use this on own risc.
 #
-# You can use and redistribute this scripts and GNU General Public License 
-# version 2 or later.
+# You can use and redistribute this scripts on conditions of
+# GNU General Public License version 2 or later.
+# 
 #
 # (C) Ruslan Shevchenko <ruslan@shevchenko.kiev.ua> 2010
 #
-# note, that scripts contains cyrillic comments in utf8 encoding.
+# note, that file contains cyrillic comments in utf8 encoding.
 
 #config
 drawNow=TRUE
