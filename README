@@ -5,6 +5,8 @@
 
  2010_12/questionare1.csv -- data.
  2010_12/questionare1.r   -- r scripts, to produce some graphics and results.
+ 2011_07/questionare2.csv -- data.
+ 2011_07/questionare2.r   -- r scripts, to produce some graphics and results.
  
  Surveu data is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
  Any public mention of derived product must contains reference to origin survey.
