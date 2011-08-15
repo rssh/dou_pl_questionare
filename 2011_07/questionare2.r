@@ -1,7 +1,5 @@
 # R scripts for cleanup and produsing some statistics for dou questionare.
 # (see report on http://www.developers.org.ua/archives/rssh/2010/12/14/programming-languages-rating-2010/ )
-# Statistics is incomplete, some steps (such as calculating right bounds 
-#  for statistically corrected data)  not included.
 #
 # Use this on own risc.
 #
