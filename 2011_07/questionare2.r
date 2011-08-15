@@ -164,11 +164,16 @@ funsnl<-function(qs) {
  if (!is.na(match("SQL",names(snl)))) {
     snl <- snl[-match("SQL",names(snl))]
  }
- snl <- snl[snl>3]
  return(snl)
 }
 snl1 <- funsnl(qs1)
+# в прошлый раз 1С была кириллицей, сейчас латыницей
+snl1['1C']=snl1['1С']
+snl1sv <- snl1
+snl1 <- snl1[snl1>3]
 snl2 <- funsnl(qs2)
+snl2sv <- snl2
+snl2 <- snl2[snl2>3]
 #  нарисуем картинку
 if (drawNow) {
   png(file="snl.png")
@@ -485,18 +490,17 @@ zeroNames <- function(data,names) {
  data
 }
 
-# в прошлый раз 1С была кириллицей, сейчас латыницей
-snl1old['1C']=snl1old['1С']
-snl1old <- snl1old[-match("нет",names(snl1old))]
 
-snl1old <- zeroNames(snl1old,names)
-snl2 <- zeroNames(snl2,names)
-snl2
+snl1sv <- snl1sv[-match("нет",names(snl1sv))]
+# snl2sv <- snl2sv[-match("нет",names(snl1sv)]
 
-rxsnl1p <- (snl1old/sum(snl1old))[names]*100
-rxsnl2p <- (snl2/sum(snl2))[names]*100
+snl1sv <- zeroNames(snl1sv,names)
+snl2sv <- zeroNames(snl2sv,names)
 
-rxsnl2 <- snl2[names]
+rxsnl1p <- (snl1sv/sum(snl1sv))[names]*100
+rxsnl2p <- (snl2sv/sum(snl2sv))[names]*100
+
+rxsnl2 <- snl2sv[names]
 
 rxsfl <- sfl2[names]
 
@@ -517,10 +521,24 @@ diff = rxsnl2p-rxsnl1p
 
 rxlci <- lcisv[names]
 
+#
+# печатаем изменения по сравнению с прошлым разом
+# если вероятность изменения > 90%
+pv <- cbind(names)
+for(l in names) {
+  pv[l] <-prop.test(c(snl2sv[l],snl1sv[l]),c(n2,n1))$p.value
+}
+
 
 res<-cbind(rxsnl2p,diff,rxsnl2,rxsxlp,rxsxl,rxsal,rxspl,rxlci)
 
-# и показать финальную таблцу, отсортированную по доле рынка
-print(res[rev(order(rxsnl2)),])
+for(l in names) {
+  if (is.na(pv[l]) || pv[l]>0.10) {
+    res[l,'diff'] <- NA
+  }
+}
 
+# и показать финальную таблцу, отсортированную по доле рынка
+res<- res[rev(order(rxsnl2)),]
+res
 
