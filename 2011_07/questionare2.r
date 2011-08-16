@@ -429,7 +429,7 @@ en <- c("1","2","3","4","5","6","7","8","9","10+")
 t2<-table(qs$ExperienceInLanguage,qs$ExperienceInProgramming)[en,en]
 if (drawNow) {
   png(file="el.png")
-  barplot(t2,col=rainbow(10),legend=TRUE)
+  barplot(t2,col=rainbow(10),legend=TRUE,args.legend=list(x=10,y=500))
   title("Опыт работы программистом/на выбранном языке")
   dev.off()
 }
