@@ -1,7 +1,7 @@
 # R scripts for cleanup and produsing some statistics for dou questionare.
-# (see report on http://www.developers.org.ua/archives/rssh/2010/12/14/programming-languages-rating-2010/ )
+# (see report on http://www.developers.org.ua/lenta/articles/programming-languages-rating-2011-07/ )
 # Statistics is incomplete, some steps (such as calculating right bounds 
-#  for statistically corrected data)  not included.
+#  for statistically corrected data) can not be included.
 #
 # Use this on own risc.
 #
@@ -499,8 +499,8 @@ snl1sv <- snl1sv[-match("нет",names(snl1sv))]
 snl1sv <- zeroNames(snl1sv,names)
 snl2sv <- zeroNames(snl2sv,names)
 
-rxsnl1p <- (snl1sv/sum(snl1sv))[names]*100
-rxsnl2p <- (snl2sv/sum(snl2sv))[names]*100
+rxsnl1p <- (snl1sv/n1)[names]*100
+rxsnl2p <- (snl2sv/n2)[names]*100
 
 rxsnl2 <- snl2sv[names]
 
