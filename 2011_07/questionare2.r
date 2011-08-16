@@ -1,7 +1,7 @@
 # R scripts for cleanup and produsing some statistics for dou questionare.
-# (see report on http://www.developers.org.ua/lenta/articles/programming-languages-rating-2011-07/ )
+# (see report on http://www.developers.org.ua/archives/rssh/2010/12/14/programming-languages-rating-2010/ )
 # Statistics is incomplete, some steps (such as calculating right bounds 
-#  for statistically corrected data) can not be included.
+#  for statistically corrected data)  not included.
 #
 # Use this on own risc.
 #
@@ -133,6 +133,8 @@ qs2['InUA'] <- lapply(qs2['InUA'],function(x){factor(normalizeBool(x))})
 
 qs <- qs2
 
+n1 <- length(qs1$NowLanguage);
+n2 <- length(qs2$NowLanguage);
 
 # на чем начинали ?
 funsfl <- function(qs) {
@@ -213,7 +215,11 @@ snlm["2010-11",] <- snl1[cnames]
 snlm["2011-07",] <- snlp[cnames]
 if (drawNow) {
   png(file="slnm.png")
-  barplot(snlm,beside=TRUE,cex.names=0.6,legend=TRUE,args.legend=list(x="topleft"))
+  barplot(snlm,beside=TRUE,cex.names=0.8,legend=TRUE,
+          args.legend=list(x="topleft"),
+          las=2,
+          col=c("blue","green")
+  )
   title("Доли языков в сравнении с прошлым опросом")
   dev.off();
 }
@@ -423,7 +429,7 @@ en <- c("1","2","3","4","5","6","7","8","9","10+")
 t2<-table(qs$ExperienceInLanguage,qs$ExperienceInProgramming)[en,en]
 if (drawNow) {
   png(file="el.png")
-  barplot(t2,col=rainbow(10))
+  barplot(t2,col=rainbow(10),legend=TRUE)
   title("Опыт работы программистом/на выбранном языке")
   dev.off()
 }
