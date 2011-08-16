@@ -1,5 +1,7 @@
 # R scripts for cleanup and produsing some statistics for dou questionare.
 # (see report on http://www.developers.org.ua/archives/rssh/2010/12/14/programming-languages-rating-2010/ )
+# Statistics is incomplete, some steps (such as calculating right bounds 
+#  for statistically corrected data)  not included.
 #
 # Use this on own risc.
 #
@@ -193,11 +195,13 @@ names(snl1)[i]<-"DBase"
 snl1old <- snl1
 snlpold <- snlp
 # приведем к долям от общего к-ства
-snl1 <- (snl1/sum(snl1))*100
-snlp <- (snlp/sum(snlp))*100
+snl1 <- (snl1/n1)*100
+snlp <- (snlp/n2)*100
 # нам интересно  тольк то, что больше процента
 snl1 <- snl1[snl1>1]
+snl1 <- snl1[order(snl1)]
 snlp <- snlp[snlp>1]
+snlp <- snlp[order(snlp)]
 
 
 cnames <- intersect(names(snl1),names(snlp))
