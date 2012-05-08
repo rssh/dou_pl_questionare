@@ -162,7 +162,7 @@ sxl<-sxl[sxl>5]
 if (drawNow) {
   png(file="sxl.png")
   dotchart(sxl)
-  title("Если бы вы начинали сейчас коммерческий проект \n и у вас была-бы свобода выбора ...")
+  title("Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора ...")
   dev.off()
 }
 
@@ -201,10 +201,9 @@ if (drawNow) {
   lcim["2012-04",] <- lci3[cnames]
   barplot(lcim,beside=TRUE, las=2, col=c("blue","green"),cex.name=0.8,
           args.legend=list(x="topleft"))
-  title("Индекс приверженности к языкам ...")
+  title("Индекс привязанности к языкам ...")
   dev.off()
 }
-
 
 languageAfter <- function(lct,snl,name) {
  mgX <- lct[name,]/snl[name]
@@ -483,5 +482,31 @@ for(l in names) {
 }
 
 # и показать финальную таблцу, отсортированную по доле рынка
-res
+print(res);
+
+# взять данные ДОУ и rabota.ua по вакансиям
+v_dou=read.csv(file="dou_vacancies.csv",head=TRUE)
+vnames <- v_dou$Language
+v_dou <- as.data.frame(t(v_dou[,-1]))
+colnames(v_dou) <- vnames
+v_ra=read.csv(file="rabotaua_vacancies.csv",head=TRUE)
+vnames <- v_ra$Language
+v_ra <- as.data.frame(t(v_ra[,-1]))
+colnames(v_ra) <- vnames
+
+v <- merge(v_dou,v_ra,all=TRUE)
+v[2,] <- zeroNames(v[2,],colnames(v))
+v <- v[,c("Java","C#","PHP","C++","Python","Ruby","JavaScript","Objective-C","1C","PL/SQL")]
+rownames(v) <- c("DOU","rabota.ua")
+
+# привести к относительному виду
+v[1,] <- v[1,]/sum(v[1,])
+v[2,] <- v[2,]/sum(v[2,])
+
+if (drawNow) {
+  png(file="vacancies.png")
+  barplot(as.matrix(v),beside=TRUE,legend=TRUE,cex.names=0.8,las=2)
+  dev.off()
+}
+
 
