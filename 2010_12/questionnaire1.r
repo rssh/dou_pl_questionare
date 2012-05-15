@@ -16,7 +16,7 @@
 #config
 drawNow=TRUE
 
-qs <- read.csv(file="questionare1.csv", head=TRUE, sep=",")
+qs <- read.csv(file="questionnaire1.csv", head=TRUE, sep=",")
 # normalize data
 
 # попробуес привести к нормальному виду список дополнительных языков:

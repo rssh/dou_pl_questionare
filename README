@@ -1,19 +1,19 @@
 
 
- This is row data for survey about usage of programming languages:
+ This is raw data for survey about usage of programming languages:
+    http://dou.ua/lenta/articles/language-rating-1h2012/
     http://www.developers.org.ua/lenta/articles/programming-languages-rating-2011-07/
     http://www.developers.org.ua/archives/rssh/2010/12/14/programming-languages-rating-2010/
 
- 2010_12/questionare1.csv -- data.
- 2010_12/questionare1.r   -- r scripts, to produce some graphics and results.
- 2011_07/questionare2.csv -- data.
- 2011_07/questionare2.r   -- r scripts, to produce some graphics and results.
- 2012_05/questionare3.csv -- data.
+ 2010_12/questionnaire1.csv -- data.
+ 2010_12/questionnaire1.r   -- r scripts, to produce some graphics and results.
+ 2011_07/questionnaire2.csv -- data.
+ 2011_07/questionnaire2.r   -- r scripts, to produce some graphics and results.
+ 2012_05/questionnaire3.csv -- data.
  2012_05/func.r           -- common r functions.
- 2011_07/questionare3.r   -- r scripts, to produce some graphics and results.
  
- Surveu data is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
- Any public mention of derived product must contains reference to origin survey.
+ Survey data is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
+ Any public mention of derived product must contain reference to the original survey.
 
- R scripts for analyzing is aviable under GNU General Public License v.3 or later.
+ R scripts for analysis are avialable under GNU General Public License v.3 or later.
 

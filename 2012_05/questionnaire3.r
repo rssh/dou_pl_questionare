@@ -16,9 +16,9 @@
 #config
 drawNow=TRUE
 
-qs1 <- read.csv(file="../2010_12/questionare1.csv", head=TRUE, sep=",")
-qs2 <- read.csv(file="../2011_07/questionare2.csv", head=TRUE, sep=",")
-qs3 <- read.csv(file="questionare3.csv", head=TRUE, sep=",")
+qs1 <- read.csv(file="../2010_12/questionnaire1.csv", head=TRUE, sep=",")
+qs2 <- read.csv(file="../2011_07/questionnaire2.csv", head=TRUE, sep=",")
+qs3 <- read.csv(file="questionnaire3.csv", head=TRUE, sep=",")
 # normalize data
 
 source('func.r');
