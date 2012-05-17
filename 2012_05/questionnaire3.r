@@ -14,7 +14,7 @@
 # note, that file contains cyrillic comments in utf8 encoding.
 
 #config
-drawNow=TRUE
+drawNow=FALSE
 
 qs1 <- read.csv(file="../2010_12/questionnaire1.csv", head=TRUE, sep=",")
 qs2 <- read.csv(file="../2011_07/questionnaire2.csv", head=TRUE, sep=",")
@@ -98,6 +98,7 @@ snl2 <- summaryLangColumn('NowLanguage',qs2)
 snl3 <- summaryLangColumn('NowLanguage',qs3)
 snl1 <- snl1[snl1>3]
 snl2 <- snl2[snl2>3]
+svsnl3 = snl3
 snl3 <- snl3[snl3>3]
 #  нарисуем картинку
 if (drawNow) {
@@ -107,7 +108,6 @@ if (drawNow) {
   dev.off()
 }
 
-svsnl3 <- snl3
 svsnl2 <- snl2
 # приведем к долям от общего к-ства
 snl1n = sum(snl1)
@@ -468,7 +468,7 @@ rxsal <- salf[names]
 
 diff = rxsnl3p-rxsnl2p
 
-rxlci <- lcisv[names]
+rxlci <- lci3sv[names]
 
 
 res<-cbind(rxsnl3p,diff,rxsnl3,rxsxlp,rxsxl,rxsal,rxspl,rxlci)
