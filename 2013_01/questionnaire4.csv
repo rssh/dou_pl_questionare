@@ -1,4 +1,4 @@
-Timestamp,Вопрос 1,Можете ли выделить один основной язык программирования,На каком языке Вы написали свою первую программу,На каком языке Вы пишете для работы сейчас,Какие языки Вы используете для работы дополнительно,Какие языки Вы используете для работы как основные ,Какие языки Вы используете для работы дополнительно,Использование в новых проектах,Свои проекты,Опыт работы программистом,Опыт работы на основном языке,Возраст,Проживаете ли Вы в настоящее время в Украине,Принимали ли Вы участие в предыдущих опросах ?
+Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLanguages2,AdditionalLanguages3,NextLanguage,PetProjectLanguages,ExperienceInProgramming,ExperienceInLanguage,Age,InUA,InPrev
 10.01.2013 9:29:03,,Да,Asm,Scala,JavaScript,,,Scala,"Java, C, Scala",10+,4,"[40,50)",Да,Да
 10.01.2013 15:09:44,,Да,Pascal/Delphi,Java,JavaScript,,,Java,Java,8,8,"[20,30)",Да,Да
 10.01.2013 15:10:24,,Да,C,C#,JavaScript,,,C#,"C#, JavaScript",3,2,"[20,30)",Да,Нет
