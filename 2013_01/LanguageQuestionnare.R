@@ -22,6 +22,7 @@ setMethod(f="initialize",
             # normalization procedures.
             .Object@data["FirstLanguage"] <- normalizeLanguageColumn(.Object,"FirstLanguage")
             .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
+            .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")
             validObject(.Object)
             return(.Object)
           }
@@ -34,8 +35,8 @@ setGeneric("normalizeLanguageName", function(object,name) { standardGeneric("nor
 setMethod(f="normalizeLanguageName",
           definition=function(object,name) {
             patterns<-c()
-            patterns["none"]="не программирую|Программирую не для работы"
-            patterns["Basic"]="Basic|Visual Basic|VBA|BASIC|VB.Net"
+            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит"
+            patterns["Basic"]="Basic|Visual Basic|VBA|BASIC|VB.Net|VBScript"
             patterns["Pascal/Delphi"]="^pascal$|Turbo Pascal|^Delphi|Pascal / Delphi"
             patterns["Modula-2"]="Modula2|Modula-2"
             patterns["Fortran"]="Fortran"
@@ -45,6 +46,14 @@ setMethod(f="normalizeLanguageName",
             patterns["Logo"]="logo"
             patterns["ActionScript"]="(ActionScript(.*)$)|(Action *Script.*$)|^AS$|^as3$"
             patterns["C#"]="c#|С#|C#"
+            patterns["C++"]="c\\+\\+|С\\+\\+|С\\+\\+"
+            patterns["C"]="^c$|^С$|^С$"
+            patterns["SAP ABAP"]="^SAP$|ABAP$"
+            patterns["shell"]="^sh$|^bash$"
+            patterns["T-SQL"]="^T-SQL$|Transact-SQL$"
+            patterns["Tcl"]="^Tcl$|Tcl/Tk$"
+            patterns["Matlab"]="^MATLAB$|^matlab$"
+            patterns["Clojure"]="^clojure$|^Clojure$"
             for(np in names(patterns)) {
                if (grepl(patterns[np],name, ignore.case = TRUE)) {
                  return(np)
@@ -97,20 +106,20 @@ languageColumnSummary <- function(x, top, barrier) {
 # barries - barries.
 
 setGeneric("languageColumn", 
-           function(object,columnName,top=100,barrier=0,...) {
+           function(object,columnName,top=100,barrier=0) {
              standardGeneric("languageColumn")
            }
           )
 
 setMethod("languageColumn",
-           definition=function(object,columnName,top=100,barrier=0,...) {
+           definition=function(object,columnName,top=100,barrier=0) {
              languageColumnSummary(object@data[[columnName]], top, barrier)
            }
          )
 
 
 setGeneric("firstLanguages", 
-           function(object,top=100,barrier=0,...) {
+           function(object,top=100,barrier=0) {
              standardGeneric("firstLanguages")
            }
           )
@@ -129,5 +138,23 @@ setMethod(f="nowLanguages",
           definition=function(object, top=100, barrier=0) {
             languageColumnSummary(object@data$NowLanguage, top, barrier)
           })
+
+setGeneric("satisfactionIndex", function(object, barrier=5) { standardGeneric("satisfactionIndex") } )
+
+setMethod(f="satisfactionIndex",
+          definition = function(object, barrier) {
+            data <- object@data
+            t <- table(data$NowLanguage, data$NextLanguage)
+            names <- intersect(rownames(t),colnames(t))
+            lc <- languageColumn(object,"NowLanguage",barrier=5)
+            names <- intersect(names,names(lc))
+            li <- array(0,length(names))
+            names(li) <- names
+            for(i in names) {
+               li[i] <- t[i,i]/sum(t[i,])
+            }
+            li[order(li, decreasing=TRUE)]
+          })
+
 
 
