@@ -12,30 +12,31 @@ setClass("LanguageQuestionnare",
         )
 
 
+
 setMethod(f="initialize",
           signature="LanguageQuestionnare",
-          definition=function(.Object, when, data) {
+          definition=function(.Object, when = as.Date("1970-01-01"), data = data.frame()) {
             cat("LanguageQuestionnare initialize")
             .Object@when <- when
             .Object@originData <- data
             .Object@data <- data
             # normalization procedures.
-            .Object@data["FirstLanguage"] <- normalizeLanguageColumn(.Object,"FirstLanguage")
-            .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
-            .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")
-            validObject(.Object)
+            #(check - that we in not empty initializer in class definition)
+            if (nrow(data)!=0) {
+              .Object@data["FirstLanguage"] <- normalizeLanguageColumn(.Object,"FirstLanguage")
+              .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
+              .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")
+              validObject(.Object)
+            }
             return(.Object)
           }
          )
 
 
 
-setGeneric("normalizeLanguageName", function(object,name) { standardGeneric("normalizeLanguageName") })
-
-setMethod(f="normalizeLanguageName",
-          definition=function(object,name) {
+normalizeLanguageName <-function(name) {
             patterns<-c()
-            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит"
+            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$"
             patterns["Basic"]="Basic|Visual Basic|VBA|BASIC|VB.Net|VBScript"
             patterns["Pascal/Delphi"]="^pascal$|Turbo Pascal|^Delphi|Pascal / Delphi"
             patterns["Modula-2"]="Modula2|Modula-2"
@@ -49,37 +50,51 @@ setMethod(f="normalizeLanguageName",
             patterns["C++"]="c\\+\\+|С\\+\\+|С\\+\\+"
             patterns["C"]="^c$|^С$|^С$"
             patterns["SAP ABAP"]="^SAP$|ABAP$"
-            patterns["shell"]="^sh$|^bash$"
+            patterns["Shell"]="^sh$|^bash$|^shell$"
             patterns["T-SQL"]="^T-SQL$|Transact-SQL$"
             patterns["Tcl"]="^Tcl$|Tcl/Tk$"
             patterns["Matlab"]="^MATLAB$|^matlab$"
             patterns["Clojure"]="^clojure$|^Clojure$"
+            patterns["Python"]="^python$|^jython$"
             for(np in names(patterns)) {
                if (grepl(patterns[np],name, ignore.case = TRUE)) {
                  return(np)
                }
             }
             return(name)
-          }
-         )
+}
 
 setGeneric("normalizeLanguageColumn", function(object, columnName) { standardGeneric("normalizeLanguageColumn") } )
 
 setMethod(f="normalizeLanguageColumn",
           definition=function(object, columnName) {
-            cat("call of normalizeLanguageColumn \n")
+            cat("normalizeLanguageColumn for ",object@when," ",columnName,"\n")
             object@data[columnName] <- apply(
                                           object@originData[columnName], 
                                           1,
                                           function(x){
-                                             factor(normalizeLanguageName(object,as.character(x)))
+                                             factor(normalizeLanguageName(as.character(x)))
                                           }
                                        )
-            print(object@data[columnName])
             return (object@data[columnName])
           }
          );
 
+setGeneric("normalizeLanguagesColumn", function(object, columnName) { standardGeneric("normalizeLanguagesColumn") } )
+
+setMethod(f="normalizeLanguagesColumn",
+          definition=function(object, columnName) {
+            cat("call of normalizeLanguagesColumn ",columnName, "\n")
+            print(object);
+            print(object@when);
+            c <- sapply(object@data[columnName], function(x) {
+                          sapply(strsplit(as.character(x),","),function(x) {
+                              normalizeLanguageName(gsub(x," ",""))
+                          })
+                        })
+            c
+          }
+         );
 
 
 languageColumnSummary <- function(x, top, barrier) {
@@ -139,6 +154,13 @@ setMethod(f="nowLanguages",
             languageColumnSummary(object@data$NowLanguage, top, barrier)
           })
 
+
+migrations <- function(object) {
+  data <- object@data
+  m <- table(data$NowLanguage, data$NextLanguage)
+  apply(m, 1, function(r) { r[r>0] })
+}
+
 setGeneric("satisfactionIndex", function(object, barrier=5) { standardGeneric("satisfactionIndex") } )
 
 setMethod(f="satisfactionIndex",
@@ -146,7 +168,7 @@ setMethod(f="satisfactionIndex",
             data <- object@data
             t <- table(data$NowLanguage, data$NextLanguage)
             names <- intersect(rownames(t),colnames(t))
-            lc <- languageColumn(object,"NowLanguage",barrier=5)
+            lc <- languageColumn(object,"NowLanguage",barrier=barrier)
             names <- intersect(names,names(lc))
             li <- array(0,length(names))
             names(li) <- names

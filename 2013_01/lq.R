@@ -1,17 +1,27 @@
 
 source("LanguageQuestionnare.R")
+source("LanguageQuestionnare_from2012.R")
 source("SetOfLanguageQuestionnaries.R")
+
+if (!exists("data.readed") || is.null(data.readed)) {
+  d2010_12 <- new("LanguageQuestionnare", when=as.Date("2010-12-01"),
+                        data = read.csv("../2010_12/questionnaire1.csv"))
+  d2011_07 <- new("LanguageQuestionnare",when=as.Date("2011-07-01"),
+                        data = read.csv("../2011_07/questionnaire2.csv"))
+  d2012_05 <- new("LanguageQuestionnare",when=as.Date("2012-05-01"), 
+                        data=read.csv("../2012_05/questionnaire3.csv"))
+  d2013_01 <- new("LanguageQuestionnare_from2012",when=as.Date("2013-01-01"), 
+                        data=read.csv("questionnaire4.csv"))
+  data.readed <- TRUE
+}
+
 
 sq <- new("SetOfLanguageQuestionnaries",
             questionaries = list(
-              "2010-12" = new("LanguageQuestionnare",when=as.Date("2010-12-01"), 
-                                                             data=read.csv("../2010_12/questionnaire1.csv")),
-              "2011-07" = new("LanguageQuestionnare",when=as.Date("2011-07-01"), 
-                                                             data=read.csv("../2011_07/questionnaire2.csv")),
-              "2012-05" = new("LanguageQuestionnare",when=as.Date("2012-05-01"), 
-                                                             data=read.csv("../2012_05/questionnaire3.csv")),
-              "2013-01" = new("LanguageQuestionnare",when=as.Date("2013-01-01"), 
-                                                             data=read.csv("questionnaire4.csv"))
+              "2010-12" = d2010_12,
+              "2011-07" = d2011_07,
+              "2012-05" = d2012_05,
+              "2013-01" = d2013_01
             )
           )
 
@@ -64,5 +74,10 @@ x <- languageColumnSummaries(sq,"NextLanguage",top=15,toPlot=TRUE,
                             )
 dev.off()
 
-x <- satisfactionIndex(getQuestionnaire(sq,"2013-01"), barrier=5)
+x <- satisfactionIndex(getQuestionnaire(sq,"2013-01"), barrier=10)
 cr <- colorRampPalette(c('black','blue'))(length(x))
+
+png("satisfaction.png")
+dotchart(x[order(x)],col=cr)
+dev.off()
+
