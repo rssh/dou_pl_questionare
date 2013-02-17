@@ -28,6 +28,15 @@ setMethod(f="initialize",
               .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")
               validObject(.Object)
             }
+            if ('AdditionalLanguages' %in% colnames(.Object@originData)) {
+              .Object@additionalFields["AdditionalLanguagesById"] <- normalizeLanguagesColumn(.Object,"AdditionalLanguages")
+            }
+            if ('PetProjectsLanguages' %in% colnames(.Object@originData)) {
+              .Object@additionalFields["PetProjectsLanguagesById"] <- normalizeLanguagesColumn(.Object,"PetProjectsLanguages")
+            }
+            if (!('Age' %in% colnames(.Object@originData))) {
+               print(paste("No Age in ",when, sep=""))
+            }
             return(.Object)
           }
          )
@@ -35,27 +44,34 @@ setMethod(f="initialize",
 
 
 normalizeLanguageName <-function(name) {
+            #cat("normalizeLanguageName, name=",name," class(name)=",class(name),"\n")
             patterns<-c()
-            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$"
-            patterns["Basic"]="Basic|Visual Basic|VBA|BASIC|VB.Net|VBScript"
+            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$|None |^None|не использую|only one|никакой|нічого|^nope$"
+            patterns["Basic"]="Basic|Visual Basic|VBA|BASIC|VB.Net|VBScript|^VB$"
             patterns["Pascal/Delphi"]="^pascal$|Turbo Pascal|^Delphi|Pascal / Delphi"
             patterns["Modula-2"]="Modula2|Modula-2"
             patterns["Fortran"]="Fortran"
             patterns["Focal"]="Focal|FOCAL|Фокал|fokal"
             patterns["ASM"]="калькулятор|MK-61|Assembler|машинные коды|MK-52|машинный код|MK61|МК-61"
-            patterns["CoffeeScript"]="CoffeScript"
+            patterns["CoffeeScript"]="CoffeScript|coffeescript"
             patterns["Logo"]="logo"
             patterns["ActionScript"]="(ActionScript(.*)$)|(Action *Script.*$)|^AS$|^as3$"
             patterns["C#"]="c#|С#|C#"
             patterns["C++"]="c\\+\\+|С\\+\\+|С\\+\\+"
             patterns["C"]="^c$|^С$|^С$"
             patterns["SAP ABAP"]="^SAP$|ABAP$"
-            patterns["Shell"]="^sh$|^bash$|^shell$"
-            patterns["T-SQL"]="^T-SQL$|Transact-SQL$"
+            patterns["Shell"]="^sh$|^bash$|^shell$|Shell Script|linux shell|bash( |-)scripting|C-Shell$|^ksh$|sh / bash|UNIX shell"
+            patterns["T-SQL"]="^T-SQL$|Transact-SQL$|^TSQL$|^T-SQL;"
             patterns["Tcl"]="^Tcl$|Tcl/Tk$"
-            patterns["Matlab"]="^MATLAB$|^matlab$"
+            patterns["Matlab"]="^MATLAB$|^matlab|Matlab$"
             patterns["Clojure"]="^clojure$|^Clojure$"
             patterns["Python"]="^python$|^jython$"
+            patterns["PowerShell"]="^Povershell$"
+            patterns["Groovy"]="Groovy|^groovy"
+            patterns["Erlang"]="erlang"
+            patterns["Go"]="^Google Go$"
+            patterns["OCampl"]="^ocaml$"
+            patterns["PL-SQL"]="^pl/sql$"
             for(np in names(patterns)) {
                if (grepl(patterns[np],name, ignore.case = TRUE)) {
                  return(np)
@@ -67,6 +83,7 @@ normalizeLanguageName <-function(name) {
 setGeneric("normalizeLanguageColumn", function(object, columnName) { standardGeneric("normalizeLanguageColumn") } )
 
 setMethod(f="normalizeLanguageColumn",
+          signature="LanguageQuestionnare",
           definition=function(object, columnName) {
             cat("normalizeLanguageColumn for ",object@when," ",columnName,"\n")
             object@data[columnName] <- apply(
@@ -83,14 +100,21 @@ setMethod(f="normalizeLanguageColumn",
 setGeneric("normalizeLanguagesColumn", function(object, columnName) { standardGeneric("normalizeLanguagesColumn") } )
 
 setMethod(f="normalizeLanguagesColumn",
+          signature="LanguageQuestionnare",
           definition=function(object, columnName) {
             cat("call of normalizeLanguagesColumn ",columnName, "\n")
-            print(object);
-            print(object@when);
-            c <- sapply(object@data[columnName], function(x) {
-                          sapply(strsplit(as.character(x),","),function(x) {
-                              normalizeLanguageName(gsub(x," ",""))
-                          })
+            c <- lapply(object@data[columnName], function(x) {
+		          l <- lapply(strsplit(x,","),
+                                   function(y) {
+                                     gsub("^( )+|( )+$","",y)
+                                   })
+                          lapply(l, function(y) {
+                                    l1 <- lapply(y, function(z) {
+                                       normalizeLanguageName(z)
+                                    })
+                                    unlist(l1)
+                                })
+                          
                         })
             c
           }
@@ -127,8 +151,15 @@ setGeneric("languageColumn",
           )
 
 setMethod("languageColumn",
+          signature="LanguageQuestionnare",
            definition=function(object,columnName,top=100,barrier=0) {
-             languageColumnSummary(object@data[[columnName]], top, barrier)
+             if (columnName=="AdditionalLanguages"
+                 || columnName=="PetProjectsLanguages") {
+               cdata <- as.factor(unlist(object@additionalFields[[paste(columnName,"ById",sep="")]]))
+             } else {
+               cdata <- object@data[[columnName]]
+             }
+             languageColumnSummary(cdata, top, barrier)
            }
          )
 
@@ -179,4 +210,16 @@ setMethod(f="satisfactionIndex",
           })
 
 
+setGeneric("withAdditional", function(object, language, barrier=2) 
+   { standardGeneric("withAdditional") } )
+
+setMethod(f="withAdditional",
+          definition = function(object, language, barrier) {
+            cp <- sapply(object@additionalFields$AdditionalLanguagesById,
+                         function(y) { language %in% y } )
+            r <- summary(object@data["NowLanguage"][cp,])
+            r <- r[r > barrier]
+            r[order(r, decreasing=TRUE)]
+          }
+         )
 

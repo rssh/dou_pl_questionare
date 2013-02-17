@@ -104,3 +104,78 @@ setMethod(f="significantChanges", definition = function(object, columnName,
  print(pv)
  pv
 } )
+
+setGeneric("experienceChart", function(object, name, when=c("2012-05","2013-01"), toPlot=FALSE, ...) { standardGeneric("experienceChart") } )
+
+setMethod(f="experienceChart",
+          definition=function(object,name, when, toPlot, ... ) {
+             d <- sapply(when,function(x) { 
+                        q <- getQuestionnaire(object,x)
+                        summary(q@data[[name]])
+                     })
+             if (length(when) > 1) {
+               d <- t(apply(d, 2, function(x) { x*100/sum(x) }))
+             } else {
+               d <- t(d*100/sum(d))
+             }
+             if (toPlot) {
+               barplot(d,beside=TRUE,cex.axis=0.8, cex=0.8, ...)
+               if (!is.null(rownames(d))) {
+                 legend("topright",rownames(data), fill=plot.col)    # TOD
+               }
+               #if (!is.null(plot.title)) {
+               #    title(plot.title)
+               #}
+             }
+             d
+          }
+         )
+
+
+setGeneric("finalTable", function(object, name, basewhen) { standardGeneric("finalTable") } )
+
+setMethod(f="finalTable", 
+          signature="SetOfLanguageQuestionnaries",
+          definition=function(object, name) {
+            dates <- names(object@questionaries)
+            if (length(dates) < 2) {
+                stop("finalTable must be applied when we have at least two questionaries")
+            }
+            qLast <- getQuestionnaire(object,dates[length(dates)])
+            qPrev <- getQuestionnaire(object,dates[length(dates)-1])
+            sNowLast <- languageColumn(qLast,"NowLanguage")
+            names <- names(sNowLast)
+            sNowPrev <- languageColumn(qPrev,"NowLanguage")
+            svNames <- names
+            names <- union(names,names(sNowPrev))
+            sNextLast <- languageColumn(qLast,"NextLanguage")
+            names <- intersect(names,names(sNextLast))
+            sAddLast <- languageColumn(qLast,"AdditionalLanguages")
+            names <- intersect(names,names(sAddLast))
+            sPetLast <- languageColumn(qLast,"PetProjectsLanguages")
+            names <- intersect(names,names(sPetLast))
+            satisfaction <- satisfactionIndex(qLast)
+ 
+            sNowLast[setdiff(names,names(sNowLast))] <- 0
+            sNowLast <- sNowLast[names]
+            d <- setdiff(names,names(sNowPrev))
+            sNowPrev[setdiff(names,names(sNowPrev))] <- 0
+            sNowPrev <- sNowPrev[names]
+            sNextLast[setdiff(names,names(sNextLast))] <- 0
+            sNextLast <- sNextLast[names]
+            sAddLast[setdiff(names,names(sAddLast))] <- 0
+            sAddLast <- sAddLast[names]
+            sPetLast[setdiff(names,names(sPetLast))] <- 0
+            sPetLast <- sPetLast[names]
+            satisfaction[setdiff(names,names(satisfaction))] <- 0
+            satisfaction <- satisfaction[names]
+
+	    percentNow <- sNowLast*100/sum(sNowLast)
+            percentPrev <- sNowPrev*100/sum(sNowPrev)
+            percentNextNow <- sNextLast*100/sum(sNextLast)
+           
+            diff = percentNow - percentPrev
+            
+            r <- cbind(percentNow, diff, sNowLast, percentNextNow, sNextLast, sAddLast, sPetLast, satisfaction)
+            r
+          })

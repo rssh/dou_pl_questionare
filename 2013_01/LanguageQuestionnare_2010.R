@@ -1,19 +1,17 @@
 
 
-setClass("LanguageQuestionnare_from2012", 
+setClass("LanguageQuestionnare_2010", 
          contains="LanguageQuestionnare"
         )
 
 
 setMethod(f="initialize",
-          signature="LanguageQuestionnare_from2012",
+          signature="LanguageQuestionnare_2010",
           definition=function(.Object, when, data) {
-            cat("call of from2012_initialize")
+            cat("call of 2010_initialize\n")
             .Object <- callNextMethod(.Object, when, data)
-            .Object@additionalFields["AdditionalLanguagesById"] <- normalizeLanguagesColumn(.Object,"AdditionalLanguages1")
-            .Object@data$Age <- factor(data$Age, levels=c("<20","[20,30)","[30,40)","[40,50)",">50"))
-           .Object@data$ExperienceInProgramming <- factor(data$ExperienceInProgramming, levels=c("<1","1","2","3","4","5","6","7","8","9","10+"))
-           .Object@data$ExperienceInLanguage <- factor(data$ExperienceInLanguage, levels=c("<1","1","2","3","4","5","6","7","8","9","10+"))
+            .Object@data$ExperienceInProgramming <- factor(data$Experience, levels=c("0","1","2","3","4","5","6","7","8","9","10 и больше"))
+            levels(.Object@data$ExperienceInProgramming) <- c("<1","1","2","3","4","5","6","7","8","9","10+")
             return(.Object)
           }
          )
@@ -29,5 +27,4 @@ setMethod("languageColumn",
              }
            }
          )
-
 
