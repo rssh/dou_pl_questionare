@@ -144,6 +144,13 @@ t<-table(q4@data$ExperienceInLanguage,q4@data$ExperienceInProgramming)
   title("Опыт работы программистом/на выбранном языке")
   dev.off()
 
+png("experiencesMosaic.png", width=680, height=320)
+t<-table(q4@data$ExperienceInProgramming,q4@data$ExperienceInLanguage)
+t1 <- t[,c("10+","9","8","7","6","5","4","3","2","1","<1")]
+colnames(t1) <- c("10+","","","","","","","","","","<1")
+plot(as.table(t1), col=colorRampPalette(c("blue","green"))(11), xlab="программистом", ylab="на выбранном языке", main="Опыт работы",las=1)
+dev.off()
+
 
 t <- table(q4@data$NowLanguage,q4@data$InUA)
 t <- apply(t,2,function(x) { x/sum(x) })
@@ -152,6 +159,16 @@ png("languagesNowInUA.png", width=680, height=320)
  barplot(t,beside=TRUE, col=rainbow(9),axes=FALSE, 
          names=c("in UA", "! in UA"), legend=rownames(t), 
          args.legen=list(y=0.25))
+dev.off()
+
+
+t <- table(q4@data$InUA,q4@data$ExperienceInProgramming)
+t <- apply(t,1, function(x) { x/sum(x) })
+png("experienceInUA.png", width=680, height=320)
+barplot(t,beside=TRUE, axes=FALSE, 
+         col=colorRampPalette(c("green","blue"))(11),
+         names=c("in UA", "! in UA") 
+       )
 dev.off()
 
 
