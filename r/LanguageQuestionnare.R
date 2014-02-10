@@ -46,13 +46,13 @@ setMethod(f="initialize",
 normalizeLanguageName <-function(name) {
             #cat("normalizeLanguageName, name=",name," class(name)=",class(name),"\n")
             patterns<-c()
-            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$|None |^None|не использую|only one|никакой|нічого|^nope$"
+            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$|None |^None|не использую|only one|никакой|нічого|^nope$|^нет$"
             patterns["Basic"]="Basic|Visual Basic|VBA|BASIC|VB.Net|VBScript|^VB$"
             patterns["Pascal/Delphi"]="^pascal$|Turbo Pascal|^Delphi|Pascal / Delphi"
-            patterns["Modula-2"]="Modula2|Modula-2"
+            patterns["Modula-2"]="^Modula2|Modula-2"
             patterns["Fortran"]="Fortran"
             patterns["Focal"]="Focal|FOCAL|Фокал|fokal"
-            patterns["ASM"]="калькулятор|MK-61|Assembler|машинные коды|MK-52|машинный код|MK61|МК-61"
+            patterns["ASM"]="калькулятор|MK-61|Assembler|машинные коды|MK-52|машинный код|MK61|МК-61|^Asm$"
             patterns["CoffeeScript"]="CoffeScript|coffeescript"
             patterns["Logo"]="logo"
             patterns["ActionScript"]="(ActionScript(.*)$)|(Action *Script.*$)|^AS$|^as3$"
@@ -66,12 +66,13 @@ normalizeLanguageName <-function(name) {
             patterns["Matlab"]="^MATLAB$|^matlab|Matlab$"
             patterns["Clojure"]="^clojure$|^Clojure$"
             patterns["Python"]="^python$|^jython$"
-            patterns["PowerShell"]="^Povershell$"
+            patterns["PowerShell"]="^Povershell$|^Powershell$|^powershell$"
             patterns["Groovy"]="Groovy|^groovy"
             patterns["Erlang"]="erlang"
-            patterns["Go"]="^Google Go$"
-            patterns["OCampl"]="^ocaml$"
+            patterns["Go"]="^Google Go$|^golang$|^GoLang$|^go$"
+            patterns["OCaml"]="^ocaml$"
             patterns["PL-SQL"]="^pl/sql$"
+            patterns["Lua"]="^LUA$"
             for(np in names(patterns)) {
                if (grepl(patterns[np],name, ignore.case = TRUE)) {
                  return(np)

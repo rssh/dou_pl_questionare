@@ -12,6 +12,7 @@ setClass("SetOfLanguageQuestionnaries",
          )
         )
 
+
 setGeneric("languageColumnSummaries", function(object, columnName, top=100, barrier=2, 
                                                  when=NULL, main=NULL, toPlot=FALSE,
                                                  plot.col = NULL, plot.title=NULL, 
@@ -32,6 +33,7 @@ setMethod(f="languageColumnSummaries",
                         languageColumn(q,columnName,barrier=barrier)
                      })
              commonNames <- NULL
+             allNames <- NULL
              for(l in data) {
                nl <- names(l)
                if (is.null(commonNames)) {
@@ -39,23 +41,30 @@ setMethod(f="languageColumnSummaries",
                } else {
                   commonNames <- intersect(commonNames,nl)
                   diffNames <- nl[!(nl %in% commonNames)]
-                  cat("skipped names :",diffNames,"\n")
+                  allNames <- union(allNames,nl)
+                  # cat("skipped names :",diffNames,"\n")
                }
              }
+             # now - set all diffNames to 0
+             for(k in names(data)) {
+                 newNames <- setdiff(allNames, names(data[[k]]))
+                 data[[k]][newNames] <- 0
+             }
              if (length(when) > 1) {
-               mainOrder <- data[[main]][commonNames]
-               commonNames <- commonNames[order(mainOrder,decreasing=TRUE)]
+               mainOrder <- data[[main]][allNames]
+               allNames <- allNames[order(mainOrder,decreasing=TRUE)]
                data <- lapply(data, function(data) { 
-                          data[commonNames]/sum(data[commonNames]) })
+                          data[allNames]/sum(data[allNames]) 
+                       })
                data <- t(rbind(sapply(names(data),function(n){ data[[n]] } )))
              } else {
                data <- t(data/sum(data))
-               commonNames <- colnames(data)
+               allNames <- colnames(data)
              }
-             cat("commonNames=",commonNames,"\n");
-             if (length(commonNames) > top) {
-               commonNames <- commonNames[1:top]
-               data <- data[,commonNames]
+             cat("allNames=",allNames,"\n");
+             if (length(allNames) > top) {
+               allNames <- allNames[1:top]
+               data <- data[,allNames]
              }
              if (toPlot) {
                barplot(data,beside=TRUE,cex.axis=0.8, cex=0.8, col=plot.col, ...)
@@ -132,11 +141,11 @@ setMethod(f="experienceChart",
          )
 
 
-setGeneric("finalTable", function(object, name, basewhen) { standardGeneric("finalTable") } )
+setGeneric("finalTable", function(object) { standardGeneric("finalTable") } )
 
 setMethod(f="finalTable", 
           signature="SetOfLanguageQuestionnaries",
-          definition=function(object, name) {
+          definition=function(object) {
             dates <- names(object@questionaries)
             if (length(dates) < 2) {
                 stop("finalTable must be applied when we have at least two questionaries")
@@ -148,8 +157,9 @@ setMethod(f="finalTable",
             sNowPrev <- languageColumn(qPrev,"NowLanguage")
             svNames <- names
             names <- union(names,names(sNowPrev))
-            sNextLast <- languageColumn(qLast,"NextLanguage")
-            names <- intersect(names,names(sNextLast))
+            # removed sNextLast as meanless
+            #sNextLast <- languageColumn(qLast,"NextLanguage")
+            #names <- intersect(names,names(sNextLast))
             sAddLast <- languageColumn(qLast,"AdditionalLanguages")
             names <- intersect(names,names(sAddLast))
             sPetLast <- languageColumn(qLast,"PetProjectsLanguages")
@@ -161,8 +171,8 @@ setMethod(f="finalTable",
             d <- setdiff(names,names(sNowPrev))
             sNowPrev[setdiff(names,names(sNowPrev))] <- 0
             sNowPrev <- sNowPrev[names]
-            sNextLast[setdiff(names,names(sNextLast))] <- 0
-            sNextLast <- sNextLast[names]
+            # sNextLast[setdiff(names,names(sNextLast))] <- 0
+            # sNextLast <- sNextLast[names]
             sAddLast[setdiff(names,names(sAddLast))] <- 0
             sAddLast <- sAddLast[names]
             sPetLast[setdiff(names,names(sPetLast))] <- 0
@@ -172,10 +182,10 @@ setMethod(f="finalTable",
 
 	    percentNow <- sNowLast*100/sum(sNowLast)
             percentPrev <- sNowPrev*100/sum(sNowPrev)
-            percentNextNow <- sNextLast*100/sum(sNextLast)
+            # percentNextNow <- sNextLast*100/sum(sNextLast)
            
             diff = percentNow - percentPrev
             
-            r <- cbind(percentNow, diff, sNowLast, percentNextNow, sNextLast, sAddLast, sPetLast, satisfaction)
+            r <- cbind(percentNow, diff, sNowLast, sAddLast, sPetLast, satisfaction)
             r
           })
