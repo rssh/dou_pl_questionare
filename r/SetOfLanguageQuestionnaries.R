@@ -114,7 +114,7 @@ setMethod(f="significantChanges", definition = function(object, columnName,
  pv
 } )
 
-setGeneric("experienceChart", function(object, name, when=c("2012-05","2013-01"), toPlot=FALSE, ...) { standardGeneric("experienceChart") } )
+setGeneric("experienceChart", function(object, name, when=c("2013-01","2014-01"), toPlot=FALSE, ...) { standardGeneric("experienceChart") } )
 
 setMethod(f="experienceChart",
           definition=function(object,name, when, toPlot, ... ) {
@@ -189,3 +189,22 @@ setMethod(f="finalTable",
             r <- cbind(percentNow, diff, sNowLast, sAddLast, sPetLast, satisfaction)
             r
           })
+
+setGeneric("ageChart", function(object, when, toPlot=FALSE, ...) { standardGeneric("ageChart") } )
+
+
+setMethod(f="ageChart", 
+          signature="SetOfLanguageQuestionnaries",
+          definition=function(object, when, toPlot, ...) {
+             a <- sapply(when,function(x) { summary(getQuestionnaire(object,x)@data$Age)  })
+             if (length(when) > 1) {
+                a <- apply(a,2, function(x) { x*100/sum(x) })
+             } else {
+                a <- a*100/sum(a)
+             }
+             if (toPlot) {
+               barplot(a,col=rainbow(5), legend=rownames(a), xlim=c(0,length(when)+2))
+             } 
+             a
+          }) 
+
