@@ -116,12 +116,7 @@ dev.off()
 
 
 png("age.png", width=400, height=320)
-cat(1)
-x <- summary(getQuestionnaire(sq,"2014-01")@data$Age)
-cat(2)
-x <- x/sum(x)*100
-cat(3)
-barplot(x,horiz=TRUE, las=1, col=rainbow(5), main="Возраст")
+ageChart(sq,c("2012-05","2013-01","2014-01"),toPlot=TRUE)
 dev.off()
 
 
@@ -139,7 +134,7 @@ d <- experienceChart(sq,"ExperienceInProgramming",when=c("2010-12","2011-07","20
 # в 2011 мы смешали -1 и 1, приведем сие к общемк знаменателю.
 d[,"1"] <- d[,"<1"]+d[,"1"]
 d <- d[,c("1","2","3","4","5","6","7","8","9","10+")]
-barplot(d, beside=TRUE,col=rainbow(4, start=0.2, end=0.6), 
+barplot(d, beside=TRUE,col=rainbow(5, start=0.1, end=0.6), 
         legend=rownames(d), args.legend=list(x=44),
         main="Опыт работы программистом")
 dev.off()
@@ -171,7 +166,7 @@ t <- apply(t,2,function(x) { x/sum(x) })
 t <- t[c("Java","C#","PHP","C++","Python","JavaScript","Objective-C","Ruby","C"),]
 png("languagesNowInUA.png", width=680, height=320)
  barplot(t,beside=TRUE, col=rainbow(9),axes=FALSE, 
-         names=c("in UA", "! in UA"), legend=rownames(t), 
+         names=c("в Украине", "не в Украине"), legend=rownames(t), 
          args.legen=list(y=0.25))
 dev.off()
 
@@ -181,10 +176,19 @@ t <- apply(t,1, function(x) { x/sum(x) })
 png("experienceInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=FALSE, 
          col=colorRampPalette(c("green","blue"))(11),
-         names=c("in UA", "! in UA") 
+         names=c("в Украине", "не в Украине") 
        )
 dev.off()
 
+
+t <- table(q5@data$InUA,q5@data$Age)
+t <- apply(t,1, function(x) { x/sum(x) })
+png("ageInUA.png", width=680, height=320)
+barplot(t,beside=TRUE, axes=FALSE, 
+         col=colorRampPalette(c("green","blue"))(11),
+         names=c("в Украине", "не в Украине") 
+       )
+dev.off()
 
 
 

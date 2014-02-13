@@ -14,8 +14,9 @@
  2011_07/questionnaire2.r   -- r scripts, to produce some graphics and results.
  2012_05/questionnaire3.csv -- data.
  2012_05/func.r           -- common r functions.
- 2013_05/questionnaire4.csv -- data.
- 2013_05/*.r              -- r scripts and classes 
+ 2013_01/questionnaire4.csv -- data [Jan 2013]
+ 2014_01/questionnaire5.csv -- data [Jav 2014]
+ r/              -- R scripts and classes 
  
  Survey data is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/
  Any public mention of derived product must contain reference to the original survey.

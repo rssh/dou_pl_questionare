@@ -252,7 +252,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 09.04.2012 14:23:15,C,,,Да,,Java,"Java, JavaScript",,Java,,Java,Заказчиком,<1,1,Да,"[20,30)",Нет
 09.04.2012 14:23:30,Pascal / Delphi,,,Нет,,,,"Java, JavaScript",Groovy,XSL,,Заказчиком,5,5,Да,"[20,30)",Да
 09.04.2012 14:23:41,Pascal / Delphi,,,Да,,Python,,,Python,,,Не знаю,<1,<1,Да,"[20,30)",Нет
-09.04.2012 14:23:41,Fortran,,,Да,,Java,"JavaScript, PL/SQL",,Java,,,Заказчиком,10+,10+,Да,> 50,Нет
+09.04.2012 14:23:41,Fortran,,,Да,,Java,"JavaScript, PL/SQL",,Java,,,Заказчиком,10+,10+,Да,>50,Нет
 09.04.2012 14:23:53,Asm,,,Да,,Scala,"Java, PHP, JavaScript, C",,Scala,,"Java, JavaScript, C, Scala",Совместным решением,10+,3,Да,"[30,40)",Да
 09.04.2012 14:23:56,Pascal / Delphi,,,Да,,Python,"Java, PHP, Python, JavaScript",,Python,,"Java, Python",Заказчиком,5,2,Нет,"[20,30)",Нет
 09.04.2012 14:23:57,Pascal / Delphi,,,Да,,Objective-C,"Python, Ruby, JavaScript, C",,Objective-C,,"Python, Ruby, Objective-C, JavaScript, Lua",Исполнителем,6,4,Да,"[20,30)",Нет
@@ -584,7 +584,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 09.04.2012 15:23:46,Pascal / Delphi,,,Да,,Delphi,"С#, PL/SQL",,С#,,Delphi,Моя организация разрабатывает только на этом языке,2,2,Да,"[20,30)",Да
 09.04.2012 15:23:49,Pascal / Delphi,,,Да,,Java,"JavaScript, Groovy",,Groovy,,,Заказчиком,2,2,Да,"[20,30)",Да
 09.04.2012 15:24:00,Basic,,,Да,,C++,Java,,Python,,Java,Не знаю,8,8,Да,"[20,30)",Нет
-09.04.2012 15:24:28,Basic,,,Нет,,,,Cobol,F#,Scala,ASM,Моя организация разрабатывает только на этом языке,<1,<1,Нет,> 50,Да
+09.04.2012 15:24:28,Basic,,,Нет,,,,Cobol,F#,Scala,ASM,Моя организация разрабатывает только на этом языке,<1,<1,Нет,>50,Да
 09.04.2012 15:24:29,Pascal / Delphi,,,Да,,C++,"С#, Java, C",,C++,,,Совместным решением,6,5,Да,"[20,30)",Да
 09.04.2012 15:25:55,Pascal / Delphi,,,Нет,,,,"PHP, Action Script",Action Script,PHP,"PHP, Action Script",Совместным решением,6,4,Да,"[20,30)",Да
 09.04.2012 15:26:06,C++,,,Да,,C++,С#,,C++,,C++,Моя организация разрабатывает только на этом языке,<1,<1,Да,"[20,30)",Да
@@ -644,7 +644,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 09.04.2012 15:40:07,Pascal / Delphi,,,Нет,,,,"С#, PHP, JavaScript, PL/SQL",C++,C++,"С#, PHP, JavaScript, Delphi",Не знаю,4,2,Да,"[20,30)",Нет
 09.04.2012 15:40:50,Basic,,,Да,,С#,"PHP, C++, Delphi, C",,F#,,,Заказчиком,9,3,Да,"[30,40)",Нет
 09.04.2012 15:41:20,Pascal / Delphi,,,Нет,,,,"Java, Haskell",Haskell,"JavaScript, PL/SQL",Haskell,Заказчиком,4,4,Да,"[20,30)",Нет
-09.04.2012 15:41:27,Fortran,,,Да,,Java,JavaScript,,Java,,,Исполнителем,10+,10+,Да,> 50,Нет
+09.04.2012 15:41:27,Fortran,,,Да,,Java,JavaScript,,Java,,,Исполнителем,10+,10+,Да,>50,Нет
 09.04.2012 15:41:31,Pascal / Delphi,,,Да,,PHP,"PHP, JavaScript, SQL",,PHP,,"PHP, JavaScript, SQL",Исполнителем,3,3,Да,"[20,30)",Да
 09.04.2012 15:41:54,Basic,,,Нет,,,,"C++, C",С#,,,Моя организация разрабатывает только на этом языке,<1,<1,Да,"[20,30)",Нет
 09.04.2012 15:42:15,Pascal / Delphi,,,Да,,PHP,JavaScript,,PHP,,PHP,Моя организация разрабатывает только на этом языке,2,2,Да,"[20,30)",Да
@@ -727,7 +727,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 09.04.2012 16:11:09,Basic,,,Да,,Java,,,Python,,Java,Совместным решением,7,7,Нет,"[20,30)",Нет
 09.04.2012 16:11:28,Pascal / Delphi,,,Нет,,,,"Python, Delphi, Mumps",Python,"JavaScript, PL/SQL",,Исполнителем,5,2,Да,"[30,40)",Нет
 09.04.2012 16:11:34,Basic,,,Да,,PHP,"JavaScript, Perl",,PHP,,PHP,Заказчиком,7,7,Да,"[20,30)",Нет
-09.04.2012 16:11:43,українська мова,,,Нет,,,,F#,Asm,F#,"С#, Java, PHP, C++, Python, Ruby, Objective-C, JavaScript, Delphi, C, Action Script, Perl, 1C, PL/SQL, Basic, Scala, Groovy, Lua, DBase, Erlang, Lisp, Haskell, Fortran, ASM, F#, Cobol",Не знаю,<1,<1,Да,> 50,Нет
+09.04.2012 16:11:43,українська мова,,,Нет,,,,F#,Asm,F#,"С#, Java, PHP, C++, Python, Ruby, Objective-C, JavaScript, Delphi, C, Action Script, Perl, 1C, PL/SQL, Basic, Scala, Groovy, Lua, DBase, Erlang, Lisp, Haskell, Fortran, ASM, F#, Cobol",Не знаю,<1,<1,Да,>50,Нет
 09.04.2012 16:11:56,Pascal / Delphi,,,Да,,1C,,,1C,,,Моя организация разрабатывает только на этом языке,6,6,Да,"[20,30)",Нет
 09.04.2012 16:13:39,Pascal / Delphi,,,Да,,Objective-C,"Ruby, Objective-C",,Scala,,"Ruby, Objective-C",Исполнителем,5,3,Да,"[20,30)",Нет
 09.04.2012 16:13:48,C#,,,Нет,,,,"С#, Java",Java,,,Заказчиком,8,2,Нет,"[30,40)",Нет
@@ -860,7 +860,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 09.04.2012 17:12:58,Pascal / Delphi,,,Да,,PHP,"С#, JavaScript",,PHP,,"С#, PHP, JavaScript",Заказчиком,7,5,Да,"[20,30)",Да
 09.04.2012 17:13:23,Python,,,Нет,,,,"Java, Python",Python,,,Не знаю,<1,<1,Да,"[20,30)",Нет
 09.04.2012 17:13:57,PHP,,,Да,,Java,"C++, JavaScript",,Python,,Java,Исполнителем,2,1,Да,<20,Нет
-09.04.2012 17:14:23,Objective-C,,,Да,,Objective-C,"C++, C, Perl",,Objective-C,,"Objective-C, Perl",Моя организация разрабатывает только на этом языке,<1,5,Да,> 50,Нет
+09.04.2012 17:14:23,Objective-C,,,Да,,Objective-C,"C++, C, Perl",,Objective-C,,"Objective-C, Perl",Моя организация разрабатывает только на этом языке,<1,5,Да,>50,Нет
 09.04.2012 17:14:26,Pascal / Delphi,,,Да,,С#,JavaScript,,С#,,С#,Заказчиком,3,2,Да,"[20,30)",Да
 09.04.2012 17:14:56,Basic,,,Да,,PHP,"Python, Ruby, JavaScript",,Ruby,,PHP,Моя организация разрабатывает только на этом языке,2,2,Да,"[30,40)",Нет
 09.04.2012 17:14:56,Pascal / Delphi,,,Да,,Java,"Python, Ruby, JavaScript",,Java,,Lisp,Не знаю,<1,<1,Нет,"[20,30)",Да
@@ -1191,7 +1191,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 09.04.2012 21:25:15,Pascal / Delphi,,,Да,,C++,С#,,C++,,"С#, C++, Python, Haskell",Исполнителем,5,5,Да,"[20,30)",Да
 09.04.2012 21:27:39,Pascal / Delphi,,,Да,,Java,JavaScript,,Java,,"Python, JavaScript, Groovy",Моя организация разрабатывает только на этом языке,4,4,Да,"[20,30)",Нет
 09.04.2012 21:29:15,C,,,Да,,JavaScript,JavaScript,,JavaScript,,,Моя организация разрабатывает только на этом языке,2,1,Да,"[20,30)",Да
-09.04.2012 21:29:58,Fortran,,,Нет,,,,"Java, JavaScript",Java,"PHP, PL/SQL",JavaScript,Заказчиком,<1,10+,Да,> 50,Нет
+09.04.2012 21:29:58,Fortran,,,Нет,,,,"Java, JavaScript",Java,"PHP, PL/SQL",JavaScript,Заказчиком,<1,10+,Да,>50,Нет
 09.04.2012 21:30:01,Basic,,,Да,,C++,"PHP, Python, C, Haskell",,C++,,"PHP, C++, C, Haskell",Моя организация разрабатывает только на этом языке,7,7,Да,"[20,30)",Да
 09.04.2012 21:32:46,Basic,,,Да,,С#,,,С#,,С#,Совместным решением,10+,8,Да,"[30,40)",Да
 09.04.2012 21:34:08,Basic,,,Да,,Java,JavaScript,,Java,,Java,Моя организация разрабатывает только на этом языке,3,5,Да,"[20,30)",Нет
@@ -1881,7 +1881,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 10.04.2012 21:09:05,C++,,,Да,,C++,"C++, Objective-C",,Objective-C,,"C++, Objective-C",Совместным решением,6,6,Да,"[20,30)",Нет
 10.04.2012 21:10:13,Pascal / Delphi,,,Да,,С#,"Java, Python, Delphi",,С#,,,Совместным решением,<1,3,Да,"[20,30)",Нет
 10.04.2012 21:11:59,Pascal / Delphi,,,Да,,С#,JavaScript,,С#,,С#,Заказчиком,3,3,Да,"[20,30)",Да
-10.04.2012 21:13:28,Oak,,,Нет,,,,"Java, Ruby, Objective-C, JavaScript, Action Script, Erlang, Haskell",Objective-C,"С#, C++, C","Objective-C, Action Script",Не знаю,10+,10+,Да,> 50,Нет
+10.04.2012 21:13:28,Oak,,,Нет,,,,"Java, Ruby, Objective-C, JavaScript, Action Script, Erlang, Haskell",Objective-C,"С#, C++, C","Objective-C, Action Script",Не знаю,10+,10+,Да,>50,Нет
 10.04.2012 21:13:59,Pascal / Delphi,,,Да,,С#,PHP,,Java,,С#,Заказчиком,2,2,Да,"[20,30)",Нет
 10.04.2012 21:16:54,Pascal,,,Да,,Java,"JavaScript, Scala, Haskell",,Objective-C,,Lua,Заказчиком,2,1,Да,"[20,30)",Нет
 10.04.2012 21:19:35,Basic,,,Да,,Objective-C,C,,Objective-C,,,Заказчиком,1,1,Да,"[20,30)",Нет
@@ -1910,7 +1910,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 10.04.2012 22:34:37,Basic,,,Да,,Java,"С#, JavaScript",,Scala,,,Заказчиком,5,4,Да,"[20,30)",Да
 10.04.2012 22:35:48,PHP,,,Да,,JavaScript,PHP,,PHP,,PHP,Заказчиком,2,1,Да,"[20,30)",Нет
 10.04.2012 22:38:05,Pascal / Delphi,,,Да,,Java,"Ruby, Action Script, Groovy",,Java,,Java,Заказчиком,9,6,Да,"[30,40)",Нет
-10.04.2012 22:42:27,Algol-60,,,Да,,Scala,"Java, Python",,Scala,,"Java, JavaScript, Scala",Моя организация разрабатывает только на этом языке,10+,3,Нет,> 50,Да
+10.04.2012 22:42:27,Algol-60,,,Да,,Scala,"Java, Python",,Scala,,"Java, JavaScript, Scala",Моя организация разрабатывает только на этом языке,10+,3,Нет,>50,Да
 10.04.2012 22:43:27,Basic,,,Да,,Delphi,"Java, C++",,Delphi,,Delphi,Исполнителем,10+,<1,Нет,"[30,40)",Нет
 10.04.2012 22:48:10,Basic,,,Нет,,,,"C++, C, Lisp",Scala,Java,"Java, C++",Заказчиком,10+,6,Да,"[30,40)",Нет
 10.04.2012 22:50:23,Visual Basic,,,Да,,С#,"С#, Java",,С#,,С#,Совместным решением,5,3,Да,"[20,30)",Нет
@@ -2156,7 +2156,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 11.04.2012 11:58:55,Pascal / Delphi,,,Да,,С#,"С#, JavaScript",,С#,,"С#, JavaScript, PL/SQL",Исполнителем,10+,8,Да,"[30,40)",Да
 11.04.2012 11:59:08,Pascal / Delphi,,,Да,,PHP,PHP,,PHP,,PHP,Исполнителем,1,1,Да,"[30,40)",Нет
 11.04.2012 11:59:35,Basic,,,Да,,Java,Scala,,Scala,,"Scala, Haskell",Исполнителем,2,1,Да,"[20,30)",Нет
-11.04.2012 11:59:54,Fortran,,,Да,,PL/SQL,"Java, Delphi",,PL/SQL,,"Delphi, PL/SQL",Исполнителем,10+,10+,Да,> 50,Нет
+11.04.2012 11:59:54,Fortran,,,Да,,PL/SQL,"Java, Delphi",,PL/SQL,,"Delphi, PL/SQL",Исполнителем,10+,10+,Да,>50,Нет
 11.04.2012 12:00:52,Pascal / Delphi,,,Да,,PHP,JavaScript,,PHP,,,Совместным решением,2,1,Да,"[20,30)",Да
 11.04.2012 12:01:33,Basic,,,Да,,Java,"C++, JavaScript, PL/SQL",,Java,,Java,Совместным решением,10+,10+,Да,"[20,30)",Нет
 11.04.2012 12:03:01,Pascal / Delphi,,,Да,,Python,JavaScript,,Python,,Python,Исполнителем,6,5,Да,"[30,40)",Нет
@@ -2174,7 +2174,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 11.04.2012 12:23:34,Basic,,,Да,,Python,JavaScript,,Python,,"Python, JavaScript",Моя организация разрабатывает только на этом языке,<1,<1,Да,"[20,30)",Нет
 11.04.2012 12:24:47,PHP,,,Да,,PHP,"С#, Java",,Java,,PHP,Исполнителем,10+,10+,Да,"[20,30)",Да
 11.04.2012 12:26:31,Pascal / Delphi,,,Да,,Ruby,"C++, Python, Ruby, JavaScript, Erlang",,Haskell,,Ruby,Исполнителем,10+,5,Да,"[30,40)",Нет
-11.04.2012 12:27:54,Fortran,,,Да,,Java,JavaScript,,Java,,"C++, JavaScript",Заказчиком,10+,5,Да,> 50,Нет
+11.04.2012 12:27:54,Fortran,,,Да,,Java,JavaScript,,Java,,"C++, JavaScript",Заказчиком,10+,5,Да,>50,Нет
 11.04.2012 12:29:47,Pascal / Delphi,,,Да,,С#,"PHP, Python, JavaScript",,С#,,"С#, Python",Исполнителем,<1,6,Да,"[20,30)",Да
 11.04.2012 12:31:40,PHP,,,Да,,PHP,JavaScript,,PHP,,PHP,Совместным решением,7,5,Да,"[20,30)",Да
 11.04.2012 12:34:15,Basic,,,Да,,Python,"JavaScript, matlab",,Python,,,Исполнителем,8,7,Да,"[30,40)",Нет
@@ -2222,7 +2222,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 11.04.2012 14:21:18,Pascal / Delphi,,,Нет,,,,"С#, Java, Scala, F#",F#,"PHP, C++, Python, JavaScript, Groovy",С#,Заказчиком,10+,10+,Да,"[30,40)",Нет
 11.04.2012 14:22:42,Pascal / Delphi,,,Да,,С#,"С#, Java, JavaScript, PL/SQL",,С#,,"С#, Java",Совместным решением,10+,8,Да,"[30,40)",Нет
 11.04.2012 14:26:27,C++,,,Да,,Perl,"PHP, C++, JavaScript, C, PL/SQL, ASM",,IEC 61131-3,,"PHP, C, ASM",Исполнителем,1,1,Да,"[20,30)",Да
-11.04.2012 14:26:56,Basic,,,Да,,PHP,,,PHP,,PHP,Исполнителем,<1,<1,Да,> 50,Нет
+11.04.2012 14:26:56,Basic,,,Да,,PHP,,,PHP,,PHP,Исполнителем,<1,<1,Да,>50,Нет
 11.04.2012 14:30:26,Pascal / Delphi,,,Нет,,,,Python,Python,PHP,PHP,Заказчиком,2,1,Да,"[20,30)",Да
 11.04.2012 14:31:23,C++,,,Да,,C++,"Python, C",,C++,,"C++, Python, C",Совместным решением,4,2,Да,"[20,30)",Нет
 11.04.2012 14:31:48,Pascal / Delphi,,,Да,,PHP,JavaScript,,PHP,,"PHP, JavaScript",Заказчиком,4,4,Да,"[20,30)",Нет
@@ -2587,7 +2587,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 16.04.2012 15:20:12,C,,,Да,,Ruby,JavaScript,,Ruby,,"Ruby, JavaScript",Заказчиком,4,3,Да,"[20,30)",Да
 16.04.2012 16:21:56,Basic,,,Да,,C++,"Python, C, Perl, PL/SQL",,C++,,C++,Совместным решением,7,7,Нет,"[20,30)",Нет
 16.04.2012 16:44:36,Basic,,,Да,,Java,JavaScript,,Java,,,Совместным решением,2,1,Да,"[20,30)",Нет
-16.04.2012 18:00:12,Dbase,,,Нет,,,,"С#, Basic",С#,PHP,"С#, Basic",Исполнителем,10+,9,Да,> 50,Нет
+16.04.2012 18:00:12,Dbase,,,Нет,,,,"С#, Basic",С#,PHP,"С#, Basic",Исполнителем,10+,9,Да,>50,Нет
 16.04.2012 18:31:21,Pascal / Delphi,,,Да,,1C,JScript,,C++,,"Java, Python, 1C",Моя организация разрабатывает только на этом языке,5,4,Да,"[20,30)",Да
 16.04.2012 19:37:16,Pascal / Delphi,,,Да,,С#,,,С#,,С#,Моя организация разрабатывает только на этом языке,10+,5,Нет,"[30,40)",Нет
 16.04.2012 20:08:47,C,,,Да,,Java,JavaScript,,Java,,Java,Заказчиком,8,8,Да,"[30,40)",Да
@@ -2679,7 +2679,7 @@ Timestamp,FirstLanguage,FirstLanguage1,Q2,MainLanguage,Q2I1,NowLanguage,Addition
 24.04.2012 14:31:11,Basic,,,Да,,PHP,JavaScript,,Ruby,,PHP,Моя организация разрабатывает только на этом языке,4,4,Да,"[20,30)",Нет
 24.04.2012 14:33:20,Pascal / Delphi,,,Да,,Action Script,"Java, PHP, JavaScript",,Action Script,,"PHP, Action Script",Совместным решением,<1,4,Да,"[20,30)",Нет
 24.04.2012 14:35:57,C++,,,Да,,Java,,,Scala,,,Моя организация разрабатывает только на этом языке,4,3,Да,"[20,30)",Нет
-24.04.2012 14:36:59,Fortran,,,Да,,Delphi,С#,,Delphi,,Delphi,Совместным решением,10+,10+,Да,> 50,Нет
+24.04.2012 14:36:59,Fortran,,,Да,,Delphi,С#,,Delphi,,Delphi,Совместным решением,10+,10+,Да,>50,Нет
 24.04.2012 15:14:46,Pascal / Delphi,,,Да,,PHP,JavaScript,,С#,,,Моя организация разрабатывает только на этом языке,6,6,Да,"[20,30)",Нет
 24.04.2012 15:19:28,Basic,,,Нет,,,,Python,Python,С#,"C++, Python",Исполнителем,5,1,Да,"[30,40)",Нет
 24.04.2012 15:23:38,Basic,,,Да,,PHP,JavaScript,,PHP,,PHP,Исполнителем,10+,10+,Да,"[30,40)",Нет
