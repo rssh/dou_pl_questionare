@@ -16,7 +16,7 @@ setClass("LanguageQuestionnare",
 setMethod(f="initialize",
           signature="LanguageQuestionnare",
           definition=function(.Object, when = as.Date("1970-01-01"), data = data.frame()) {
-            cat("LanguageQuestionnare initialize")
+            cat("LanguageQuestionnare initialize \n")
             .Object@when <- when
             .Object@originData <- data
             .Object@data <- data
@@ -27,15 +27,15 @@ setMethod(f="initialize",
               .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
               .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")
               validObject(.Object)
-            }
-            if ('AdditionalLanguages' %in% colnames(.Object@originData)) {
-              .Object@additionalFields["AdditionalLanguagesById"] <- normalizeLanguagesColumn(.Object,"AdditionalLanguages")
-            }
-            if ('PetProjectsLanguages' %in% colnames(.Object@originData)) {
-              .Object@additionalFields["PetProjectsLanguagesById"] <- normalizeLanguagesColumn(.Object,"PetProjectsLanguages")
-            }
-            if (!('Age' %in% colnames(.Object@originData))) {
-               print(paste("No Age in ",when, sep=""))
+              if ('AdditionalLanguages' %in% colnames(.Object@originData)) {
+                 .Object@additionalFields["AdditionalLanguagesById"] <- normalizeLanguagesColumn(.Object,"AdditionalLanguages")
+              }
+              if ('PetProjectsLanguages' %in% colnames(.Object@originData)) {
+                 .Object@additionalFields["PetProjectsLanguagesById"] <- normalizeLanguagesColumn(.Object,"PetProjectsLanguages")
+              }
+              if (!('Age' %in% colnames(.Object@originData))) {
+                 print(paste("No Age in ",when, sep=""))
+              }
             }
             return(.Object)
           }
