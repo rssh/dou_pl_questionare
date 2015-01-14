@@ -1092,7 +1092,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 20:45:35,,Да,Pascal/Delphi,PHP,"PHP, JavaScript",,,PHP,"C#, PHP, C++, JavaScript, Pascal/Delphi, Asm",3,3,<20,Да,Да
 10.01.2013 20:46:35,,Да,C,PHP,Objective-C,,,PHP,"PHP, Objective-C",4,3,"[20,30)",Да,Да
 10.01.2013 20:47:03,,Да,Basic,Java,JavaScript,,,Java,Java,5,1,"[20,30)",Да,Да
-10.01.2013 20:48:25,,Да,Pascal/Delphi,VB.Net,C#,,,VB.Net,,6,4,"[20,30)",Да,Нет
+10.01.2013 20:48:25,,Да,Pascal/Delphi,Basic,C#,,,Basic,,6,4,"[20,30)",Да,Нет
 10.01.2013 20:48:29,,Да,C++,JavaScript,C#,,,JavaScript,JavaScript,6,6,"[30,40)",Да,Да
 10.01.2013 20:48:46,,Да,Pascal/Delphi,CoffeeScript,"Java, PHP, Ruby, JavaScript, ActionScript",,,CoffeeScript,"Java, PHP, JavaScript",2,1,"[20,30)",Да,Да
 10.01.2013 20:49:21,,Да,C++,C#,JavaScript,,,C#,C#,5,5,"[20,30)",Да,Нет
@@ -1701,7 +1701,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 15:19:31,,Да,Pascal/Delphi,PL/SQL,Java,,,Java,Java,<1,<1,"[20,30)",Да,Нет
 11.01.2013 15:20:02,,Да,Pascal/Delphi,Pascal/Delphi,"C#, C++, JavaScript, Pascal/Delphi",,,Salesforce,C#,4,2,"[20,30)",Да,Да
 11.01.2013 15:20:19,,Да,Pascal/Delphi,C#,"C#, JavaScript, PL/SQL",,,C#,,6,3,"[20,30)",Да,Нет
-11.01.2013 15:22:32,,Да,Basic,C++,VBA,,,C++,"Java, PHP",7,7,"[30,40)",Да,Нет
+11.01.2013 15:22:32,,Да,Basic,C++,Basic,,,C++,"Java, PHP",7,7,"[30,40)",Да,Нет
 11.01.2013 15:24:00,,Да,Basic,C#,"PHP, C++, JavaScript",,,JavaScript,"C#, PHP",<1,1,"[20,30)",Да,Нет
 11.01.2013 15:25:55,,Да,C++,Python,JavaScript,,,Python,"Python, JavaScript",1,1,"[20,30)",Нет,Нет
 11.01.2013 15:27:11,,Да,Basic,C++,"C, Asm",,,C++,,10+,3,"[30,40)",Да,Нет

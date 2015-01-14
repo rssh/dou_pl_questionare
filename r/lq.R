@@ -64,7 +64,7 @@ png("nowlanguage1.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"NowLanguage",
                              when=c("2011-07","2012-05","2013-01","2014-01","2015-01"),
                              top=11,toPlot=TRUE, 
-                             plot.col=rainbow(5,start=0.2,end=0.6),
+                             plot.col=rainbow(5,start=0.2,end=0.8),
                              plot.title="На каком языке вы пишете для работы сейчас",
                              las=2
                             )
@@ -168,15 +168,14 @@ dev.off()
 
 t <- table(q6@data$NowLanguage,q6@data$InUA)
 t <- apply(t,2,function(x) { x/sum(x) })
-t <- t[c("Java","C#","PHP","C++","Python","JavaScript","Objective-C","Ruby","C"),]
+t <- t[c("Java","C#","PHP","C++","Python","JavaScript","Objective-C","Ruby","C"),c("Да","Нет")]
 png("languagesNowInUA.png", width=680, height=320)
  barplot(t,beside=TRUE, col=rainbow(9),axes=FALSE, 
          names=c("в Украине", "не в Украине"), legend=rownames(t), 
          args.legen=list(y=0.25))
 dev.off()
 
-
-t <- table(q6@data$InUA,q6@data$ExperienceInProgramming)
+t <- table(q6@data$InUA,q6@data$ExperienceInProgramming)[c("Да","Нет"),]
 t <- apply(t,1, function(x) { 100*x/sum(x) })
 png("experienceInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=TRUE,
@@ -187,15 +186,19 @@ barplot(t,beside=TRUE, axes=TRUE,
 dev.off()
 
 
-t <- table(q6@data$InUA,q6@data$Age)
+t <- table(q6@data$InUA,q6@data$Age)[c("Да","Нет"),]
 t <- apply(t,1, function(x) { x/sum(x) })
 png("ageInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=FALSE, 
          col=colorRampPalette(c("green","blue"))(11),
          names=c("в Украине", "не в Украине"),
-         legend=rownames(q5@data$Age)
+         legend=rownames(q6@data$Age)
        )
 dev.off()
 
+t <- table(q6@data$Age)
+png("ageAll.png", width=680, height=320)
+barplot(t,axes=FALSE)
+dev.off()
 
 

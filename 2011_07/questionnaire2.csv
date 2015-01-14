@@ -2652,7 +2652,7 @@ Timestamp,FirstLanguage,NowLanguage,AdditionalLanguages,NextLanguage,PetProjects
 21.07.2011 14:11:38,Ruby,JavaScript,"C#, Ruby",JavaScript,"Ruby, JavaScript",Не знаю,,,,,,да,нет,"[20, 30)",3,1
 21.07.2011 14:12:56,Java,Java,Java,Java,Java,Совместным решением,,,,,,да,нет,"[20, 30)",2,2
 21.07.2011 14:17:14,Basic,PHP,"Java, PHP, Python, Ruby, ActionScript, JavaScript",Python,"Java, PHP, C, C++, Python, Perl",Совместным решением,,,,,,да,нет,"[30, 40)",10+,10+
-21.07.2011 15:10:13,Basic,DBase,"Delphi, VBA",C\AL,"DBase, VBA, C\AL (used in NAV2009)",Моя организация разрабатывает только на этом языке,,,,,,да,нет,"[20, 30)",6,4
+21.07.2011 15:10:13,Basic,DBase,"Delphi, Basic",C\AL,"DBase, Basic, C\AL (used in NAV2009)",Моя организация разрабатывает только на этом языке,,,,,,да,нет,"[20, 30)",6,4
 21.07.2011 15:14:10,C,C++,Perl,Ruby,,Совместным решением,,,,,,да,нет,"[20, 30)",1,1
 21.07.2011 15:25:52,PHP,PHP,"Java, Python",Python,PHP,Моя организация разрабатывает только на этом языке,,,,,,да,нет,"[20, 30)",4,4
 21.07.2011 15:35:58,C++,С#,C#,C#,C#,Заказчиком,,,,,,да,нет,"[20, 30)",2,1

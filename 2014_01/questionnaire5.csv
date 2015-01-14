@@ -935,7 +935,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,AdditionalLanguages1,NowLanguag
 1/8/2014 18:07:03,Pascal/Delphi,Да,JavaScript,PHP,,,JavaScript,JavaScript,5,2,"[20,30)",Да,Да
 1/8/2014 18:07:46,Pascal/Delphi,Да,C#,"Java, JavaScript, PL/SQL, T-SQL",,,C#,"Java, C#, JavaScript, PL/SQL, T-SQL",5,5,"[20,30)",Да,Нет
 1/8/2014 18:08:09,C,Да,PHP,"JavaScript, PL/SQL, T-SQL",,,JavaScript,"PHP, JavaScript, PL/SQL",2,2,"[20,30)",Да,Нет
-1/8/2014 18:08:17,PL/SQL,Да,PL/SQL,VBA,,,PL/SQL,"PL/SQL, VBA",8,7,"[30,40)",Да,Нет
+1/8/2014 18:08:17,PL/SQL,Да,PL/SQL,Basic,,,PL/SQL,"PL/SQL, Basic",8,7,"[30,40)",Да,Нет
 1/8/2014 18:08:55,Pascal/Delphi,Нет,,,"PHP, JavaScript",,JavaScript,,10+,10+,"[30,40)",Да,Нет
 1/8/2014 18:08:58,Pascal/Delphi,Да,Java,C++,,,C++,C++,<1,<1,"[20,30)",Да,Нет
 1/8/2014 18:08:58,C,Да,Objective-C,Java,,,Objective-C,Objective-C,3,3,"[20,30)",Да,Нет
@@ -1764,7 +1764,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,AdditionalLanguages1,NowLanguag
 1/9/2014 12:20:18,Pascal/Delphi,Да,PHP,"JavaScript, Perl, Unix Shell  ",,,Python,"Java, PHP, C++, Python, JavaScript, C, Pascal/Delphi, Perl",10+,8,"[30,40)",Да,Нет
 1/9/2014 12:20:18,Pascal/Delphi,Да,Java,PHP,,,Java,Java,<1,<1,"[20,30)",Да,Нет
 1/9/2014 12:20:47,"Dbase (Clipper, Foxpro, .. )",Нет,,,"C#, C++, JavaScript, C",Lua,C++,"C++, Lua",10+,10+,"[30,40)",Да,Да
-1/9/2014 12:20:47,FORTRAN,Да,C#,"C++, T-SQL, VBA",,,C#,,10+,8,"[40,50)",Да,Нет
+1/9/2014 12:20:47,FORTRAN,Да,C#,"C++, T-SQL, Basic",,,C#,,10+,8,"[40,50)",Да,Нет
 1/9/2014 12:20:54,Pascal/Delphi,Да,PHP,JavaScript,,,go,"PHP, go",7,6,"[30,40)",Да,Нет
 1/9/2014 12:21:15,Basic,Да,Java,"JavaScript, Perl",,,Java,,10+,2,"[30,40)",Да,Нет
 1/9/2014 12:22:02,QBasic,Да,C++,"Java, Unix Shell  ",,,C++,C++,5,3,"[20,30)",Да,Да
@@ -5398,7 +5398,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,AdditionalLanguages1,NowLanguag
 2/6/2014 17:37:04,C++,Нет,,,"Java, PHP, C++, JavaScript",,Java,"Java, PHP, C++",5,3,"[20,30)",Нет,Нет
 2/6/2014 17:37:14,Pascal/Delphi,Да,Java,,,,Java,Java,3,3,"[20,30)",Да,Да
 2/6/2014 17:37:16,Pascal/Delphi,Да,Java,C++,,,C++,,<1,<1,"[20,30)",Да,Да
-2/6/2014 17:37:20,VBA,Да,Ruby,"JavaScript, C, CoffeeScript",,,Ruby,,4,4,"[20,30)",Да,Нет
+2/6/2014 17:37:20,Basic,Да,Ruby,"JavaScript, C, CoffeeScript",,,Ruby,,4,4,"[20,30)",Да,Нет
 2/6/2014 17:37:28,Pascal/Delphi,Да,C++,C#,,,C#,,9,5,"[30,40)",Да,Нет
 2/6/2014 17:37:34,C++,Да,PHP,"PHP, JavaScript, ActionScript, PL/SQL",,,PHP,PHP,6,5,"[20,30)",Да,Нет
 2/6/2014 17:37:36,C#,Да,C#,,,,C#,C#,<1,<1,"[30,40)",Да,Нет
