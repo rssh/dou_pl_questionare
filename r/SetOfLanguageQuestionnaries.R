@@ -42,7 +42,7 @@ setMethod(f="languageColumnSummaries",
                   commonNames <- intersect(commonNames,nl)
                   diffNames <- nl[!(nl %in% commonNames)]
                   allNames <- union(allNames,nl)
-                  # cat("skipped names :",diffNames,"\n")
+                  cat("skipped names :",diffNames,"\n")
                }
              }
              # now - set all diffNames to 0
@@ -107,7 +107,9 @@ setMethod(f="significantChanges", definition = function(object, columnName,
  nl2 <- sum(l2)
  pv <- cbind(names)
  for(n in names) {
-   pv[n] <- prop.test(c(l1[n],l2[n]),c(nl1,nl2))$p.value
+   v1 <- if (is.na(l1[n])) 0 else l1[n]
+   v2 <- if (is.na(l2[n])) 0 else l2[n]
+   pv[n] <- prop.test(c(v1,v2),c(nl1,nl2))$p.value
  }
  pv <- pv[as.numeric(pv)<1-p & !is.na(as.numeric(pv))]
  print(pv)

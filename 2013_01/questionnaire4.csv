@@ -87,14 +87,14 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 15:22:58,,Да,Basic,PHP,"Python, JavaScript",,,PHP,"PHP, Python, Ruby, JavaScript, Pascal/Delphi, Lua",3,3,"[30,40)",Да,Да
 10.01.2013 15:23:13,,Да,Ruby,Ruby,Ruby,,,Ruby,,1,1,"[20,30)",Да,Нет
 10.01.2013 15:23:16,,Да,Pascal/Delphi,C#,"JavaScript, ActionScript, PL/SQL",,,C#,"Java, C#, JavaScript, ActionScript, PL/SQL",5,4,"[20,30)",Да,Да
-10.01.2013 15:23:28,,Да,Asm,Java,"JavaScript, bash scripting",,,Java,Python,10+,10+,"[30,40)",Да,Да
+10.01.2013 15:23:28,,Да,Asm,Java,"JavaScript, Shell",,,Java,Python,10+,10+,"[30,40)",Да,Да
 10.01.2013 15:23:33,,Да,Basic,Python,JavaScript,,,Python,,7,5,"[30,40)",Да,Да
 10.01.2013 15:23:42,,Да,PHP,PHP,"PHP, Python",,,PHP,,3,3,"[20,30)",Да,Да
 10.01.2013 15:23:45,,Да,Pascal/Delphi,PHP,JavaScript,,,Python,"PHP, JavaScript",2,<1,"[20,30)",Нет,Да
 10.01.2013 15:23:45,,Да,Basic,PHP,JavaScript,,,JavaScript,"PHP, JavaScript",5,4,"[20,30)",Да,Да
 10.01.2013 15:23:53,,Да,Pascal/Delphi,C#,"JavaScript, PL/SQL",,,C#,"C#, JavaScript",6,5,"[20,30)",Нет,Да
 10.01.2013 15:24:11,,Нет,Pascal/Delphi,,,"Java, PHP, JavaScript, Pascal/Delphi, 1C","Java, PHP, JavaScript, 1C",Java,"PHP, JavaScript",3,1,"[20,30)",Да,Да
-10.01.2013 15:24:12,,Да,Pascal/Delphi,PHP,"Python, JavaScript, bash",,,clojure,,10+,10+,"[20,30)",Нет,Нет
+10.01.2013 15:24:12,,Да,Pascal/Delphi,PHP,"Python, JavaScript, Shell",,,clojure,,10+,10+,"[20,30)",Нет,Нет
 10.01.2013 15:24:21,,Да,C++,Java,"C#, F#",,,C#,C#,4,2,"[20,30)",Да,Нет
 10.01.2013 15:24:21,,Да,Basic,Ruby,"Java, Python, Lua",,,Ruby,C#,4,2,"[20,30)",Да,Нет
 10.01.2013 15:24:21,,Да,Java,Java,JavaScript,,,C#,C#,2,1,"[20,30)",Да,Нет
@@ -109,7 +109,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 15:25:28,,Да,Pascal/Delphi,Java,"JavaScript, PL/SQL",,,Java,C++,8,5,"[30,40)",Да,Да
 10.01.2013 15:25:28,,Да,Basic,PHP,"Python, JavaScript",,,"Вопрос некорректен. Необходимо исходить из объективных нужд проекта, а не из субъективной любви к языку","PHP, Python",4,4,"[20,30)",Да,Нет
 10.01.2013 15:25:38,,Да,Pascal/Delphi,C,"Python, C",,,C,"Python, C",5,5,"[20,30)",Да,Да
-10.01.2013 15:25:49,,Нет,C++,,,"Java, JavaScript","Java, Ruby, JavaScript, bash",Java,"Java, JavaScript",7,5,"[20,30)",Да,Да
+10.01.2013 15:25:49,,Нет,C++,,,"Java, JavaScript","Java, Ruby, JavaScript, Shell",Java,"Java, JavaScript",7,5,"[20,30)",Да,Да
 10.01.2013 15:26:09,,Нет,Pascal/Delphi,,,"C#, JavaScript",JavaScript,C#,C#,1,1,"[20,30)",Да,Да
 10.01.2013 15:26:29,,Да,JavaScript,JavaScript,"Java, Python",,,Erlang,JavaScript,7,5,"[20,30)",Да,Да
 10.01.2013 15:26:29,,Да,Basic,C++,C,,,Objective-C,,5,4,"[20,30)",Да,Нет
@@ -236,7 +236,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 15:38:15,,Да,Pascal/Delphi,C++,"C#, C",,,C#,"C#, PHP, C++",2,2,"[20,30)",Нет,Нет
 10.01.2013 15:38:22,,Да,Pascal/Delphi,C++,"Python, Objective-C, C",,,C++,"C++, Python, Objective-C, C",5,5,"[20,30)",Нет,Нет
 10.01.2013 15:38:22,,Да,Basic,Objective-C,"PHP, JavaScript",,,Objective-C,"PHP, JavaScript, Objective-C",8,2,"[20,30)",Да,Нет
-10.01.2013 15:38:23,,Нет,C,,,"Ruby, bash",,Ruby,,3,2,"[20,30)",Да,Нет
+10.01.2013 15:38:23,,Нет,C,,,"Ruby, Shell",,Ruby,,3,2,"[20,30)",Да,Нет
 10.01.2013 15:38:27,,Да,Basic,Java,Python,,,Java,,2,2,"[20,30)",Да,Нет
 10.01.2013 15:38:35,,Да,Basic,C++,"Java, C#, Perl",,,Java,Java,10+,10+,"[40,50)",Да,Да
 10.01.2013 15:38:41,,Да,Basic,Java,JavaScript,,,Scala,"Java, Scala",10+,7,"[30,40)",Да,Да
@@ -320,8 +320,8 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 15:48:01,,Да,ActionScript,ActionScript,JavaScript,,,ActionScript,,6,6,"[20,30)",Да,Нет
 10.01.2013 15:48:06,,Да,Pascal/Delphi,Java,JavaScript,,,Java,Java,1,4,"[20,30)",Да,Да
 10.01.2013 15:48:18,,Да,Basic,C#,JavaScript,,,C#,"Java, C#, JavaScript",2,2,"[20,30)",Да,Да
-10.01.2013 15:48:30,,Да,Pascal/Delphi,Perl,"JavaScript, C, Perl, Lisp, bash",,,Perl,"C, Perl, Lisp",6,3,"[20,30)",Да,Да
-10.01.2013 15:48:33,,Да,Pascal/Delphi,PL/SQL,ksh,,,C++,,10+,5,"[20,30)",Да,Нет
+10.01.2013 15:48:30,,Да,Pascal/Delphi,Perl,"JavaScript, C, Perl, Lisp, Shell",,,Perl,"C, Perl, Lisp",6,3,"[20,30)",Да,Да
+10.01.2013 15:48:33,,Да,Pascal/Delphi,PL/SQL,Shell,,,C++,,10+,5,"[20,30)",Да,Нет
 10.01.2013 15:48:34,,Да,Basic,Perl,JavaScript,,,Perl,"JavaScript, Perl",10+,10+,"[30,40)",Да,Нет
 10.01.2013 15:48:51,,Да,Basic,Java,"Java, C++",,,Java,Java,3,2,"[20,30)",Да,Нет
 10.01.2013 15:49:05,,Да,Basic,PHP,JavaScript,,,Java,,6,6,"[20,30)",Да,Да
@@ -366,7 +366,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 15:55:39,,Нет,Pascal/Delphi,,,"Java, C++, Python, C",,слишком абстрактный вопрос,C++,1,1,"[20,30)",Да,Нет
 10.01.2013 15:55:40,,Да,Pascal/Delphi,C#,JavaScript,,,C#,C#,3,3,"[20,30)",Да,Да
 10.01.2013 15:55:50,,Да,Objective-C,Objective-C,"PHP, C++, JavaScript, Objective-C, C, Lua",,,Objective-C,"PHP, C++, JavaScript, Objective-C, C, Lua",5,4,"[20,30)",Нет,Да
-10.01.2013 15:55:58,,Да,pascal,PHP,"Python, JavaScript, Erlang",,,PHP,"PHP, Python",10+,8,"[20,30)",Да,Да
+10.01.2013 15:55:58,,Да,Pascal/Delphi,PHP,"Python, JavaScript, Erlang",,,PHP,"PHP, Python",10+,8,"[20,30)",Да,Да
 10.01.2013 15:56:11,,Да,Java,Java,Java,,,Java,"Java, JavaScript",3,1,"[20,30)",Да,Да
 10.01.2013 15:56:32,,Да,C,Java,JavaScript,,,Java,,2,2,"[20,30)",Да,Да
 10.01.2013 15:56:39,,Да,Pascal/Delphi,Ruby,JavaScript,,,Ruby,"PHP, Ruby",9,3,"[20,30)",Да,Да
@@ -518,12 +518,12 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 16:17:30,,Нет,Pascal/Delphi,,,Java,"Python, JavaScript",Scala,Python,3,3,"[20,30)",Да,Нет
 10.01.2013 16:17:55,,Да,PHP,JavaScript,Python,,,Python,"Python, JavaScript",6,5,"[20,30)",Да,Да
 10.01.2013 16:18:09,,Да,qbasic,C#,"C#, JavaScript",,,C#,"C#, JavaScript",5,5,"[20,30)",Нет,Нет
-10.01.2013 16:18:12,,Да,logo,Scala,"Python, Ruby, JavaScript",,,Scala,"Ruby, C",9,<1,"[20,30)",Да,Да
+10.01.2013 16:18:12,,Да,Logo,Scala,"Python, Ruby, JavaScript",,,Scala,"Ruby, C",9,<1,"[20,30)",Да,Да
 10.01.2013 16:18:22,,Да,Basic,PHP,JavaScript,,,PHP,"Java, Ruby",6,5,"[20,30)",Да,Нет
 10.01.2013 16:19:16,,Да,Pascal/Delphi,Java,JavaScript,,,Java,"Java, JavaScript",3,3,"[20,30)",Да,Нет
 10.01.2013 16:19:17,,Да,Basic,1C,1C,,,1C,,8,8,"[20,30)",Да,Нет
 10.01.2013 16:19:19,,Да,C++,PHP,JavaScript,,,PHP,PHP,<1,<1,"[20,30)",Да,Нет
-10.01.2013 16:19:21,,Да,Basic,PHP,"Python, bash",,,Scala,,2,2,"[30,40)",Да,Да
+10.01.2013 16:19:21,,Да,Basic,PHP,"Python, Shell",,,Scala,,2,2,"[30,40)",Да,Да
 10.01.2013 16:19:26,,Да,Basic,C#,JavaScript,,,C#,C#,4,4,"[20,30)",Нет,Нет
 10.01.2013 16:19:52,,Да,Basic,C#,JavaScript,,,C#,"C#, JavaScript",8,5,"[20,30)",Да,Нет
 10.01.2013 16:20:31,,Да,Basic,Python,JavaScript,,,Python,"Java, Python, Ruby",6,1,"[20,30)",Да,Да
@@ -810,7 +810,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 17:48:03,,Да,Logo,Java,"C++, JavaScript",,,Java,,3,2,"[20,30)",Да,Да
 10.01.2013 17:48:31,,Да,Basic,C++,"Java, C#, Python, Objective-C, C, Lua",,,C++,"Java, C#, C++, Objective-C",4,2,"[20,30)",Да,Да
 10.01.2013 17:48:36,,Нет,Pascal/Delphi,,,"Java, PL/SQL",,PL/SQL,,<1,<1,"[40,50)",Да,Нет
-10.01.2013 17:49:17,,Да,Basic,Python,"JavaScript, PL/SQL, Bash",,,Python,"Python, JavaScript, Erlang",6,9,"[20,30)",Нет,Да
+10.01.2013 17:49:17,,Да,Basic,Python,"JavaScript, PL/SQL, Shell",,,Python,"Python, JavaScript, Erlang",6,9,"[20,30)",Нет,Да
 10.01.2013 17:49:25,,Да,Pascal/Delphi,Java,Java,,,Java,,<1,<1,"[20,30)",Да,Да
 10.01.2013 17:49:35,,Да,Basic,Java,"PHP, C++, JavaScript",,,C++,Basic,<1,<1,"[20,30)",Да,Нет
 10.01.2013 17:49:49,,Да,Pascal/Delphi,C++,"Python, C, Pascal/Delphi, 1C",,,C++,"C++, Python",10+,10+,"[30,40)",Нет,Нет
@@ -842,7 +842,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 17:57:38,,Да,C#,C#,"C++, C",,,C#,"C#, C++, Python, JavaScript, C, F#",2,2,"[20,30)",Да,Нет
 10.01.2013 17:57:57,,Да,C++,PHP,JavaScript,,,PHP,,4,4,"[20,30)",Да,Да
 10.01.2013 17:59:03,,Да,Pascal/Delphi,C#,"JavaScript, PL/SQL",,,C#,"C#, JavaScript, PL/SQL",2,2,"[20,30)",Да,Да
-10.01.2013 17:59:45,,Да,Basic,Python,"C++, Python, JavaScript, bash, DML",,,Go,Python,7,3,"[20,30)",Нет,Нет
+10.01.2013 17:59:45,,Да,Basic,Python,"C++, Python, JavaScript, Shell, DML",,,Go,Python,7,3,"[20,30)",Нет,Нет
 10.01.2013 18:00:16,,Да,Basic,C#,PL/SQL,,,C#,"C#, JavaScript, PL/SQL",4,3,"[20,30)",Да,Нет
 10.01.2013 18:00:52,,Да,Pascal/Delphi,PL/SQL,"Java, JavaScript",,,PL/SQL,,2,2,"[20,30)",Да,Нет
 10.01.2013 18:01:42,,Да,Basic,Java,PL/SQL,,,Java,Java,8,5,"[30,40)",Да,Нет
@@ -869,7 +869,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 18:10:06,,Да,C++,Java,JavaScript,,,Java,JavaScript,<1,1,"[20,30)",Да,Нет
 10.01.2013 18:10:25,,Да,Pascal/Delphi,PHP,"PHP, JavaScript",,,Ruby,,5,3,"[20,30)",Да,Нет
 10.01.2013 18:10:42,,Нет,C++,,,"Java, PL/SQL",Python,Python,,<1,<1,"[20,30)",Да,Да
-10.01.2013 18:10:54,,Да,калькулятор,C++,"Python, C, Perl, bash",,,C++,"PHP, C++, Python, C",9,9,"[30,40)",Да,Да
+10.01.2013 18:10:54,,Да,калькулятор,C++,"Python, C, Perl, Shell",,,C++,"PHP, C++, Python, C",9,9,"[30,40)",Да,Да
 10.01.2013 18:11:05,,Да,Pascal/Delphi,не программирую,Ruby,,,Ruby,Ruby,5,<1,"[20,30)",Да,Нет
 10.01.2013 18:11:08,,Да,Pascal/Delphi,C++,C,,,C++,C++,8,8,"[20,30)",Да,Да
 10.01.2013 18:11:11,,Да,Basic,Ruby,"JavaScript, PL/SQL",,,Ruby,Ruby,5,5,"[20,30)",Да,Да
@@ -883,7 +883,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 18:16:11,,Да,Pascal/Delphi,C++,C,,,Java,,<1,<1,<20,Да,Нет
 10.01.2013 18:16:26,,Да,Pascal/Delphi,C#,"C#, JavaScript",,,C#,"C#, JavaScript",5,5,"[20,30)",Да,Да
 10.01.2013 18:17:26,,Да,Basic,Python,"C++, Erlang",,,Python,"Python, Erlang",4,4,"[20,30)",Да,Да
-10.01.2013 18:17:38,,Да,Pascal/Delphi,Python,bash,,,Python,"C++, Scala",6,<1,"[20,30)",Да,Да
+10.01.2013 18:17:38,,Да,Pascal/Delphi,Python,Shell,,,Python,"C++, Scala",6,<1,"[20,30)",Да,Да
 10.01.2013 18:18:59,,Да,Pascal/Delphi,Java,"JavaScript, Scala, Groovy",,,Java,"Java, PHP, JavaScript, Scala, Groovy",8,6,"[20,30)",Да,Да
 10.01.2013 18:19:10,,Да,Pascal/Delphi,Java,"Python, JavaScript, Scala, Groovy",,,Java,"Java, Python, JavaScript, Groovy",3,3,"[20,30)",Да,Нет
 10.01.2013 18:19:18,,Да,Basic,C#,"PHP, JavaScript, PL/SQL",,,C#,,10+,6,"[30,40)",Нет,Да
@@ -967,7 +967,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 19:07:28,,Да,Basic,Java,"PL/SQL, Scala",,,Scala,Scala,10+,6,"[30,40)",Да,Нет
 10.01.2013 19:08:09,,Нет,Asm,,,"C++, Pascal/Delphi",Perl,C#,C++,8,8,"[20,30)",Да,Да
 10.01.2013 19:09:01,,Да,Pascal/Delphi,C++,"C#, PHP",,,C++,C++,<1,2,"[20,30)",Да,Нет
-10.01.2013 19:09:06,,Да,Pascal/Delphi,Java,bash,,,Java,Java,<1,2,"[20,30)",Да,Нет
+10.01.2013 19:09:06,,Да,Pascal/Delphi,Java,Shell,,,Java,Java,<1,2,"[20,30)",Да,Нет
 10.01.2013 19:09:19,,Да,Pascal/Delphi,ActionScript,PL/SQL,,,Java,Java,5,3,"[20,30)",Да,Нет
 10.01.2013 19:09:35,,Да,Pascal/Delphi,Python,JavaScript,,,Python,"Python, JavaScript",<1,1,"[20,30)",Да,Нет
 10.01.2013 19:10:22,,Нет,Pascal/Delphi,,,"C#, JavaScript",,C#,,3,3,"[20,30)",Да,Да
@@ -985,7 +985,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 19:20:58,,Да,C++,Java,"JavaScript, Perl",,,Java,,1,1,"[20,30)",Да,Да
 10.01.2013 19:24:00,,Нет,Pascal/Delphi,,,"Java, Ruby, JavaScript, Objective-C, Erlang",,Erlang,,10+,5,"[20,30)",Нет,Да
 10.01.2013 19:25:23,,Нет,Pascal/Delphi,,,"Java, Python, Objective-C, C, Erlang","C++, JavaScript, ActionScript, Lua",Erlang,"Erlang, Lisp, Elixir",4,1,"[20,30)",Да,Да
-10.01.2013 19:25:34,,Да,Basic,C,"Python, bash",,,Python,"Python, C, Lisp",10+,10+,"[30,40)",Да,Да
+10.01.2013 19:25:34,,Да,Basic,C,"Python, Shell",,,Python,"Python, C, Lisp",10+,10+,"[30,40)",Да,Да
 10.01.2013 19:26:04,,Да,Basic,C++,"Java, C#, C",,,C#,C++,10+,10+,"[30,40)",Да,Да
 10.01.2013 19:26:25,,Да,Basic,Objective-C,"C#, Objective-C",,,Objective-C,"C#, Objective-C",1,1,"[30,40)",Да,Да
 10.01.2013 19:26:39,,Нет,Pascal/Delphi,,,"Java, C#","PHP, Pascal/Delphi",Java,"Java, C#",10+,2,"[40,50)",Да,Нет
@@ -1262,7 +1262,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 22:52:58,,Да,Pascal/Delphi,C#,PL/SQL,,,C#,,4,4,"[20,30)",Да,Нет
 10.01.2013 22:53:44,,Да,Pascal/Delphi,C#,JavaScript,,,C#,,4,4,"[20,30)",Да,Нет
 10.01.2013 22:55:16,,Да,Pascal/Delphi,ActionScript,PHP,,,ActionScript,ActionScript,2,2,"[20,30)",Да,Да
-10.01.2013 22:57:28,,Да,Pascal/Delphi,Objective-C,"Python, Ruby, Scala, Bash",,,Objective-C,"Ruby, Objective-C",10+,4,"[30,40)",Да,Нет
+10.01.2013 22:57:28,,Да,Pascal/Delphi,Objective-C,"Python, Ruby, Scala, Shell",,,Objective-C,"Ruby, Objective-C",10+,4,"[30,40)",Да,Нет
 10.01.2013 22:57:29,,Нет,Basic,,,"C#, C++","Java, Objective-C",C#,C#,8,5,"[20,30)",Да,Да
 10.01.2013 22:57:50,,Да,C++,JavaScript,"PHP, PL/SQL",,,Python,PHP,5,4,"[20,30)",Да,Да
 10.01.2013 22:58:06,,Да,C++,Java,JavaScript,,,Java,,<1,<1,<20,Да,Нет
@@ -1292,7 +1292,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 10.01.2013 23:21:29,,Да,Pascal/Delphi,PHP,JavaScript,,,PHP,,7,6,"[20,30)",Да,Да
 10.01.2013 23:21:43,,Да,Pascal/Delphi,PHP,PHP,,,Java,,3,1,"[20,30)",Да,Нет
 10.01.2013 23:22:44,,Да,Pascal/Delphi,Java,JavaScript,,,Java,"Java, C#",10+,2,"[30,40)",Да,Да
-10.01.2013 23:24:08,,Да,Лого,Python,"Ruby, JavaScript, Erlang, Bash",,,Python,"Python, JavaScript, C, Erlang",6,2,"[20,30)",Да,Да
+10.01.2013 23:24:08,,Да,Лого,Python,"Ruby, JavaScript, Erlang, Shell",,,Python,"Python, JavaScript, C, Erlang",6,2,"[20,30)",Да,Да
 10.01.2013 23:24:08,,Нет,C++,,,"PHP, JavaScript",,JavaScript,,2,1,"[20,30)",Да,Нет
 10.01.2013 23:24:21,,Нет,Basic,,,Java,PL/SQL,Java,,<1,1,"[20,30)",Да,Нет
 10.01.2013 23:25:07,,Да,Basic,PHP,"C#, PHP, JavaScript, PL/SQL",,,Python,"C#, PHP, C++, Python, JavaScript, PL/SQL",4,3,"[20,30)",Да,Нет
@@ -1354,14 +1354,14 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 0:21:14,,Да,C,PHP,JavaScript,,,PHP,,4,4,"[30,40)",Да,Да
 11.01.2013 0:21:32,,Да,Pascal/Delphi,Java,JavaScript,,,Java,Java,3,2,"[20,30)",Да,Нет
 11.01.2013 0:28:02,,Да,Java,Java,"Java, C++, Python",,,Java,"Java, C++, Python",<1,3,<20,Да,Нет
-11.01.2013 0:28:12,,Нет,Pascal/Delphi,,,"Java, C#, C++, C, Lisp","Perl, bash",C++,C#,1,<1,"[20,30)",Да,Нет
+11.01.2013 0:28:12,,Нет,Pascal/Delphi,,,"Java, C#, C++, C, Lisp","Perl, Shell",C++,C#,1,<1,"[20,30)",Да,Нет
 11.01.2013 0:28:18,,Нет,Pascal/Delphi,,,"PHP, JavaScript, Perl","Java, C++",JavaScript,"Java, Perl",10+,10+,"[30,40)",Да,Нет
 11.01.2013 0:30:05,,Да,Pascal/Delphi,C++,"C#, Python",,,C++,"C++, Python",6,6,"[20,30)",Да,Нет
 11.01.2013 0:35:28,,Да,Basic,PHP,JavaScript,,,Python,"PHP, JavaScript",5,5,"[30,40)",Да,Да
 11.01.2013 0:37:46,,Да,C#,Java,"Java, JavaScript",,,Java,"Java, JavaScript, Scala",3,2,"[20,30)",Да,Да
 11.01.2013 0:47:09,,Да,Pascal/Delphi,PHP,JavaScript,,,PHP,"C#, PHP, JavaScript",5,4,"[20,30)",Да,Нет
 11.01.2013 0:48:04,,Да,Pascal/Delphi,C#,"Python, Ruby",,,C#,,9,7,"[30,40)",Да,Да
-11.01.2013 0:48:53,,Да,Pascal/Delphi,JavaScript,"shell, coffeescript",,,Ruby,"Ruby, JavaScript",5,5,"[20,30)",Да,Да
+11.01.2013 0:48:53,,Да,Pascal/Delphi,JavaScript,"Shell, coffeescript",,,Ruby,"Ruby, JavaScript",5,5,"[20,30)",Да,Да
 11.01.2013 0:49:20,,Да,C++,Java,"PHP, JavaScript",,,Java,,4,4,"[20,30)",Да,Да
 11.01.2013 0:49:52,,Да,Basic,C#,"Java, C++, JavaScript, PL/SQL, Lua",,,PHP,"Java, C#, PHP",9,8,"[30,40)",Да,Нет
 11.01.2013 0:50:24,,Нет,Pascal/Delphi,,,"Python, Perl","PHP, Ruby",Ruby,"PHP, JavaScript, Perl",1,1,"[20,30)",Да,Нет
@@ -1396,7 +1396,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 3:18:16,,Да,Pascal/Delphi,Objective-C,"C++, Python, Ruby, Objective-C, C",,,Objective-C,"C++, Python, Ruby, Objective-C, C",5,3,"[20,30)",Да,Нет
 11.01.2013 3:18:20,,Да,PHP,JavaScript,PHP,,,Python,JavaScript,6,2,"[30,40)",Нет,Нет
 11.01.2013 3:35:46,,Да,1C,1C,1C,,,1C,,5,5,"[20,30)",Нет,Нет
-11.01.2013 3:36:08,,Да,pascal,PHP,JavaScript,,,C#,нет,<1,<1,"[20,30)",Нет,Нет
+11.01.2013 3:36:08,,Да,Pascal/Delphi,PHP,JavaScript,,,C#,нет,<1,<1,"[20,30)",Нет,Нет
 11.01.2013 4:17:12,,Нет,Basic,,,Java,"PHP, Python, JavaScript",Java,Java,10+,10+,"[30,40)",Да,Нет
 11.01.2013 4:26:33,,Да,Pascal/Delphi,Java,C++,,,Java,Java,1,1,"[20,30)",Да,Нет
 11.01.2013 4:26:59,,Да,C++,C++,C#,,,C++,C++,10+,10+,"[30,40)",Нет,Нет
@@ -1406,7 +1406,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 4:49:40,,Нет,PHP,,,"C#, 1C","PHP, JavaScript",Python,"PHP, JavaScript",3,2,"[20,30)",Нет,Нет
 11.01.2013 5:01:56,,Да,C,Java,"Python, JavaScript, PL/SQL",,,Ruby,,8,6,"[30,40)",Да,Да
 11.01.2013 5:03:08,,Нет,Basic,,,"Java, C#","JavaScript, Lua",Scala,"Ruby, Objective-C",4,1,"[20,30)",Да,Нет
-11.01.2013 5:16:41,,Нет,Pascal/Delphi,,,"Java, C++","Basic, Bash",C#,C#,8,6,"[20,30)",Да,Да
+11.01.2013 5:16:41,,Нет,Pascal/Delphi,,,"Java, C++","Basic, Shell",C#,C#,8,6,"[20,30)",Да,Да
 11.01.2013 5:55:53,,Да,Logo,PHP,"C++, Python, JavaScript",,,PHP,PHP,3,5,"[20,30)",Нет,Да
 11.01.2013 6:54:10,,Нет,Pascal/Delphi,,,"Python, Ruby","JavaScript, PL/SQL",Python,Python,5,4,"[20,30)",Нет,Нет
 11.01.2013 6:54:55,,Да,Basic,Python,"C, PL/SQL",,,Python,"PHP, Python",4,2,"[20,30)",Нет,Нет
@@ -1459,7 +1459,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 9:24:30,,Да,Basic,Pascal/Delphi,C++,,,Pascal/Delphi,,10+,10+,"[30,40)",Да,Да
 11.01.2013 9:26:13,,Да,Basic,PL/SQL,"PHP, JavaScript, C",,,Ruby,"PHP, C++, JavaScript, C, PL/SQL",10+,10+,"[40,50)",Да,Да
 11.01.2013 9:30:14,,Да,Pascal/Delphi,Java,JavaScript,,,Java,,8,8,"[20,30)",Да,Нет
-11.01.2013 9:30:33,,Да,Basic,JavaScript,BASH shell scripting,,,Ruby,"PHP, JavaScript",7,4,"[20,30)",Да,Да
+11.01.2013 9:30:33,,Да,Basic,JavaScript,Shell,,,Ruby,"PHP, JavaScript",7,4,"[20,30)",Да,Да
 11.01.2013 9:33:25,,Да,Pascal/Delphi,PHP,"JavaScript, PL/SQL",,,PHP,PHP,10+,9,"[20,30)",Да,Нет
 11.01.2013 9:34:19,,Нет,Pascal/Delphi,,,"C++, JavaScript, C",,C++,"C++, JavaScript, C",5,3,"[20,30)",Нет,Нет
 11.01.2013 9:34:21,,Да,Pascal/Delphi,Ruby,JavaScript,,,Ruby,Ruby,<1,<1,<20,Да,Нет
@@ -1483,7 +1483,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 9:58:11,,Да,Basic,Java,"JavaScript, PL/SQL",,,Java,,3,2,"[20,30)",Да,Нет
 11.01.2013 10:00:05,,Да,C#,C#,Java,,,C#,C#,<1,<1,"[20,30)",Да,Нет
 11.01.2013 10:02:42,,Да,Pascal/Delphi,C++,"Java, Python, JavaScript, C, Lua",,,C++,"C++, JavaScript, C",10+,10+,"[30,40)",Да,Нет
-11.01.2013 10:03:01,,Да,Delphi,1C,C#,,,C#,,9,9,"[30,40)",Да,Да
+11.01.2013 10:03:01,,Да,Pascal/Delphi,1C,C#,,,C#,,9,9,"[30,40)",Да,Да
 11.01.2013 10:03:37,,Да,GWBasic,C++,"C#, PL/SQL, Perl",,,C++,C++,10+,8,"[30,40)",Да,Да
 11.01.2013 10:04:39,,Да,Pascal/Delphi,PL/SQL,JavaScript,,,Objective-C,,2,2,"[20,30)",Да,Нет
 11.01.2013 10:05:24,,Да,Basic,Java,"JavaScript, PL/SQL",,,Java,,4,4,"[20,30)",Да,Да
@@ -1532,7 +1532,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 10:49:25,,Да,Basic,C,"Java, C++, Python, C",,,C++,,8,8,"[20,30)",Да,Нет
 11.01.2013 10:52:01,,Да,Java,Java,JavaScript,,,Java,,6,6,"[30,40)",Да,Нет
 11.01.2013 10:52:16,,Да,Pascal/Delphi,Java,PL/SQL,,,Java,,8,4,"[20,30)",Да,Нет
-11.01.2013 10:54:16,,Да,Pascal/Delphi,C++,"Python, C, Bash",,,C++,"C++, Python",3,3,"[20,30)",Нет,Нет
+11.01.2013 10:54:16,,Да,Pascal/Delphi,C++,"Python, C, Shell",,,C++,"C++, Python",3,3,"[20,30)",Нет,Нет
 11.01.2013 10:55:00,,Да,Basic,Java,"JavaScript, PL/SQL",,,Java,"Java, JavaScript",4,4,"[20,30)",Да,Да
 11.01.2013 10:56:01,,Да,C++,PHP,"C#, JavaScript",,,JavaScript,,5,5,"[20,30)",Да,Нет
 11.01.2013 10:56:54,,Да,Pascal/Delphi,Java,"JavaScript, PL/SQL",,,Java,,2,1,"[20,30)",Да,Нет
@@ -1728,7 +1728,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 16:02:00,,Да,Pascal/Delphi,C#,"Java, PL/SQL",,,C#,,1,1,"[20,30)",Да,Нет
 11.01.2013 16:06:43,,Да,C,PHP,C++,,,C++,,9,6,"[20,30)",Да,Нет
 11.01.2013 16:09:28,,Да,Basic,C#,JavaScript,,,C#,"C#, JavaScript",10+,5,"[30,40)",Да,Нет
-11.01.2013 16:09:34,,Да,Pascal/Delphi,Python,bash,,,Erlang,"Python, Erlang",10+,6,"[30,40)",Да,Да
+11.01.2013 16:09:34,,Да,Pascal/Delphi,Python,Shell,,,Erlang,"Python, Erlang",10+,6,"[30,40)",Да,Да
 11.01.2013 16:10:33,,Да,Pascal/Delphi,Java,JavaScript,,,Java,Java,5,5,"[30,40)",Да,Нет
 11.01.2013 16:13:19,,Да,Basic,JavaScript,PL/SQL,,,JavaScript,PHP,6,<1,"[20,30)",Да,Нет
 11.01.2013 16:23:01,,Да,Basic,C#,JavaScript,,,JavaScript,"C#, JavaScript",3,3,"[20,30)",Да,Да
@@ -1741,7 +1741,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 16:42:22,,Да,Pascal/Delphi,C++,C-Shell,,,C++,,10+,10+,"[30,40)",Да,Нет
 11.01.2013 16:47:09,,Да,JavaScript,C#,JavaScript,,,C#,"C#, JavaScript",<1,<1,"[20,30)",Да,Нет
 11.01.2013 16:47:17,,Да,Pascal/Delphi,PHP,JavaScript,,,C#,PHP,5,5,"[20,30)",Да,Да
-11.01.2013 16:51:11,,Да,Turbo Pascal,C#,JavaScript,,,C#,,1,1,"[20,30)",Да,Да
+11.01.2013 16:51:11,,Да,Pascal/Delphi,C#,JavaScript,,,C#,,1,1,"[20,30)",Да,Да
 11.01.2013 16:54:29,,Нет,Basic,,,"Java, C#, JavaScript",,JavaScript,"Python, JavaScript",10+,10+,"[30,40)",Да,Да
 11.01.2013 16:56:51,,Да,BASIC,Python,"Java, C#, JavaScript",,,Python,C++,10+,5,"[30,40)",Да,Нет
 11.01.2013 16:57:59,,Да,PHP,JavaScript,"PHP, JavaScript",,,JavaScript,,<1,<1,"[20,30)",Да,Нет
@@ -1767,7 +1767,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 17:38:17,,Да,Basic,PHP,"C#, JavaScript",,,C#,"C#, PHP, JavaScript",6,5,"[20,30)",Да,Да
 11.01.2013 17:46:28,,Нет,Pascal/Delphi,,,"Java, JavaScript",Java,Ruby,"Python, Ruby",1,1,"[20,30)",Да,Нет
 11.01.2013 17:47:38,,Да,Pascal/Delphi,Java,Java,,,Scala,Java,2,2,"[20,30)",Да,Нет
-11.01.2013 17:48:44,,Да,Pascal/Delphi,Python,"JavaScript, Bash",,,Python,"Python, Bash",3,1,"[20,30)",Да,Да
+11.01.2013 17:48:44,,Да,Pascal/Delphi,Python,"JavaScript, Shell",,,Python,"Python, Shell",3,1,"[20,30)",Да,Да
 11.01.2013 17:57:07,,Да,Basic,C#,"C#, PL/SQL",,,C#,C#,4,4,"[20,30)",Да,Нет
 11.01.2013 17:58:28,,Да,Pascal/Delphi,Java,JavaScript,,,Java,,1,1,"[20,30)",Да,Нет
 11.01.2013 18:01:13,,Нет,Pascal/Delphi,,,"Java, C++, C, Lua",,C++,,<1,1,"[20,30)",Да,Да
@@ -1814,7 +1814,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 21:28:28,,Нет,C++,,,"PHP, JavaScript",Java,Java,PHP,2,2,"[20,30)",Да,Нет
 11.01.2013 21:58:12,,Нет,Pascal/Delphi,,,"Java, JavaScript, PL/SQL",C#,Objective-C,Haskell,9,10+,>50,Да,Да
 11.01.2013 21:59:53,,Да,Basic,Java,"C++, JavaScript",,,Java,"Java, JavaScript",2,2,"[20,30)",Да,Нет
-11.01.2013 22:02:12,,Да,Turbo Pascal,C#,JavaScript,,,C#,,4,4,"[20,30)",Да,Да
+11.01.2013 22:02:12,,Да,Pascal/Delphi,C#,JavaScript,,,C#,,4,4,"[20,30)",Да,Да
 11.01.2013 22:02:15,,Да,Python,Java,Ruby,,,Ruby,Ruby,<1,<1,"[20,30)",Да,Нет
 11.01.2013 22:08:18,,Да,Basic,Java,"C++, Python, JavaScript, C",,,Java,"Java, JavaScript",<1,<1,"[20,30)",Да,Да
 11.01.2013 22:09:37,,Да,Basic,Java,"Java, JavaScript, PL/SQL",,,Scala,"Python, Ruby, Scala, Groovy",7,1,"[30,40)",Да,Да
@@ -1844,11 +1844,11 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 11.01.2013 23:55:08,,Да,C++,C#,Groovy,,,Java,,2,1,"[20,30)",Да,Нет
 11.01.2013 23:55:58,,Да,Basic,Java,"JavaScript, PL/SQL",,,Java,,4,4,"[20,30)",Да,Да
 11.01.2013 23:56:16,,Да,Basic,Python,"PHP, JavaScript",,,Python,,5,3,"[30,40)",Да,Да
-11.01.2013 23:56:36,,Да,Basic,bash,"Python, C, Basic",,,Python,,<1,<1,"[30,40)",Да,Нет
+11.01.2013 23:56:36,,Да,Basic,Shell,"Python, C, Basic",,,Python,,<1,<1,"[30,40)",Да,Нет
 11.01.2013 23:57:45,,Да,Pascal/Delphi,Python,JavaScript,,,Python,Python,3,<1,"[20,30)",Да,Нет
 11.01.2013 23:59:35,,Да,Pascal/Delphi,C#,"Java, PHP, C++, Python, Objective-C",,,C#,"Java, Objective-C, Groovy",3,<1,"[20,30)",Да,Да
 12.01.2013 0:06:54,,Да,Modula2,PowerShell,"Java, C++, C, Perl, Basic",,,Java,,10+,3,"[40,50)",Да,Нет
-12.01.2013 0:15:12,,Нет,Pascal/Delphi,,,"PHP, JavaScript",bash,JavaScript,,8,8,"[20,30)",Да,Нет
+12.01.2013 0:15:12,,Нет,Pascal/Delphi,,,"PHP, JavaScript",Shell,JavaScript,,8,8,"[20,30)",Да,Нет
 12.01.2013 0:24:20,,Да,Pascal/Delphi,C#,JavaScript,,,C#,,4,4,"[20,30)",Да,Нет
 12.01.2013 0:41:18,,Да,Basic,PHP,JavaScript,,,PHP,,3,3,"[20,30)",Да,Да
 12.01.2013 0:42:42,,Да,Java,Java,"JavaScript, Groovy",,,Java,,4,4,"[20,30)",Да,Да
@@ -1910,7 +1910,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 12.01.2013 14:23:13,,Нет,Asm,,,"PHP, Ruby, JavaScript","Java, C#",Ruby,"C#, PHP, Ruby, JavaScript",4,2,"[20,30)",Да,Да
 12.01.2013 14:28:42,,Да,Basic,Python,"Java, C++, JavaScript, C",,,Python,"Python, JavaScript",10+,10+,"[30,40)",Нет,Да
 12.01.2013 14:33:55,,Да,Pascal/Delphi,C++,Java,,,C++,C++,2,4,"[20,30)",Да,Да
-12.01.2013 14:39:12,,Да,C++,Java,"JavaScript, Perl, bash",,,Java,"Java, C++",2,2,"[20,30)",Да,Нет
+12.01.2013 14:39:12,,Да,C++,Java,"JavaScript, Perl, Shell",,,Java,"Java, C++",2,2,"[20,30)",Да,Нет
 12.01.2013 15:20:12,,Да,Pascal/Delphi,PHP,"C#, JavaScript, ActionScript",,,C#,,1,1,"[20,30)",Нет,Нет
 12.01.2013 15:35:48,,Да,Pascal/Delphi,C++,"C#, JavaScript, C",,,C++,Perl,<1,4,"[20,30)",Да,Нет
 12.01.2013 15:55:39,,Нет,Pascal/Delphi,,,"PHP, JavaScript, Pascal/Delphi",,JavaScript,"PHP, JavaScript, Pascal/Delphi",<1,<1,"[20,30)",Нет,Да
@@ -1950,7 +1950,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 12.01.2013 21:06:46,,Да,C,C,C++,,,Objective-C,,2,2,"[20,30)",Да,Нет
 12.01.2013 21:08:33,,Да,C++,C#,JavaScript,,,C#,,4,3,"[20,30)",Да,Да
 12.01.2013 21:14:07,,Да,Basic,Python,JavaScript,,,Objective-C,Objective-C,7,6,"[20,30)",Нет,Да
-12.01.2013 21:19:24,,Нет,Pascal/Delphi,,,"Java, C++","Basic, Bash",C#,C#,8,6,"[20,30)",Да,Да
+12.01.2013 21:19:24,,Нет,Pascal/Delphi,,,"Java, C++","Basic, Shell",C#,C#,8,6,"[20,30)",Да,Да
 12.01.2013 21:23:30,,Да,Pascal/Delphi,C#,JavaScript,,,C#,C#,6,2,"[30,40)",Да,Нет
 12.01.2013 21:39:01,,Да,C#,C#,JavaScript,,,C#,"C#, Ruby, JavaScript, F#",2,2,"[20,30)",Да,Нет
 12.01.2013 21:43:28,,Нет,Basic,,,"Java, PHP, Python",,PHP,"Java, PHP, Python",5,4,"[30,40)",Да,Нет
@@ -1984,7 +1984,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 13.01.2013 0:31:29,,Да,Pascal/Delphi,PHP,"Java, PHP, Python, Ruby, JavaScript",,,Python,PHP,<1,2,"[20,30)",Да,Нет
 13.01.2013 0:39:33,,Да,Asm,Python,Python,,,Python,Python,5,4,"[20,30)",Да,Нет
 13.01.2013 0:48:24,,Да,Basic,Haskell,C,,,Haskell,"C++, C, Pascal/Delphi, Haskell",10+,1,"[20,30)",Да,Нет
-13.01.2013 0:49:45,,Нет,Basic,,,"C++, Python, Perl, PL/PGSQL","JavaScript, bash",C++,"C++, Python, Perl, PL/PGSQL",10+,10+,"[30,40)",Да,Нет
+13.01.2013 0:49:45,,Нет,Basic,,,"C++, Python, Perl, PL/PGSQL","JavaScript, Shell",C++,"C++, Python, Perl, PL/PGSQL",10+,10+,"[30,40)",Да,Нет
 13.01.2013 0:52:50,,Да,Basic,C++,"JavaScript, C",,,C++,"C++, JavaScript, C",6,4,"[20,30)",Да,Да
 13.01.2013 0:54:16,,Да,Pascal/Delphi,C#,"Java, JavaScript",,,C#,"C#, Ruby, JavaScript",7,6,"[20,30)",Да,Нет
 13.01.2013 0:59:28,,Да,Basic,1C,JavaScript,,,Java,,5,5,"[20,30)",Да,Нет
@@ -2078,7 +2078,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 13.01.2013 21:03:35,,Да,Java,Java,"JavaScript, PL/SQL",,,Java,"Java, JavaScript",<1,1,"[20,30)",Да,Нет
 13.01.2013 21:04:57,,Да,Pascal/Delphi,Java,Java,,,Java,Java,2,2,"[20,30)",Да,Нет
 13.01.2013 21:20:32,,Да,Java,Java,Java,,,Java,,<1,<1,"[20,30)",Да,Нет
-13.01.2013 21:22:39,,Да,C,Java,"Java, PHP, JavaScript, PL/SQL, Perl, Lua, Bash",,,Java,"Java, PHP",10+,10+,"[30,40)",Да,Нет
+13.01.2013 21:22:39,,Да,C,Java,"Java, PHP, JavaScript, PL/SQL, Perl, Lua, Shell",,,Java,"Java, PHP",10+,10+,"[30,40)",Да,Нет
 13.01.2013 21:41:16,,Нет,Basic,,,Java,"Python, Groovy",Groovy,"Java, Python, Groovy",3,2,"[20,30)",Да,Нет
 13.01.2013 21:51:35,,Да,C++,PHP,"C#, JavaScript, C, Groovy",,,PHP,"C#, PHP, JavaScript, C",6,6,"[20,30)",Да,Нет
 13.01.2013 21:57:26,,Да,Pascal/Delphi,Java,JavaScript,,,Java,"Java, C#, JavaScript",5,3,"[20,30)",Да,Нет
@@ -2212,7 +2212,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 14.01.2013 15:14:56,,Да,Logo,Java,JavaScript,,,Java,"Ruby, Scala, Groovy",2,2,"[20,30)",Да,Нет
 14.01.2013 15:20:58,,Да,Pascal/Delphi,Python,Python,,,Python,Python,<1,<1,"[20,30)",Да,Нет
 14.01.2013 15:28:18,,Да,C++,1C,PL/SQL,,,1C,,10+,9,"[30,40)",Да,Нет
-14.01.2013 15:31:26,,Да,Pascal/Delphi,bash,PHP,,,Java,,1,1,"[20,30)",Да,Нет
+14.01.2013 15:31:26,,Да,Pascal/Delphi,Shell,PHP,,,Java,,1,1,"[20,30)",Да,Нет
 14.01.2013 15:33:58,,Да,Pascal/Delphi,C#,"C#, PHP, C++",,,C#,,1,1,"[20,30)",Да,Нет
 14.01.2013 15:41:56,,Да,Basic,C++,"C, Asm",,,C++,C++,6,5,"[20,30)",Да,Да
 14.01.2013 15:45:01,,Да,C++,Java,PL/SQL,,,Java,,1,1,"[20,30)",Да,Нет
@@ -2249,7 +2249,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 14.01.2013 17:32:10,,Да,Pascal/Delphi,Java,"Java, PL/SQL, Scala, Groovy",,,Scala,Scala,3,3,"[20,30)",Да,Нет
 14.01.2013 18:01:58,,Да,C++,Java,"PHP, JavaScript",,,Java,"Java, PHP",<1,<1,"[20,30)",Да,Да
 14.01.2013 18:07:18,,Да,Pascal/Delphi,C,"Java, C++, Asm",,,C,"Java, C",5,4,<20,Да,Нет
-14.01.2013 18:08:36,,Нет,Pascal/Delphi,,,Java,bash,C++,Java,1,1,"[20,30)",Да,Нет
+14.01.2013 18:08:36,,Нет,Pascal/Delphi,,,Java,Shell,C++,Java,1,1,"[20,30)",Да,Нет
 14.01.2013 18:15:12,,Да,Basic,PHP,JavaScript,,,PHP,,5,5,"[20,30)",Да,Нет
 14.01.2013 18:17:24,,Да,Basic,Java,JavaScript,,,Java,,10+,7,"[30,40)",Да,Да
 14.01.2013 18:24:25,,Да,C++,C#,C++,,,C#,,7,4,"[20,30)",Нет,Нет
@@ -2301,7 +2301,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 15.01.2013 2:48:50,,Да,Basic,Java,C++,,,Java,,<1,<1,"[20,30)",Да,Нет
 15.01.2013 3:06:07,,Да,Pascal/Delphi,Python,"JavaScript, C",,,Scala,"C++, Python, JavaScript",8,7,"[20,30)",Да,Да
 15.01.2013 3:36:20,,Нет,Basic,,,"Java, C#, C++, JavaScript, Groovy",,C#,C#,10+,8,"[30,40)",Нет,Нет
-15.01.2013 4:34:42,,Да,Pascal/Delphi,Java,"JavaScript, bash",,,Java,"Java, C#, Ruby",7,7,"[20,30)",Нет,Нет
+15.01.2013 4:34:42,,Да,Pascal/Delphi,Java,"JavaScript, Shell",,,Java,"Java, C#, Ruby",7,7,"[20,30)",Нет,Нет
 15.01.2013 6:05:17,,Да,Basic,PHP,"PHP, JavaScript, Parser3",,,PHP,"PHP, Python, JavaScript",8,8,"[20,30)",Нет,Нет
 15.01.2013 7:46:37,,Нет,Basic,,,Java,"C#, PHP",C#,,2,1,"[20,30)",Да,Нет
 15.01.2013 8:19:11,,Да,Java,Java,"Ruby, JavaScript, PL/SQL, Groovy",,,Java,Groovy,2,2,"[20,30)",Да,Да
@@ -2355,7 +2355,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 15.01.2013 14:53:26,,Да,Pascal/Delphi,Java,PL/SQL,,,Java,,10+,10+,"[30,40)",Да,Да
 15.01.2013 14:59:16,,Нет,Pascal/Delphi,,,"C#, JavaScript",C++,JavaScript,,7,4,"[20,30)",Да,Да
 15.01.2013 15:04:39,,Да,Pascal/Delphi,C,Asm,,,C++,C,<1,<1,"[20,30)",Да,Нет
-15.01.2013 15:15:49,,Да,Turbo Pascal,PHP,JavaScript,,,Ruby,PHP,3,1,"[20,30)",Да,Да
+15.01.2013 15:15:49,,Да,Pascal/Delphi,PHP,JavaScript,,,Ruby,PHP,3,1,"[20,30)",Да,Да
 15.01.2013 15:28:45,,Да,Pascal/Delphi,JavaScript,Java,,,Java,"Java, PHP, JavaScript",4,1,"[20,30)",Да,Нет
 15.01.2013 15:38:47,,Да,Java,JavaScript,Java,,,JavaScript,"Java, JavaScript",2,<1,"[20,30)",Да,Нет
 15.01.2013 15:40:39,,Да,Basic,C++,"PHP, Python, Lua",,,C++,C++,3,3,"[20,30)",Да,Да
@@ -2380,7 +2380,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 15.01.2013 18:06:13,,Нет,Objective-C,,,Objective-C,Python,Objective-C,,<1,<1,"[20,30)",Да,Нет
 15.01.2013 18:07:15,,Нет,Basic,,,"Java, JavaScript",,JavaScript,"Java, JavaScript",6,6,"[20,30)",Да,Да
 15.01.2013 18:09:49,,Да,C++,C#,JavaScript,,,C#,"C#, JavaScript",3,3,"[20,30)",Да,Нет
-15.01.2013 18:26:32,,Да,C,Java,"Java, Python, JavaScript, Perl, bash",,,Java,"Java, C#, C++, Python, Ruby, JavaScript, Perl",3,2,"[20,30)",Да,Нет
+15.01.2013 18:26:32,,Да,C,Java,"Java, Python, JavaScript, Perl, Shell",,,Java,"Java, C#, C++, Python, Ruby, JavaScript, Perl",3,2,"[20,30)",Да,Нет
 15.01.2013 18:46:23,,Да,Basic,C++,"C#, JavaScript",,,C#,C#,<1,1,"[20,30)",Да,Нет
 15.01.2013 18:56:49,,Да,Basic,Java,"Java, JavaScript, Basic, Asm",,,Java,,<1,<1,"[20,30)",Да,Нет
 15.01.2013 19:12:40,,Да,Pascal/Delphi,C#,"JavaScript, T-SQL",,,C#,"C#, JavaScript",3,3,"[20,30)",Да,Да
@@ -2591,7 +2591,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 18.01.2013 16:37:22,,Да,Pascal/Delphi,C,Python,,,Python,Python,6,4,"[20,30)",Да,Да
 18.01.2013 16:51:46,,Да,Pascal/Delphi,Java,"JavaScript, Erlang",,,Java,"Java, Erlang",4,3,"[20,30)",Да,Да
 18.01.2013 16:57:17,,Да,Pascal/Delphi,C++,"Java, Python, JavaScript, C, PL/SQL, Lua",,,C++,"C++, Python, JavaScript, C",10+,10+,"[30,40)",Да,Да
-18.01.2013 17:10:30,,Да,Pascal/Delphi,JavaScript,"Perl, bash",,,Ruby,"Python, Ruby",3,3,"[20,30)",Нет,Да
+18.01.2013 17:10:30,,Да,Pascal/Delphi,JavaScript,"Perl, Shell",,,Ruby,"Python, Ruby",3,3,"[20,30)",Нет,Да
 18.01.2013 17:40:18,,Да,Pascal/Delphi,Python,Go,,,Python,Python,3,3,"[20,30)",Да,Нет
 18.01.2013 17:43:54,,Да,Basic,Java,"JavaScript, Perl, Groovy",,,Java,"Java, PHP",7,6,"[30,40)",Да,Нет
 18.01.2013 17:47:43,,Да,C,Java,"Java, C",,,Java,,<1,<1,<20,Да,Нет
@@ -2605,7 +2605,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 18.01.2013 18:59:14,,Да,Pascal/Delphi,C#,"C++, C",,,C++,"C#, C++, C",6,1,"[20,30)",Да,Да
 18.01.2013 19:03:09,,Да,C++,C#,"JavaScript, PL/SQL",,,C#,C#,10+,10+,"[30,40)",Нет,Нет
 18.01.2013 19:07:40,,Да,Pascal/Delphi,C#,C#,,,C#,C#,<1,2,"[20,30)",Да,Да
-18.01.2013 19:21:18,,Да,Pascal/Delphi,Python,shell,,,Python,,1,1,"[20,30)",Да,Да
+18.01.2013 19:21:18,,Да,Pascal/Delphi,Python,Shell,,,Python,,1,1,"[20,30)",Да,Да
 18.01.2013 19:32:49,,Да,Basic,C,C++,,,C++,"C++, Lisp",10+,5,"[30,40)",Нет,Да
 18.01.2013 19:39:51,,Да,Java,Java,"JavaScript, Scala",,,Scala,"Java, JavaScript, Scala",5,5,"[20,30)",Да,Да
 18.01.2013 20:07:25,,Да,PHP,PHP,JavaScript,,,Python,Python,2,2,"[20,30)",Да,Нет
@@ -2753,11 +2753,11 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 22.01.2013 11:25:09,,Да,Basic,C#,JavaScript,,,C#,C#,2,2,"[20,30)",Да,Нет
 22.01.2013 11:27:44,,Нет,Basic,,,"PHP, Basic",Basic,Java,Java,<1,<1,"[20,30)",Да,Нет
 22.01.2013 12:02:28,,Да,Pascal/Delphi,C#,"C#, JavaScript, PL/SQL",,,C#,C#,7,5,"[20,30)",Да,Нет
-22.01.2013 12:20:52,,Да,perl,Java,"C++, C",,,Java,"Java, C++",10+,10+,"[30,40)",Да,Нет
+22.01.2013 12:20:52,,Да,Perl,Java,"C++, C",,,Java,"Java, C++",10+,10+,"[30,40)",Да,Нет
 22.01.2013 12:24:42,,Да,ActionScript,ActionScript,"Java, JavaScript, ActionScript",,,ActionScript,Java,4,4,"[20,30)",Да,Да
 22.01.2013 12:29:40,,Да,Pascal/Delphi,C#,PL/SQL,,,C#,"C#, ActionScript",1,1,"[20,30)",Да,Нет
 22.01.2013 12:36:35,,Нет,Basic,,,"PHP, JavaScript","Python, Ruby, PL/SQL",PHP,"PHP, Python",3,3,"[30,40)",Да,Да
-22.01.2013 12:44:59,,Да,Pascal/Delphi,C,shell,,,C,"C++, C",4,4,"[20,30)",Да,Нет
+22.01.2013 12:44:59,,Да,Pascal/Delphi,C,Shell,,,C,"C++, C",4,4,"[20,30)",Да,Нет
 22.01.2013 12:50:16,,Да,C,Java,Groovy,,,Java,"Java, Groovy",2,2,"[20,30)",Да,Нет
 22.01.2013 12:51:01,,Да,Basic,Ruby,JavaScript,,,Ruby,"Ruby, JavaScript",5,2,"[20,30)",Да,Да
 22.01.2013 12:51:03,,Да,Pascal/Delphi,C#,"C++, JavaScript, Matlab (M-language)",,,C#,"C#, F#",3,3,"[20,30)",Да,Да
@@ -2794,7 +2794,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 22.01.2013 13:30:27,,Да,Pascal/Delphi,PHP,JavaScript,,,PHP,PHP,6,4,"[20,30)",Да,Нет
 22.01.2013 13:31:37,,Да,PHP,PHP,JavaScript,,,PHP,JavaScript,2,2,"[20,30)",Да,Нет
 22.01.2013 13:34:15,,Да,Basic,PHP,"Python, Ruby, JavaScript, C, Perl",,,PHP,PHP,10+,10+,"[30,40)",Да,Нет
-22.01.2013 13:36:19,,Нет,Pascal/Delphi,,,"Java, Ruby, JavaScript",,Scala,"Java, Ruby, Perl, bash",7,5,"[20,30)",Нет,Да
+22.01.2013 13:36:19,,Нет,Pascal/Delphi,,,"Java, Ruby, JavaScript",,Scala,"Java, Ruby, Perl, Shell",7,5,"[20,30)",Нет,Да
 22.01.2013 13:38:27,,Нет,C++,,,"C#, PHP, ActionScript",JavaScript,C#,,<1,<1,"[20,30)",Да,Нет
 22.01.2013 13:39:56,,Да,Pascal/Delphi,C#,"C#, PHP, JavaScript",,,C#,"C#, PHP",2,2,"[20,30)",Да,Нет
 22.01.2013 13:42:05,,Да,PHP,PHP,PHP,,,PHP,PHP,4,3,"[20,30)",Да,Нет
@@ -2922,7 +2922,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 22.01.2013 18:42:08,,Да,Basic,Java,Java,,,Java,Java,4,2,"[20,30)",Да,Нет
 22.01.2013 18:42:23,,Да,Basic,PHP,"Python, JavaScript",,,Python,Python,10+,1,"[30,40)",Да,Нет
 22.01.2013 18:44:52,,Нет,Fortran,,,"Java, JavaScript, PL/SQL",,Java,,10+,10+,"[40,50)",Да,Нет
-22.01.2013 18:45:01,,Да,Pascal/Delphi,Java,"Python, JavaScript, PL/SQL, linux shell",,,Java,Java,4,4,"[20,30)",Да,Да
+22.01.2013 18:45:01,,Да,Pascal/Delphi,Java,"Python, JavaScript, PL/SQL, Shell",,,Java,Java,4,4,"[20,30)",Да,Да
 22.01.2013 18:46:35,,Да,Basic,Java,"JavaScript, PL/SQL",,,Java,"Java, JavaScript",9,9,"[20,30)",Да,Нет
 22.01.2013 18:47:51,,Да,Pascal/Delphi,PL/SQL,Pascal/Delphi,,,PL/SQL,"C#, Pascal/Delphi, PL/SQL, Basic",10+,10+,"[30,40)",Да,Нет
 22.01.2013 18:48:08,,Да,Basic,Objective-C,"C++, C",,,Objective-C,"C++, Objective-C, C",10+,2,"[30,40)",Да,Да
@@ -3012,7 +3012,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 22.01.2013 21:41:53,,Нет,Pascal/Delphi,,,"C++, C","Java, Objective-C",C++,,2,2,"[20,30)",Да,Нет
 22.01.2013 21:43:32,,Да,Pascal/Delphi,C,JavaScript,,,C,"PHP, C++, JavaScript",1,1,"[20,30)",Да,Да
 22.01.2013 21:44:52,,Да,Basic,C#,C#,,,C#,C#,<1,2,"[20,30)",Да,Нет
-22.01.2013 21:47:33,,Да,Basic,Ruby,bash,,,Ruby,Ruby,10+,3,"[30,40)",Да,Нет
+22.01.2013 21:47:33,,Да,Basic,Ruby,Shell,,,Ruby,Ruby,10+,3,"[30,40)",Да,Нет
 22.01.2013 21:54:12,,Да,Pascal/Delphi,C#,JavaScript,,,C#,"C#, JavaScript",5,5,"[20,30)",Да,Да
 22.01.2013 21:59:57,,Да,Pascal/Delphi,SAP ABAP,Java,,,SAP ABAP,,1,1,"[20,30)",Да,Да
 22.01.2013 22:01:38,,Нет,Basic,,,"C#, Objective-C","Python, JavaScript",C#,"JavaScript, Objective-C",10+,3,"[30,40)",Нет,Нет
@@ -3035,7 +3035,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 22.01.2013 23:05:39,,Да,Pascal/Delphi,C,C++,,,C,C,<1,2,"[30,40)",Да,Нет
 22.01.2013 23:05:59,,Нет,Basic,,,"C#, Python, JavaScript, C, Pascal/Delphi, PL/SQL","C#, PHP, C++, Ruby, JavaScript, C, Pascal/Delphi, PL/SQL, Scala, Erlang, Lisp",Haskell,"Erlang, Haskell",10+,10+,"[30,40)",Да,Нет
 22.01.2013 23:09:04,,Да,Pascal/Delphi,C#,JavaScript,,,C#,C#,3,3,"[20,30)",Да,Нет
-22.01.2013 23:17:11,,Да,C,Groovy,bash,,,Java,"Ruby, Perl",5,2,"[20,30)",Да,Да
+22.01.2013 23:17:11,,Да,C,Groovy,Shell,,,Java,"Ruby, Perl",5,2,"[20,30)",Да,Да
 22.01.2013 23:19:48,,Да,Basic,PHP,JavaScript,,,PHP,,6,6,"[30,40)",Да,Да
 22.01.2013 23:20:01,,Да,C,PL/SQL,Java,,,PL/SQL,,1,1,<20,Да,Нет
 22.01.2013 23:20:31,,Да,Basic,ActionScript,"PHP, JavaScript",,,ActionScript,"PHP, ActionScript",10+,6,"[30,40)",Да,Да
@@ -3051,7 +3051,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 23.01.2013 0:35:17,,Да,Pascal/Delphi,C#,C++,,,C#,,2,1,"[20,30)",Да,Да
 23.01.2013 0:35:30,,Да,калькулятор МК-61,JavaScript,PHP,,,PHP,PHP,7,7,"[20,30)",Да,Нет
 23.01.2013 0:52:59,,Да,Basic,C,C++,,,C++,"C, Pascal/Delphi",8,8,"[30,40)",Да,Да
-23.01.2013 0:56:37,,Да,Basic,Tcl/Tk,PL/SQL,,,Objective-C,,6,6,"[30,40)",Да,Да
+23.01.2013 0:56:37,,Да,Basic,Tcl,PL/SQL,,,Objective-C,,6,6,"[30,40)",Да,Да
 23.01.2013 0:59:00,,Да,ActionScript,ActionScript,"Java, JavaScript, Objective-C, C",,,JavaScript,ActionScript,7,7,"[20,30)",Да,Да
 23.01.2013 1:09:29,,Да,C#,C#,JavaScript,,,JavaScript,"C#, JavaScript",9,7,"[20,30)",Да,Да
 23.01.2013 1:55:05,,Да,Basic,C#,C#,,,C#,C#,3,3,"[20,30)",Да,Нет
@@ -3136,7 +3136,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 23.01.2013 15:42:39,,Да,Basic,Python,"JavaScript, PL/SQL",,,Python,,5,3,"[20,30)",Да,Нет
 23.01.2013 15:53:49,,Да,Basic,C++,"JavaScript, Objective-C",,,C#,,5,4,"[20,30)",Да,Нет
 23.01.2013 15:55:02,,Да,C#,C#,JavaScript,,,C#,C#,<1,1,"[20,30)",Да,Нет
-23.01.2013 15:56:01,,Да,Электроника МК-61,PHP,"JavaScript, bash",,,PHP,"PHP, JavaScript",7,7,"[30,40)",Да,Да
+23.01.2013 15:56:01,,Да,Электроника МК-61,PHP,"JavaScript, Shell",,,PHP,"PHP, JavaScript",7,7,"[30,40)",Да,Да
 23.01.2013 15:57:33,,Да,Basic,Objective-C,"Objective-C, C",,,Objective-C,Objective-C,5,3,"[20,30)",Да,Да
 23.01.2013 15:58:50,,Нет,Basic,,,"Java, JavaScript",Python,Java,"Java, Python",3,2,"[20,30)",Да,Да
 23.01.2013 16:32:53,,Да,Pascal/Delphi,Java,Java,,,Java,Java,10+,10+,"[30,40)",Да,Нет
@@ -3181,7 +3181,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 24.01.2013 11:56:52,,Да,Basic,Perl,JavaScript,,,Perl,"JavaScript, Perl",10+,10+,"[30,40)",Да,Да
 24.01.2013 12:14:51,,Да,PHP,Python,"Java, PHP, C++, JavaScript",,,Python,"Python, JavaScript",4,2,"[20,30)",Да,Нет
 24.01.2013 13:01:36,,Да,Pascal/Delphi,PHP,"Java, JavaScript",,,Python,"Java, PHP, JavaScript",7,8,"[20,30)",Да,Да
-24.01.2013 13:43:18,,Да,C,Python,bash,,,C,C,7,3,"[20,30)",Да,Нет
+24.01.2013 13:43:18,,Да,C,Python,Shell,,,C,C,7,3,"[20,30)",Да,Нет
 24.01.2013 13:55:56,,Да,Basic,Java,"JavaScript, PL/SQL",,,Java,"Java, C++, JavaScript, PL/SQL",10+,5,"[20,30)",Да,Нет
 24.01.2013 14:22:26,,Да,Pascal/Delphi,Groovy,Ruby,,,Groovy,,1,1,"[20,30)",Да,Да
 24.01.2013 14:28:37,,Да,Pascal/Delphi,C#,JavaScript,,,Java,C#,<1,1,"[20,30)",Да,Нет
@@ -3231,7 +3231,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 26.01.2013 13:16:13,,Да,Pascal/Delphi,PHP,JavaScript,,,PHP,PHP,8,8,"[20,30)",Да,Нет
 26.01.2013 15:03:15,,Да,Basic,C#,"C#, C++, JavaScript, Perl, F#, Asm",,,C#,,7,4,"[30,40)",Да,Нет
 26.01.2013 15:16:42,,Да,Basic,Java,JavaScript,,,Java,,6,6,"[20,30)",Да,Нет
-26.01.2013 23:05:45,,Да,Basic,Java,"JavaScript, Bash",,,Clojure,"Java, Scala, Clojure",5,4,"[20,30)",Да,Нет
+26.01.2013 23:05:45,,Да,Basic,Java,"JavaScript, Shell",,,Clojure,"Java, Scala, Clojure",5,4,"[20,30)",Да,Нет
 26.01.2013 23:48:10,,Нет,Basic,,,"Java, PHP","C#, JavaScript",C#,"C#, PHP",3,3,"[20,30)",Да,Нет
 27.01.2013 1:25:12,,Да,Basic,1C,Basic,,,Java,,10+,10+,"[30,40)",Да,Нет
 27.01.2013 4:31:32,,Да,Pascal/Delphi,Java,"C#, ActionScript",,,C#,,7,7,"[30,40)",Да,Нет
@@ -3284,7 +3284,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 30.01.2013 0:37:47,,Да,Pascal/Delphi,Java,"Python, JavaScript, Scala",,,Java,"Java, Scala",3,2,<20,Нет,Нет
 30.01.2013 9:37:09,,Да,Pascal/Delphi,C#,JavaScript,,,Python,,1,1,"[20,30)",Да,Нет
 30.01.2013 10:13:09,,Нет,1C,,,1C,1C,1C,1C,2,2,"[20,30)",Да,Нет
-30.01.2013 12:34:37,,Да,Delphi,Python,Bash,,,Python,"Python, Bash",7,6,"[20,30)",Нет,Нет
+30.01.2013 12:34:37,,Да,Pascal/Delphi,Python,Shell,,,Python,"Python, Shell",7,6,"[20,30)",Нет,Нет
 30.01.2013 13:14:43,,Да,Pascal/Delphi,Java,"Java, PHP, JavaScript",,,Java,"Java, JavaScript",7,3,"[30,40)",Да,Нет
 30.01.2013 13:37:17,,Да,Basic,Basic,"Asm, Fortran",,,Fortran,Java,<1,10+,<20,Нет,Нет
 30.01.2013 15:04:43,,Да,Pascal/Delphi,PHP,C#,,,C#,PHP,2,2,"[20,30)",Да,Нет
@@ -3297,7 +3297,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 31.01.2013 1:47:45,,Нет,C,,,Java,Ruby,Ruby,,<1,<1,"[20,30)",Да,Нет
 31.01.2013 10:56:01,,Да,Pascal/Delphi,Objective-C,"C++, C",,,Objective-C,C#,1,1,"[20,30)",Да,Нет
 31.01.2013 12:06:51,,Да,Pascal/Delphi,C#,JavaScript,,,C#,"C#, PHP, JavaScript",2,2,"[20,30)",Да,Нет
-31.01.2013 13:05:16,,Нет,Basic,,,"Java, PHP","C#, ActionScript, Perl, Bash",Java,"Java, PHP",8,2,"[30,40)",Да,Нет
+31.01.2013 13:05:16,,Нет,Basic,,,"Java, PHP","C#, ActionScript, Perl, Shell",Java,"Java, PHP",8,2,"[30,40)",Да,Нет
 31.01.2013 13:36:20,,Да,Basic,JavaScript,PHP,,,Java,JavaScript,1,1,"[20,30)",Да,Нет
 31.01.2013 14:33:42,,Да,ActionScript,ActionScript,JavaScript,,,ActionScript,"JavaScript, ActionScript",4,4,"[20,30)",Да,Нет
 31.01.2013 14:35:52,,Да,Pascal/Delphi,Objective-C,"C++, Objective-C, C, ActionScript",,,Objective-C,Objective-C,5,2,"[20,30)",Да,Да
@@ -3323,7 +3323,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 31.01.2013 18:36:26,,Да,Basic,C++,"C#, Python, C",,,C++,C++,6,6,"[20,30)",Да,Да
 31.01.2013 21:40:25,,Да,ActionScript,ActionScript,ActionScript,,,ActionScript,ActionScript,4,4,"[30,40)",Да,Нет
 31.01.2013 22:23:08,,Да,Basic,PHP,"JavaScript, PL/SQL",,,PHP,,6,4,"[20,30)",Нет,Да
-31.01.2013 23:01:03,,Да,Pascal/Delphi,Ruby,"JavaScript, bash",,,Ruby,"PHP, Ruby, JavaScript",7,4,"[20,30)",Да,Да
+31.01.2013 23:01:03,,Да,Pascal/Delphi,Ruby,"JavaScript, Shell",,,Ruby,"PHP, Ruby, JavaScript",7,4,"[20,30)",Да,Да
 31.01.2013 23:17:54,,Нет,Java,,,Java,PHP,Java,,<1,<1,"[20,30)",Да,Нет
 01.02.2013 0:58:06,,Да,Pascal/Delphi,C#,C++,,,C#,C#,5,1,"[30,40)",Да,Нет
 01.02.2013 7:22:01,,Да,C#,C#,"C#, JavaScript",,,C#,,<1,<1,<20,Да,Нет
@@ -3362,7 +3362,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 03.02.2013 17:37:07,,Да,Java,Java,JavaScript,,,Java,,<1,<1,"[20,30)",Да,Нет
 03.02.2013 19:58:24,,Да,Java,Java,"C++, Objective-C",,,Objective-C,Java,<1,<1,<20,Да,Нет
 03.02.2013 20:28:02,,Да,C,C#,"JavaScript, PL/SQL",,,C#,"JavaScript, PL/SQL",1,2,"[20,30)",Да,Да
-03.02.2013 22:37:42,,Да,Basic,Objective-C,"C++, C, shell script",,,Objective-C,Objective-C,10+,10+,"[30,40)",Да,Да
+03.02.2013 22:37:42,,Да,Basic,Objective-C,"C++, C, Shell",,,Objective-C,Objective-C,10+,10+,"[30,40)",Да,Да
 03.02.2013 22:55:25,,Да,Pascal/Delphi,C++,"Java, Objective-C, Lua",,,C++,C++,1,1,"[20,30)",Да,Нет
 04.02.2013 2:03:53,,Да,Fortran,C++,C,,,C++,"Python, Ruby, JavaScript",10+,10+,"[40,50)",Да,Да
 04.02.2013 7:59:41,,Да,Pascal/Delphi,Java,"C#, PHP, Python, JavaScript, PL/SQL",,,Java,,9,3,"[20,30)",Нет,Нет
@@ -3385,7 +3385,7 @@ Timestamp,Q1,MainLanguage,FirstLanguage,NowLanguage,AdditionalLanguages1,NowLang
 05.02.2013 20:02:44,,Нет,Pascal/Delphi,,,C#,"PHP, JavaScript",C#,C#,<1,2,"[20,30)",Да,Нет
 05.02.2013 20:10:02,,Да,Pascal/Delphi,JavaScript,"Java, PHP, Objective-C, ActionScript",,,Ruby,,2,2,"[20,30)",Да,Да
 05.02.2013 20:25:37,,Да,PHP,PHP,JavaScript,,,PHP,"PHP, JavaScript",3,3,"[20,30)",Да,Нет
-05.02.2013 20:54:22,,Да,C,C,bash,,,C,,3,3,"[20,30)",Да,Нет
+05.02.2013 20:54:22,,Да,C,C,Shell,,,C,,3,3,"[20,30)",Да,Нет
 05.02.2013 20:54:31,,Нет,Pascal/Delphi,,,"PHP, JavaScript, Pascal/Delphi, PL/SQL","Java, 1C",PHP,"PHP, Pascal/Delphi",10+,10+,"[30,40)",Да,Нет
 05.02.2013 22:31:59,,Да,Pascal/Delphi,C++,C,,,C#,"Java, C#, C++",<1,<1,"[20,30)",Да,Нет
 06.02.2013 11:45:53,,Нет,Pascal/Delphi,,,Java,JavaScript,Java,,<1,1,"[20,30)",Да,Да

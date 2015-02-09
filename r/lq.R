@@ -18,7 +18,7 @@ if (!exists("data.readed") || is.null(data.readed)) {
   d2014_01 <- new("LanguageQuestionnare_from2012",when=as.Date("2014-01-01"), 
                         data=read.csv("../2014_01/questionnaire5.csv", stringsAsFactor = FALSE))
   d2015_01 <- new("LanguageQuestionnare_from2015",when=as.Date("2015-01-01"), 
-                        data=read.csv("../2015_01/t.csv", stringsAsFactor = FALSE))
+                        data=read.csv("../2015_01/questionnaire6.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
 
@@ -37,7 +37,7 @@ sq <- new("SetOfLanguageQuestionnaries",
 png("firstlanguage.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
                               plot.col=rainbow(5, start=0.2, end=0.6),
-                              plot.title="На каком языке вы написали свою первую программу ?",
+                              plot.title='На каком языке вы написали свою первую программу ?',
                               las=2
                             )
 dev.off()
@@ -60,10 +60,10 @@ x <- languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE,
 dev.off()
 
 
-png("nowlanguage1.png", width=680, height=320)
+png("nowlanguage1.png", width=680, height=360)
 x <- languageColumnSummaries(sq,"NowLanguage",
                              when=c("2011-07","2012-05","2013-01","2014-01","2015-01"),
-                             top=11,toPlot=TRUE, 
+                             top=15,toPlot=TRUE, 
                              plot.col=rainbow(5,start=0.2,end=0.8),
                              plot.title="На каком языке вы пишете для работы сейчас",
                              las=2
@@ -75,7 +75,7 @@ dev.off()
 #significantChanges(sq,"NowLanguage","2011-07","2013-01")
 
 png("nextlanguage2.png", width=680, height=320)
-x <- languageColumnSummaries(sq,"NextLanguage",top=15,toPlot=TRUE, 
+x <- languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
                              when=c("2011-07","2012-05","2013-01","2014-01","2015-01"),
                              plot.col=rainbow(5,start=0.2,end=0.6),
                              plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
@@ -83,7 +83,7 @@ x <- languageColumnSummaries(sq,"NextLanguage",top=15,toPlot=TRUE,
                             )
 dev.off()
 
-x <- satisfactionIndex(getQuestionnaire(sq,"2014-01"), barrier=10)
+x <- satisfactionIndex(getQuestionnaire(sq,"2015-01"), barrier=10)
 cr <- colorRampPalette(c('black','blue'))(length(x))
 
 png("satisfaction.png")
@@ -133,20 +133,19 @@ q6 <- getQuestionnaire(sq,"2015-01")
 
 
 png("experienceInProgramming.png", width=680, height=320)
-
 d <- experienceChart(sq,"ExperienceInProgramming",when=c("2010-12","2011-07","2012-05","2013-01","2014-01","2015-01"))
 # в 2011 мы смешади 
 # в 2011 мы смешали -1 и 1, приведем сие к общемк знаменателю.
 d[,"1"] <- d[,"<1"]+d[,"1"]
 d <- d[,c("1","2","3","4","5","6","7","8","9","10+")]
-barplot(d, beside=TRUE,col=rainbow(5, start=0.1, end=0.6), 
-        legend=rownames(d), args.legend=list(x=44),
+barplot(d, beside=TRUE,col=rainbow(6, start=0.1, end=0.6), 
+        legend=rownames(d), args.legend=list(x=60),
         main="Опыт работы программистом")
 dev.off()
                       
 png("experienceInProgrammingByLanguage.png", width=680, height=320)
 t <- table(q6@data$NowLanguage, q6@data$ExperienceInProgramming)
-t1 <- as.table(t[c("Java","C#","PHP","C++","Python","JavaScript","C"),])
+t1 <- as.table(t[c("Java","C#","PHP","JavaScript","C++","Python","Ruby","C"),])
 plot(t1, main="Соотношение между языком и опытом работы")
 dev.off()
 
@@ -168,9 +167,9 @@ dev.off()
 
 t <- table(q6@data$NowLanguage,q6@data$InUA)
 t <- apply(t,2,function(x) { x/sum(x) })
-t <- t[c("Java","C#","PHP","C++","Python","JavaScript","Objective-C","Ruby","C"),c("Да","Нет")]
+t <- t[c("Java","C#","PHP", "JavaScript", "Python", "C++", "Ruby", "Objective-C","C","PL-SQL"),c("Да","Нет")]
 png("languagesNowInUA.png", width=680, height=320)
- barplot(t,beside=TRUE, col=rainbow(9),axes=FALSE, 
+ barplot(t,beside=TRUE, col=rainbow(10),axes=FALSE, 
          names=c("в Украине", "не в Украине"), legend=rownames(t), 
          args.legen=list(y=0.25))
 dev.off()
@@ -179,7 +178,7 @@ t <- table(q6@data$InUA,q6@data$ExperienceInProgramming)[c("Да","Нет"),]
 t <- apply(t,1, function(x) { 100*x/sum(x) })
 png("experienceInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=TRUE,
-         col=colorRampPalette(c("green","blue"))(11),
+         col=colorRampPalette(c("green","blue"))(48),
          names=c("в Украине", "не в Украине"),
          legend=rownames(t)
        )
@@ -190,15 +189,31 @@ t <- table(q6@data$InUA,q6@data$Age)[c("Да","Нет"),]
 t <- apply(t,1, function(x) { x/sum(x) })
 png("ageInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=FALSE, 
-         col=colorRampPalette(c("green","blue"))(11),
+         col=colorRampPalette(c("green","blue"))(48),
          names=c("в Украине", "не в Украине"),
          legend=rownames(q6@data$Age)
        )
 dev.off()
 
-t <- table(q6@data$Age)
+ln <- languageColumnSummary(q6@data$NowLanguage,top=22,barrier=5)
+x <- subset(q6@data,q6@data$NowLanguage %in% names(ln))
+xm <- sapply(names(ln),function(n) as.integer(summary(q6@data$Age[q6@data$NowLanguage==n])['Median']) )
+x$NowLanguage <- factor(x$NowLanguage, levels=names(xm[order(xm)]))
 png("ageAll.png", width=680, height=320)
-barplot(t,axes=FALSE)
+par(cex.axis=0.8)
+boxplot(Age ~ NowLanguage, data=x, las=2, outline=FALSE)
+title('Возраст разработчиков в зависимости от языка');
+par(cex.axis=1)
 dev.off()
 
 
+ln <- languageColumnSummary(q6@data$FirstLanguage,top=20,barrier=5)
+x <- subset(q6@data,q6@data$FirstLanguage %in% names(ln))
+xm <- sapply(names(ln),function(n) as.integer(summary(q6@data$Age[q6@data$FirstLanguage==n])['Median']) )
+x$FirstLanguage <- factor(x$FirstLanguage, levels=names(xm[order(xm)]))
+png("ageFirstLanguage.png", width=680, height=320)
+par(cex.axis=0.8)
+boxplot(Age ~ FirstLanguage, data=x, las=2, outline=FALSE)
+title('Возраст разработчиков в зависимости от первого языка');
+par(cex.axis=1)
+dev.off()
