@@ -48,10 +48,14 @@ normalizeLanguageName <-function(name) {
             patterns<-c()
             patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$|None |^None|не использую|only one|никакой|нічого|^nope$|^нет$"
             #patterns["Basic"]="Basic|Visual Basic|BASIC|VB.Net|VBScript|^VB$"
+
+            # checked cleaned 2016-01, 2015-01, 2014-01
             patterns["Pascal/Delphi"]="^pascal$|Turbo Pascal|^Delphi|Pascal / Delphi"
             patterns["Modula-2"]="^Modula2|Modula-2"
             patterns["Fortran"]="Fortran"
             patterns["Focal"]="Focal|FOCAL|Фокал|fokal"
+
+            # checked cleaned 2016-01, 
             patterns["ASM"]="калькулятор|MK-61|Assembler|машинные коды|MK-52|машинный код|MK61|МК-61|^Asm$"
             patterns["CoffeeScript"]="CoffeScript|coffeescript"
             patterns["ActionScript"]="(ActionScript(.*)$)|(Action *Script.*$)|^AS$|^as3$"
