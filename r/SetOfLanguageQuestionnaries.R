@@ -120,10 +120,12 @@ setGeneric("experienceChart", function(object, name, when=c("2013-01","2014-01")
 
 setMethod(f="experienceChart",
           definition=function(object,name, when, toPlot, ... ) {
+             cat('!!Debug: for ',name,' when=',when,"\n")
              d <- sapply(when,function(x) { 
                         q <- getQuestionnaire(object,x)
-                        summary(q@data[[name]])
+                        summary(na.omit(q@data[[name]]))
                      })
+             cat('!!Debug: for ',name,' when=',when,'class(d)=',class(d)," d=",d,"\n")
              if (length(when) > 1) {
                d <- t(apply(d, 2, function(x) { x*100/sum(x) }))
              } else {
