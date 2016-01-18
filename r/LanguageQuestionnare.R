@@ -33,6 +33,9 @@ setMethod(f="initialize",
               if ('PetProjectsLanguages' %in% colnames(.Object@originData)) {
                  .Object@additionalFields["PetProjectsLanguagesById"] <- normalizeLanguagesColumn(.Object,"PetProjectsLanguages")
               }
+              if ('NowLanguages2' %in% colnames(.Object@originData)) {
+                 .Object@additionalFields["NowLanguages2ById"] <- normalizeLanguagesColumn(.Object,"NowLanguages2")
+              }
               if (!('Age' %in% colnames(.Object@originData))) {
                  print(paste("No Age in ",when, sep=""))
               }
@@ -55,7 +58,7 @@ normalizeLanguageName <-function(name) {
             patterns["Fortran"]="Fortran"
             patterns["Focal"]="Focal|FOCAL|Фокал|fokal"
 
-            # checked cleaned 2016-01, 
+            # checked cleaned 2016-01, 2015-01
             patterns["ASM"]="калькулятор|MK-61|Assembler|машинные коды|MK-52|машинный код|MK61|МК-61|^Asm$"
             patterns["CoffeeScript"]="CoffeScript|coffeescript"
             patterns["ActionScript"]="(ActionScript(.*)$)|(Action *Script.*$)|^AS$|^as3$"
@@ -64,6 +67,7 @@ normalizeLanguageName <-function(name) {
             patterns["C"]="^c$|^С$|^С$"
             patterns["SAP ABAP"]="^SAP$|ABAP$"
             #patterns["Shell"]="^sh$|^bash$|^shell$|Shell Script|linux shell|bash( |-)scripting|C-Shell$|^ksh$|sh / bash|UNIX shell"
+            # checked cleaned 2016-01, 
             patterns["T-SQL"]="^T-SQL$|Transact-SQL$|^TSQL$|^T-SQL;"
             patterns["Matlab"]="^MATLAB$|^matlab|Matlab$"
             patterns["Clojure"]="^clojure$|^Clojure$"
@@ -157,7 +161,9 @@ setMethod("languageColumn",
           signature="LanguageQuestionnare",
            definition=function(object,columnName,top=100,barrier=0) {
              if (columnName=="AdditionalLanguages"
-                 || columnName=="PetProjectsLanguages") {
+                 || columnName=="PetProjectsLanguages"
+                 || columnName=="NowLanguages2"
+               ) {
                cdata <- as.factor(unlist(object@additionalFields[[paste(columnName,"ById",sep="")]]))
              } else {
                cdata <- object@data[[columnName]]

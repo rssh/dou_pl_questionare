@@ -8,7 +8,6 @@ setClass("LanguageQuestionnare_from2015",
 setMethod(f="initialize",
           signature="LanguageQuestionnare_from2015",
           definition=function(.Object, when, data) {
-            cat("call of from2014_initialize")
             .Object <- callNextMethod(.Object, when, data)
             age <- 2015 - (strptime(data$Birthday,"%m/%d/%Y")$year + 1900)
             age[age < 16 | age > 90] <- NA
