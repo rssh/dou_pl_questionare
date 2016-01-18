@@ -21,7 +21,7 @@ if (!exists("data.readed") || is.null(data.readed)) {
   d2015_01 <- new("LanguageQuestionnare_from2015",when=as.Date("2015-01-01"), 
                         data=read.csv("../2015_01/questionnaire6_cleaned.csv", stringsAsFactor = FALSE))
   d2016_01 <- new("LanguageQuestionnare_from2016",when=as.Date("2016-01-01"), 
-                        data=read.csv("../2016_01/q_cleaned.csv", stringsAsFactor = FALSE))
+                        data=read.csv("../2016_01/questionnaire7_cleaned.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
 
