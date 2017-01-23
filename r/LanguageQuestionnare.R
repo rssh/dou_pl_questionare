@@ -49,7 +49,7 @@ setMethod(f="initialize",
 normalizeLanguageName <-function(name) {
             #cat("normalizeLanguageName, name=",name," class(name)=",class(name),"\n")
             patterns<-c()
-            patterns["none"]="не программирую|Программирую не для работы|изучил бы рынок|некорректен|абстрактный|зависит|it depends|Не определился|начал|не знаю|Зависит|^$|None |^None|не использую|only one|никакой|нічого|^nope$|^нет$"
+            patterns["none"]="зависит|it depends|Не определился|начал|не знаю|Зависит|^$|None |^None|не использую|only one|никакой|нічого|^nope$|^нет$"
             #patterns["Basic"]="Basic|Visual Basic|BASIC|VB.Net|VBScript|^VB$"
 
             # checked cleaned 2016-01, 2015-01, 2014-01
@@ -231,4 +231,7 @@ setMethod(f="withAdditional",
             r[order(r, decreasing=TRUE)]
           }
          )
+
+
+
 

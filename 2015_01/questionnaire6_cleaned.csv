@@ -3202,7 +3202,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,AdditionalLanguages1,NowLanguag
 1/13/2015 16:46:34,Pascal/Delphi,Да,Java,PL/SQL,,,Scala,Java,3,3,8/14/1990,Да,Нет
 1/13/2015 16:46:35,Pascal/Delphi,Да,PHP,JavaScript,,,JavaScript,PHP,<1,1,7/18/1991,Да,Нет
 1/13/2015 16:46:49,Pascal/Delphi,Да,Java,"JavaScript, PL/SQL, T-SQL",,,Java,"Java, JavaScript, T-SQL",7,7,9/13/1984,Нет,Нет
-1/13/2015 16:46:57,Python,Да,не пишу,PL/SQL,,,Python,,<1,<1,7/5/1992,Да,Нет
+1/13/2015 16:46:57,Python,Да,,PL/SQL,,,Python,,<1,<1,7/5/1992,Да,Нет
 1/13/2015 16:48:02,Basic,Да,C#,"JavaScript, Pascal/Delphi",,,,C#,10+,1,1/1/1976,Да,Нет
 1/13/2015 16:48:22,Basic,Да,PHP,"JavaScript, T-SQL",,,PHP,PHP,7,4,1/20/1986,Да,Не помню
 1/13/2015 16:49:01,Java,Да,JavaScript,Python,,,JavaScript,JavaScript,<1,<1,8/24/1988,Да,Нет

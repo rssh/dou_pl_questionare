@@ -5,23 +5,27 @@ source("LanguageQuestionnare_2011.R")
 source("LanguageQuestionnare_from2012.R")
 source("LanguageQuestionnare_from2015.R")
 source("LanguageQuestionnare_from2016.R")
+source("LanguageQuestionnare_from2017.R")
 source("SetOfLanguageQuestionnaries.R")
 
 if (!exists("data.readed") || is.null(data.readed)) {
+  cat("DATA.READ start\n")
   d2010_12 <- new("LanguageQuestionnare_2010", when=as.Date("2010-12-01"),
-                        data = read.csv("../2010_12/questionnaire1.csv", stringsAsFactor = FALSE))
+                        data = read.csv("../2010_12/questionnaire1_cleaned.csv", stringsAsFactor = FALSE))
   d2011_07 <- new("LanguageQuestionnare_2011",when=as.Date("2011-07-01"),
-                        data = read.csv("../2011_07/questionnaire2.csv", stringsAsFactor = FALSE))
+                        data = read.csv("../2011_07/questionnaire2_cleaned.csv", stringsAsFactor = FALSE))
   d2012_05 <- new("LanguageQuestionnare_from2012",when=as.Date("2012-05-01"), 
-                        data=read.csv("../2012_05/questionnaire3.csv", stringsAsFactor = FALSE))
+                        data=read.csv("../2012_05/questionnaire3_cleaned.csv", stringsAsFactor = FALSE))
   d2013_01 <- new("LanguageQuestionnare_from2012",when=as.Date("2013-01-01"), 
-                        data=read.csv("../2013_01/questionnaire4.csv", stringsAsFactor = FALSE))
+                        data=read.csv("../2013_01/questionnaire4_cleaned.csv", stringsAsFactor = FALSE))
   d2014_01 <- new("LanguageQuestionnare_from2012",when=as.Date("2014-01-01"), 
-                        data=read.csv("../2014_01/questionnaire5.csv", stringsAsFactor = FALSE))
+                        data=read.csv("../2014_01/questionnaire5_cleaned.csv", stringsAsFactor = FALSE))
   d2015_01 <- new("LanguageQuestionnare_from2015",when=as.Date("2015-01-01"), 
                         data=read.csv("../2015_01/questionnaire6_cleaned.csv", stringsAsFactor = FALSE))
   d2016_01 <- new("LanguageQuestionnare_from2016",when=as.Date("2016-01-01"), 
                         data=read.csv("../2016_01/questionnaire7_cleaned.csv", stringsAsFactor = FALSE))
+  d2017_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2017-01-01"), 
+                        data=read.csv("../2017_01/questionnaire8_cleaned.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
 
@@ -35,71 +39,105 @@ sq <- new("SetOfLanguageQuestionnaries",
               "2013-01" = d2013_01,
               "2014-01" = d2014_01,
               "2015-01" = d2015_01,
-              "2016-01" = d2016_01
+              "2016-01" = d2016_01,
+              "2017-01" = d2017_01
             )
           )
 
-png("firstlanguage.png", width=680, height=320)
-x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
-                              when=c("2016-01"),
-                              plot.col=rainbow(6, start=0.2, end=0.6),
-                              plot.title='На каком языке вы написали свою первую программу ?',
-                              las=2
-                            )
-dev.off()
+cat("FIRST LANGUAGE graph1\n")
 
-
-png("firstlanguage2.png", width=680, height=320)
+svg("firstlanguage.svg", width=680, height=320)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01"),
-                              plot.col=rainbow(6, start=0.2, end=0.8),
+                              when=c("2017-01"),
+                              plot.col=rainbow(7, start=0.2, end=0.7),
                               plot.title="На каком языке вы написали свою первую программу ?",
                               las=2
                             )
 dev.off()
 
 
-png("nowlanguage.png", width=680, height=320)
+cat("FIRST LANGUAGE graph2\n")
+
+svg("firstlanguage2.svg", width=680, height=320)
+x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
+                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01",
+                                    "2017-01"),
+                              plot.col=rainbow(6, start=0.2, end=0.9),
+                              plot.title="На каком языке вы написали свою первую программу ?",
+                              las=2
+                            )
+dev.off()
+
+cat("NOW LANGUAGE graph\n")
+
+svg("nowlanguage.svg", width=680, height=320)
 x <- languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE, 
-                             when=c("2016-01"), las=2, plot.col=c("blue"),
+                             when=c("2017-01"), las=2, plot.col=c("blue"),
                              plot.title="На каком языке вы пишете для работы сейчас",
                              )
 dev.off()
 
+cat("NOW LANGUAGE graph1\n")
 
 png("nowlanguage1.png", width=680, height=360)
 x <- languageColumnSummaries(sq,"NowLanguage",
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01"),
-                             top=15,toPlot=TRUE, 
-                             plot.col=rainbow(6,start=0.2,end=0.8),
+                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
+                             top=16,toPlot=TRUE, 
+                             plot.col=rainbow(7,start=0.2,end=0.8),
                              plot.title="На каком языке вы пишете для работы сейчас",
                              las=2
-                            )
+)
 dev.off()
 
 #significantChanges(sq,"NowLanguage","2012-05","2013-01")
 
 #significantChanges(sq,"NowLanguage","2011-07","2013-01")
 
+cat("NEXT LANGUAGE \n")
+
 png("nextlanguage2.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01"),
+                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
                              plot.col=rainbow(6,start=0.2,end=0.8),
                              plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
                              las=2
                             )
 dev.off()
 
-x <- satisfactionIndex(getQuestionnaire(sq,"2016-01"), barrier=10)
-cr <- colorRampPalette(c('black','blue'))(length(x))
+cat("SATISFACTION \n")
 
 png("satisfaction.png")
-dotchart(x[order(x)],col=cr)
+ x <- satisfactionIndex(getQuestionnaire(sq,"2017-01"), barrier=10)
+ cr <- colorRampPalette(c('black','blue'))(length(x))
+ dotchart(x[order(x)],col=cr)
 dev.off()
+
+cat("LEARN \n")
+
+png("learnInNextYearPie.png", width=500, height=200)
+ pie(table(d2017_01@data$Learn),main="Планируете ли вы в течении года изучить какой-то язык программирования?")
+dev.off()
+
+png("learnlanguageNow.png", width=680, height=320)
+x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
+                             when=c("2017-01"),
+                             plot.col=c("blue"),
+                             plot.title="Какие языки вы собираетесь изучать в следущем году ?",
+                             las=2
+                            )
+dev.off()
+
+
+
+png("learnlanguagePie.png", width=680, height=320)
+x <- languageColumnPieChart(sq,"2017-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
+dev.off()
+
+cat("ADDITIONAL \n")
 
 png("additionallanguageNow.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE,
-                             when=c("2016-01"),
+                             when=c("2017-01"),
                              plot.col=c("blue"),
                              plot.title="Какие языки вы используете как дополнительные",
                              las=2
@@ -109,20 +147,33 @@ dev.off()
 
 png("additionallanguage.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE, 
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01"),
-                             plot.col=rainbow(6,start=0.2,end=0.8),
+                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
+                             plot.col=rainbow(7,start=0.2,end=0.8),
                              plot.title="Какие языки вы используете как дополнительные",
                              las=2
                             )
 dev.off()
 
-png("petporjectslanguage.png", width=680, height=320)
-x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE, 
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01"),
-                             plot.col=rainbow(6,start=0.2,end=0.8),
-                             plot.title="Какие языки вы используете для своих pet-проектов",
+cat("PET(NOW) \n")
+
+png("petporjectslanguageNow.png", width=680, height=320)
+x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
+                             when=c("2017-01"),
+                             plot.col=c("blue"),
+                             plot.title="Какие языки вы используете в своих проектах",
                              las=2
-                            )
+)
+dev.off()
+
+cat("PET\n")
+
+png("petporjectslanguage.png", width=680, height=320)
+x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
+                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
+                             plot.col=rainbow(7,start=0.2,end=0.8),
+                             plot.title="Какие языки вы используете в своих проектах",
+                             las=2
+)
 dev.off()
 
 
@@ -131,23 +182,27 @@ dev.off()
 #dev.off()
 
 
-#q1 <- getQuestionnaire(sq,"2010-12")
-#q2 <- getQuestionnaire(sq,"2011-07")
-#q3 <- getQuestionnaire(sq,"2012-05")
-#q4 <- getQuestionnaire(sq,"2013-01")
-#q5 <- getQuestionnaire(sq,"2014-01")
-#q6 <- getQuestionnaire(sq,"2015-01")
+q1 <- getQuestionnaire(sq,"2010-12")
+q2 <- getQuestionnaire(sq,"2011-07")
+q3 <- getQuestionnaire(sq,"2012-05")
+q4 <- getQuestionnaire(sq,"2013-01")
+q5 <- getQuestionnaire(sq,"2014-01")
+q6 <- getQuestionnaire(sq,"2015-01")
 q7 <- getQuestionnaire(sq,"2016-01")
+q8 <- getQuestionnaire(sq,"2017-01")
 
-q <- q7
 
-png("experienceInProgramming.png", width=680, height=320)
-d <- experienceChart(sq,"ExperienceInProgramming",when=c("2010-12","2011-07","2012-05","2013-01","2014-01","2015-01","2016-01"))
+q <- q8
+
+cat("EXP\n")
+
+png("experienceInProgramming.png", width=680, height=340)
+d <- experienceChart(sq,"ExperienceInProgramming",when=c("2010-12","2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"))
 # в 2011 мы смешади 
 # в 2011 мы смешали -1 и 1, приведем сие к общемк знаменателю.
 d[,"1"] <- d[,"<1"]+d[,"1"]
 d <- d[,c("1","2","3","4","5","6","7","8","9","10+")]
-barplot(d, beside=TRUE,col=rainbow(6, start=0.1, end=0.6), 
+barplot(d, beside=TRUE,col=rainbow(8, start=0.1, end=0.8), 
         legend=rownames(d), args.legend=list(x=60),
         main="Опыт работы программистом")
 dev.off()
@@ -182,9 +237,9 @@ dev.off()
 
 t <- table(q@data$NowLanguage,q@data$InUA)
 t <- apply(t,2,function(x) { x/sum(x) })
-t <- t[c("Java","C#","JavaScript","PHP", "Python", "C++", "Ruby", "Objective-C","C","1C","Scala"),c("Да","Нет")]
+t <- t[c("Java","C#","JavaScript","PHP", "Python", "C++", "Ruby", "Objective-C","Swift","C","Scala","Go"),c("Да","Нет")]
 png("languagesNowInUA.png", width=680, height=320)
- barplot(t,beside=TRUE, col=rainbow(11),axes=FALSE, 
+ barplot(t,beside=TRUE, col=rainbow(12, start=0, end=0.8),axes=FALSE, 
          names=c("в Украине", "не в Украине"), legend=rownames(t), 
          args.legen=list(y=0.3))
 dev.off()

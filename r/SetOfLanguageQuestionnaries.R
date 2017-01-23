@@ -210,3 +210,30 @@ setMethod(f="ageChart",
              a
           }) 
 
+
+
+languageColumnPie <- function(languageColumn, title, barrier = 0.01, toPlot=FALSE)
+{
+  rx <- languageColumn/sum(languageColumn)
+  rownames(rx)[rownames(rx)=='none']<-'unknown'
+  rx1 <- rx[rx > barrier]
+  other <- sum(rx[rx <= barrier])
+  rx1['other'] <- other
+  rx1 <- sort(rx1)
+  percents = round(100*rx1/sum(rx1),1)
+  palette=rainbow(start=0.1,end=1,length(rx1))
+  pie(rx1,labels=percents,col=palette,main=title)
+  legend("topright",legend=names(rx1),fill=palette)
+  rx1
+}
+
+setGeneric("languageColumnPieChart", function(object, when, columnName, title, barrier=0.03, toPlot=FALSE, ...) { standardGeneric("languageColumnPieChart") } )
+
+
+setMethod(f="languageColumnPieChart", 
+          signature="SetOfLanguageQuestionnaries",
+          definition=function(object, when, columnName, title, barrier, toPlot, ...) {
+              tl <- table(getQuestionnaire(object,when)@data[columnName])
+              languageColumnPie(tl,title,barrier,toPlot)
+          }) 
+
