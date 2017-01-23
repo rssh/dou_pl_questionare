@@ -2501,7 +2501,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,Main2,AdditionalLanguages1,Next
 1/5/2017 13:17:59,JavaScript,Да,JavaScript,,,JavaScript,JavaScript,Нет,,Онлайн-курсы,5,5,26,Да,Да
 1/5/2017 13:18:34,PHP,Да,PHP,,JavaScript,JavaScript,"JavaScript, PHP, Python",Да,Go,Книги и документацию,2,2,24,Да,Не помню
 1/5/2017 13:18:43,Java,Да,Java,,JavaScript,Java,,Да,JavaScript,Офлайн-курсы,2,1,32,Да,Нет
-1/5/2017 13:18:50,F#,Да,F#,,"Java, C#, JavaScript, T-SQL, F#",F#,"C#, JavaScript, PHP, Swift, T-SQL, f#",Да,Go,Онлайн-курсы,5,5,27,Да,Нет
+1/5/2017 13:18:50,F#,Да,F#,,"Java, C#, JavaScript, T-SQL, F#",F#,"C#, JavaScript, PHP, Swift, T-SQL, F#",Да,Go,Онлайн-курсы,5,5,27,Да,Нет
 1/5/2017 13:18:59,Pascal/Delphi,Да,Java,,JavaScript,Java,"Java, JavaScript",Нет,,Онлайн-курсы,9,2,34,Да,Нет
 1/5/2017 13:18:59,Java,Нет,C#,,JavaScript,C#,,Да,Python,Онлайн-курсы,<1,<1,22,Да,Нет
 1/5/2017 13:19:03,PHP,Да,Java,,JavaScript,Java,"Java, Swift",Да,Scala,Книги и документацию,2,2,25,Да,Да
@@ -5353,7 +5353,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,Main2,AdditionalLanguages1,Next
 1/10/2017 10:05:35,Python,Да,Python,,"JavaScript, Go",Python,"JavaScript, Python",Да,Go,Онлайн-курсы,2,2,24,Да,Нет
 1/10/2017 10:05:40,Pascal/Delphi,Да,Python,,JavaScript,Python,"JavaScript, Python",Нет,C,Онлайн-курсы,,3,28,Да,Нет
 1/10/2017 10:06:04,Pascal/Delphi,Да,Java,,"C#, JavaScript, PL-SQL",Scala,,Да,Scala,Книги и документацию,6,6,29,Да,Да
-1/10/2017 10:06:07,Pascal/Delphi,Да,C#,,"JavaScript, T-SQL, TypeScript",C#,"C#, JavaScript, T-SQL",Да,f#,Книги и документацию,2,<1,21,Да,Нет
+1/10/2017 10:06:07,Pascal/Delphi,Да,C#,,"JavaScript, T-SQL, TypeScript",C#,"C#, JavaScript, T-SQL",Да,F#,Книги и документацию,2,<1,21,Да,Нет
 1/10/2017 10:06:18,Pascal/Delphi,Да,Specman,,"Python, C++, Perl",Specman,"C++, Objective-C, Pascal/Delphi",Нет,,Книги и документацию,7,6,26,Да,Не помню
 1/10/2017 10:06:20,JavaScript,Да,JavaScript,,PHP,ActionScript,JavaScript,Да,Java,Книги и документацию,<1,<1,24,Да,Нет
 1/10/2017 10:06:22,C#,Да,PHP,,JavaScript,PHP,"C#, JavaScript, PHP",Нет,,Книги и документацию,5,4,21,Да,Не помню
