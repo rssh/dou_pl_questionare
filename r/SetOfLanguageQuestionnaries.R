@@ -16,21 +16,25 @@ setClass("SetOfLanguageQuestionnaries",
 setGeneric("languageColumnSummaries", function(object, columnName, top=100, barrier=2, 
                                                  when=NULL, main=NULL, toPlot=FALSE,
                                                  plot.col = NULL, plot.title=NULL, 
+                                                 filter = NULL,
                                                  ...) { standardGerneric("languageColumnSummaries") }  
           )
                                                  
 
 setMethod(f="languageColumnSummaries",
-          definition=function(object,columnName, top, barrier, when, main, toPlot, plot.col, ... ) {
+          definition=function(object,columnName, top, barrier, when, main, toPlot, plot.col, filter, ... ) {
              if (is.null(when)) {
                  when <- names(object@questionaries)
              }
              if (is.null(main)) {
                  main <- when[length(when)]
              }
+             if (is.null(filter)) {
+                 filter <- function(obj) { obj@data }
+             }
              data <- sapply(when,function(x) { 
                         q <- getQuestionnaire(object,x)
-                        languageColumn(q,columnName,barrier=barrier)
+                        languageColumn(q,columnName,barrier=barrier,filter=filter)
                      })
              commonNames <- NULL
              allNames <- NULL

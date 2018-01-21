@@ -26,6 +26,8 @@ if (!exists("data.readed") || is.null(data.readed)) {
                         data=read.csv("../2016_01/questionnaire7_cleaned.csv", stringsAsFactor = FALSE))
   d2017_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2017-01-01"), 
                         data=read.csv("../2017_01/questionnaire8_cleaned.csv", stringsAsFactor = FALSE))
+  d2018_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2018-01-01"), 
+                        data=read.csv("../2018_01/q9.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
 
@@ -40,13 +42,14 @@ sq <- new("SetOfLanguageQuestionnaries",
               "2014-01" = d2014_01,
               "2015-01" = d2015_01,
               "2016-01" = d2016_01,
-              "2017-01" = d2017_01
+              "2017-01" = d2017_01,
+              "2018-01" = d2018_01
             )
           )
 
 cat("FIRST LANGUAGE graph1\n")
 
-svg("firstlanguage.svg", width=6.8, height=3.2)
+svg("firstlanguage.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
                               when=c("2017-01"),
                               plot.col=rainbow(7, start=0.2, end=0.7),
@@ -58,7 +61,7 @@ dev.off()
 
 cat("FIRST LANGUAGE graph2\n")
 
-svg("firstlanguageHist.svg", width=6.8, height=3.2)
+svg("firstlanguageHist.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
                              when=c("2012-05","2013-01","2014-01","2015-01","2016-01",
                                     "2017-01"),
@@ -70,75 +73,124 @@ dev.off()
 
 cat("NOW LANGUAGE graph\n")
 
+drawNowLanguage <- function() {
+  languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE, 
+                          when=c("2018-01"), las=2, plot.col=c("blue"),
+                          plot.title="На каком языке вы пишете для работы сейчас",
+  )
+}
+
 svg("nowlanguage.svg", width=6.8, height=3.2)
-x <- languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE, 
-                             when=c("2017-01"), las=2, plot.col=c("blue"),
-                             plot.title="На каком языке вы пишете для работы сейчас",
-                             )
+x <- drawNowLanguage()
 dev.off()
+
+png("nowlanguage.png", width=680, height=340)
+par(mar=c(7,5,4,5))
+x <- drawNowLanguage()
+dev.off()
+
 
 cat("NOW LANGUAGE graph1\n")
 
-svg("nowlanguageInHistory.svg", width=680, height=360)
-x <- languageColumnSummaries(sq,"NowLanguage",
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
-                             top=16,toPlot=TRUE, 
+drawNowLanguageHistory <- function() {
+# 2011-08 decluded
+   languageColumnSummaries(sq,"NowLanguage",
+                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
+                             top=20,toPlot=TRUE, 
                              plot.col=rainbow(7,start=0.2,end=0.8),
                              plot.title="На каком языке вы пишете для работы сейчас",
                              las=2
 )
+}
+
+svg("nowlanguageInHistory.svg", width=6.8, height=3.8)
+x <- drawNowLanguageHistory()
 dev.off()
 
-#significantChanges(sq,"NowLanguage","2012-05","2013-01")
+
+
+significantChanges(sq,"NowLanguage","2018-01","2017-01")
 
 #significantChanges(sq,"NowLanguage","2011-07","2013-01")
 
 cat("NEXT LANGUAGE \n")
 
-svg("nextlanguage.svg", width=6.8, height=3.2)
-x <- languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
-                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
-                             plot.col=rainbow(6,start=0.2,end=0.8),
-                             plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
-                             las=2
-                            )
+drawNextLanguage <- function() {
+  languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
+                               when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
+                               plot.col=rainbow(7,start=0.2,end=0.8),
+                               plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
+                               las=2
+  )
+}
+
+svg("nextlanguage.svg", width=6.8, height=3.8)
+x <- drawNextLanguage() 
 dev.off()
+
+png("nextlanguage.png", width=680, height=380)
+par(mar=c(7,5,4,5))
+x <- drawNextLanguage() 
+dev.off()
+
 
 cat("SATISFACTION \n")
 
 svg("satisfaction.svg")
- x <- satisfactionIndex(getQuestionnaire(sq,"2017-01"), barrier=10)
+ x <- satisfactionIndex(getQuestionnaire(sq,"2018-01"), barrier=10)
  cr <- colorRampPalette(c('black','blue'))(length(x))
  dotchart(x[order(x)],col=cr)
 dev.off()
 
+png("satisfaction.png")
+x <- satisfactionIndex(getQuestionnaire(sq,"2018-01"), barrier=10)
+cr <- colorRampPalette(c('black','blue'))(length(x))
+dotchart(x[order(x)],col=cr)
+dev.off()
+
+
 cat("LEARN \n")
 
 png("learnInNextYearPie.png", width=500, height=200)
- pie(table(d2017_01@data$Learn),main="Планируете ли вы в течении года изучить какой-то язык программирования?")
+ pie(table(d2018_01@data$Learn),main="Планируете ли вы в течении года изучить какой-то язык программирования?")
 dev.off()
 
-svg("learnlanguageNow.svg", width=6.8, height=3.2)
+svg("learnlanguageHistory.svg", width=6.8, height=3.2)
 x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
-                             when=c("2017-01"),
-                             plot.col=c("blue"),
+                             when=c("2017-01","2018-01"),
+                             plot.col=c("blue","green"),
                              plot.title="Какие языки вы собираетесь изучать в следущем году ?",
                              las=2
                             )
 dev.off()
 
-
-
-svg("learnlanguagePie.svg", width=6.8, height=3.2)
-x <- languageColumnPieChart(sq,"2017-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
+png("learnlanguageHistory.png", width=680, height=320)
+x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
+                             when=c("2017-01","2018-01"),
+                             plot.col=c("blue","green"),
+                             plot.title="Какие языки вы собираетесь изучать в следущем году ?",
+                             las=2
+)
 dev.off()
+
+
+
+
+svg("learnlanguagePie.svg", width=8.0, height=5.0)
+x <- languageColumnPieChart(sq,"2018-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
+dev.off()
+
+png("learnlanguagePie.png", width=800, height=500)
+x <- languageColumnPieChart(sq,"2018-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
+dev.off()
+
 
 cat("ADDITIONAL \n")
 
-## png("additionallanguageNow.svg", width=680, height=320)
+#png("additionallanguageNow.png", width=680, height=320)
 svg("additionallanguageNow.svg", width=6.8, height=3.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE,
-                             when=c("2017-01"),
+                             when=c("2018-01"),
                              plot.col=c("blue"),
                              plot.title="Какие языки вы используете как дополнительные",
                              las=2
@@ -159,7 +211,7 @@ cat("PET(NOW) \n")
 
 png("petporjectslanguageNow.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
-                             when=c("2017-01"),
+                             when=c("2018-01"),
                              plot.col=c("blue"),
                              plot.title="Какие языки вы используете в своих проектах",
                              las=2
@@ -169,9 +221,9 @@ dev.off()
 cat("PET\n")
 
 ##png("petporjectslanguage.png", width=680, height=320)
-svg("petporjectslanguage.svg", width=6.8, height=3.2)
+svg("petporjectslanguage.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
+                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
                              plot.col=rainbow(7,start=0.2,end=0.8),
                              plot.title="Какие языки вы используете в своих проектах",
                              las=2
@@ -180,7 +232,7 @@ dev.off()
 
 
 #png("age.png", width=400, height=320)
-#ageChart(sq,c("2012-05","2013-01","2014-01"),toPlot=TRUE)
+#ageChart(sq,c("2012-05","2013-01","2014-01","2015-01","2017-01","2018-01"),toPlot=TRUE)
 #dev.off()
 
 
@@ -192,19 +244,20 @@ q5 <- getQuestionnaire(sq,"2014-01")
 q6 <- getQuestionnaire(sq,"2015-01")
 q7 <- getQuestionnaire(sq,"2016-01")
 q8 <- getQuestionnaire(sq,"2017-01")
+q9 <- getQuestionnaire(sq,"2018-01")
 
-
-q <- q8
+q <- q9
 
 cat("EXP\n")
 
-svg("experienceInProgramming.svg", width=6.8, height=3.4)
-d <- experienceChart(sq,"ExperienceInProgramming",when=c("2010-12","2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"))
+svg("experienceInProgramming.svg", width=6.8, height=4.4)
+#png("experienceInProgramming.png", width=680, height=440)
+d <- experienceChart(sq,"ExperienceInProgramming",when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"))
 # в 2011 мы смешали -1 и 1, приведем сие к общемк знаменателю.
 d[,"1"] <- d[,"<1"]+d[,"1"]
 d <- d[,c("1","2","3","4","5","6","7","8","9","10+")]
-barplot(d, beside=TRUE,col=rainbow(8, start=0.1, end=0.8), 
-        legend=rownames(d), args.legend=list(x=60),
+barplot(d, beside=TRUE,col=rainbow(8, start=0.1, end=0.9), 
+        legend=rownames(d), args.legend=list(x=80),
         main="Опыт работы программистом")
 dev.off()
                       
@@ -223,6 +276,7 @@ t<-table(q@data$ExperienceInLanguage,q@data$ExperienceInProgramming)
   dev.off()
 
 svg("experiencesMosaic.svg", width=6.8, height=3.2)
+##png("experiencesMosaic.png", width=680, height=320)
 t<-table(q@data$ExperienceInProgramming,q@data$ExperienceInLanguage)
 t1 <- t[,c("10+","9","8","7","6","5","4","3","2","1","<1")]
 colnames(t1) <- c("10+","","","","","","","","","","<1")
@@ -238,11 +292,14 @@ dev.off()
 
 t <- table(q@data$NowLanguage,q@data$InUA)
 t <- apply(t,2,function(x) { x/sum(x) })
-t <- t[c("Java","C#","JavaScript","PHP", "Python", "C++", "Ruby", "Objective-C","Swift","C","Scala","Go"),c("Да","Нет")]
-svg("languagesNowInUA.svg", width=6.8, height=3.2)
+t <- t[c("Java","C#","JavaScript","PHP", "Python", "C++", "Ruby", "Swift","C","Go","TypeScript","Scala"),c("Да","Нет")]
+#t <- t[,c("Да","Нет")]
+
+#svg("languagesNowInUA.svg", width=8.2, height=4.3)
+png("languagesNowInUA.png", width=840, height=430)
  barplot(t,beside=TRUE, col=rainbow(12, start=0, end=0.8),axes=FALSE, 
          names=c("в Украине", "не в Украине"), legend=rownames(t), 
-         args.legen=list(y=0.3))
+         args.legen=list(y=0.25))
 dev.off()
 
 t <- table(q@data$InUA,q@data$ExperienceInProgramming)[c("Да","Нет"),]
@@ -271,13 +328,17 @@ x <- subset(q@data,q@data$NowLanguage %in% names(ln))
 xm <- sapply(names(ln),function(n) as.integer(summary(q@data$Age[q@data$NowLanguage==n])['Median']) )
 x$NowLanguage <- factor(x$NowLanguage, levels=names(xm[order(xm)]))
 svg("ageAll.svg", width=6.8, height=3.2)
+#png("ageAll.png", width=680, height=320)
 par(cex.axis=0.8)
 boxplot(Age ~ NowLanguage, data=x, las=2, outline=FALSE)
 title('Возраст разработчиков в зависимости от языка');
 par(cex.axis=1)
 dev.off()
 
-svg("experienceInProgrammingByLanguage.svg", width=6.8, height=3.2)
+
+
+#svg("experienceInProgrammingByLanguage.svg", width=6.8, height=3.2)
+png("experienceInProgrammingByLanguage.png", width=680, height=320)
 par(cex.axis=0.8)
 boxplot(as.integer(ExperienceInProgramming)-1 ~ NowLanguage, data=x, las=2, outline=FALSE)
 title("Опыт разработчика в зависимости от языка")
@@ -285,7 +346,8 @@ par(cex.axis=1)
 dev.off()
 
 
-ln <- languageColumnSummary(q@data$FirstLanguage,top=20,barrier=5)
+
+
 x <- subset(q@data,q@data$FirstLanguage %in% names(ln))
 xm <- sapply(names(ln),function(n) as.integer(summary(q@data$Age[q@data$FirstLanguage==n])['Median']) )
 x$FirstLanguage <- factor(x$FirstLanguage, levels=names(xm[order(xm)]))
@@ -296,4 +358,17 @@ title('Возраст разработчиков в зависимости от 
 par(cex.axis=1)
 dev.off()
 
-
+#png("firstLanguageOfNovice.png", width=680, height=320)
+svg("firstLanguageOfNovice.svg", width=6.9, height=3.2)
+languageColumnSummaries(sq,
+        "FirstLanguage",
+        toPlot=TRUE, 
+        top=10, 
+        when=c("2014-01","2015-01","2016-01","2017-01","2018-01"), 
+        filter=function(q){ 
+          subset(q@data,q@data$ExperienceInProgramming=='<1') 
+          }, 
+        plot.col=rainbow(5,start=0.2,end=0.8),
+        plot.title="Первый язык у разработчиков с опытом меньше года",
+        las=2)
+dev.off()
