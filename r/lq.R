@@ -284,10 +284,7 @@ plot(as.table(t1), col=colorRampPalette(c("blue","green"))(11), xlab="прогр
 dev.off()
 
 png("ageDistribution.png", width=680, height=320)
-a <- summary(na.omit(as.factor(q@data$Age)))
-a <- a/sum(a)
-barplot(a)
-title("Распределение возраста")
+h
 dev.off()
 
 t <- table(q@data$NowLanguage,q@data$InUA)
