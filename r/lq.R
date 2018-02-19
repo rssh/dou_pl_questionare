@@ -188,7 +188,7 @@ dev.off()
 cat("ADDITIONAL \n")
 
 #png("additionallanguageNow.png", width=680, height=320)
-svg("additionallanguageNow.svg", width=6.8, height=3.2)
+svg("additionallanguageNow.svg", width=6.8, height=4.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE,
                              when=c("2018-01"),
                              plot.col=c("blue"),
@@ -284,7 +284,10 @@ plot(as.table(t1), col=colorRampPalette(c("blue","green"))(11), xlab="прогр
 dev.off()
 
 png("ageDistribution.png", width=680, height=320)
-h
+a <- summary(na.omit(as.factor(q@data$Age)))
+a <- a/sum(a)
+barplot(a)
+title("Распределение возраста")
 dev.off()
 
 t <- table(q@data$NowLanguage,q@data$InUA)
