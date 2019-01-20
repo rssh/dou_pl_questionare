@@ -77,9 +77,9 @@ dev.off()
 cat("NOW LANGUAGE graph\n")
 
 drawNowLanguage <- function() {
-  languageColumnSummaries(sq,"NowLanguage",top=22,toPlot=TRUE, 
+  languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE, 
                           when=c("2019-01"), las=2, plot.col=c("blue"),
-                          plot.title="На каком языке вы пишете для работы сейчас",
+                          plot.title="What programming languages you use now for work?",
   )
 }
 
@@ -98,13 +98,19 @@ cat("NOW LANGUAGE graph1\n")
 drawNowLanguageHistory <- function() {
 # 2011-08 decluded
    languageColumnSummaries(sq,"NowLanguage",
-                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
+                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"),
                              top=20,toPlot=TRUE, 
-                             plot.col=rainbow(7,start=0.2,end=0.8),
-                             plot.title="На каком языке вы пишете для работы сейчас",
+                             plot.col=rainbow(8,start=0.2,end=0.8),
+                             plot.title="What programming languages you use now for work?",
                              las=2
 )
 }
+
+png("nowlanguageInHistory.png", width=1020, height=570)
+x <- drawNowLanguageHistory()
+dev.off()
+write.csv(x,file="../2019_01/NowLanguageHistory.csv")
+
 
 svg("nowlanguageInHistory.svg", width=6.8, height=3.8)
 x <- drawNowLanguageHistory()
@@ -112,7 +118,7 @@ dev.off()
 
 
 
-significantChanges(sq,"NowLanguage","2018-01","2017-01")
+significantChanges(sq,"NowLanguage","2019-01","2018-01")
 
 #significantChanges(sq,"NowLanguage","2011-07","2013-01")
 
@@ -120,27 +126,36 @@ cat("NEXT LANGUAGE \n")
 
 drawNextLanguage <- function() {
   languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
-                               when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
+                          when=c("2019-01"),
+                          plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
+                          las=2
+  )
+}
+
+
+drawNextLanguageHistory <- function() {
+  languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
+                               when=c("2013-01","2014-01","2015-01","2016-01","2017-01","2018-01", "2019-01"),
                                plot.col=rainbow(7,start=0.2,end=0.8),
-                               plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
+                               plot.title="Language of your choice for the next commercial project",
                                las=2
   )
 }
 
-svg("nextlanguage.svg", width=6.8, height=3.8)
-x <- drawNextLanguage() 
-dev.off()
+#svg("nextlanguagehistory.svg", width=6.8, height=3.8)
+#%x <- drawNextLanguageHistory() 
+#dev.off()
 
-png("nextlanguage.png", width=680, height=380)
+png("nextlanguagehistory.png", width=1020, height=570)
 par(mar=c(7,5,4,5))
-x <- drawNextLanguage() 
+x <- drawNextLanguageHistory() 
 dev.off()
 
 
 cat("SATISFACTION \n")
 
 svg("satisfaction.svg")
- x <- satisfactionIndex(getQuestionnaire(sq,"2018-01"), barrier=10)
+ x <- satisfactionIndex(getQuestionnaire(sq,"2019-01"), barrier=10)
  cr <- colorRampPalette(c('black','blue'))(length(x))
  dotchart(x[order(x)],col=cr)
 dev.off()
