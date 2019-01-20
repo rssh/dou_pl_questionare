@@ -28,6 +28,8 @@ if (!exists("data.readed") || is.null(data.readed)) {
                         data=read.csv("../2017_01/questionnaire8_cleaned.csv", stringsAsFactor = FALSE))
   d2018_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2018-01-01"), 
                         data=read.csv("../2018_01/q9.csv", stringsAsFactor = FALSE))
+  d2019_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2019-01-01"), 
+                        data=read.csv("../2019_01/q10.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
 
@@ -43,7 +45,8 @@ sq <- new("SetOfLanguageQuestionnaries",
               "2015-01" = d2015_01,
               "2016-01" = d2016_01,
               "2017-01" = d2017_01,
-              "2018-01" = d2018_01
+              "2018-01" = d2018_01,
+              "2019-01" = d2019_01
             )
           )
 
@@ -51,7 +54,7 @@ cat("FIRST LANGUAGE graph1\n")
 
 svg("firstlanguage.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
-                              when=c("2017-01"),
+                              when=c("2019-01"),
                               plot.col=rainbow(7, start=0.2, end=0.7),
                               plot.title="На каком языке вы написали свою первую программу ?",
                               las=2
@@ -64,8 +67,8 @@ cat("FIRST LANGUAGE graph2\n")
 svg("firstlanguageHist.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
                              when=c("2012-05","2013-01","2014-01","2015-01","2016-01",
-                                    "2017-01"),
-                              plot.col=rainbow(6, start=0.2, end=0.9),
+                                    "2017-01","2018-01","2019-01"),
+                              plot.col=rainbow(8, start=0.2, end=0.9),
                               plot.title="На каком языке вы написали свою первую программу ?",
                               las=2
                             )
@@ -74,8 +77,8 @@ dev.off()
 cat("NOW LANGUAGE graph\n")
 
 drawNowLanguage <- function() {
-  languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE, 
-                          when=c("2018-01"), las=2, plot.col=c("blue"),
+  languageColumnSummaries(sq,"NowLanguage",top=22,toPlot=TRUE, 
+                          when=c("2019-01"), las=2, plot.col=c("blue"),
                           plot.title="На каком языке вы пишете для работы сейчас",
   )
 }
@@ -88,7 +91,7 @@ png("nowlanguage.png", width=680, height=340)
 par(mar=c(7,5,4,5))
 x <- drawNowLanguage()
 dev.off()
-
+write.csv(x,file="../2019_01/NowLanguage.csv",row.names = TRUE)
 
 cat("NOW LANGUAGE graph1\n")
 
@@ -200,11 +203,11 @@ dev.off()
 
 svg("additionallanguage.svg", width=6.8, height=3.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE, 
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01"),
-                             plot.col=rainbow(7,start=0.2,end=0.8),
+                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
+                             plot.col=rainbow(8,start=0.2,end=0.8),
                              plot.title="Какие языки вы используете как дополнительные",
                              las=2
-                            )
+)
 dev.off()
 
 cat("PET(NOW) \n")
