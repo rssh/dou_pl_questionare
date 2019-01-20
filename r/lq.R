@@ -150,6 +150,8 @@ png("nextlanguagehistory.png", width=1020, height=570)
 par(mar=c(7,5,4,5))
 x <- drawNextLanguageHistory() 
 dev.off()
+write.csv(x,file="../2019_01/NextLanguageHistory.csv")
+
 
 
 cat("SATISFACTION \n")
@@ -159,9 +161,11 @@ svg("satisfaction.svg")
  cr <- colorRampPalette(c('black','blue'))(length(x))
  dotchart(x[order(x)],col=cr)
 dev.off()
+write.csv(x[order(x)],file="../2019_01/Satisfaction.csv")
+
 
 png("satisfaction.png")
-x <- satisfactionIndex(getQuestionnaire(sq,"2018-01"), barrier=10)
+x <- satisfactionIndex(getQuestionnaire(sq,"2019-01"), barrier=10)
 cr <- colorRampPalette(c('black','blue'))(length(x))
 dotchart(x[order(x)],col=cr)
 dev.off()
@@ -170,26 +174,30 @@ dev.off()
 cat("LEARN \n")
 
 png("learnInNextYearPie.png", width=500, height=200)
- pie(table(d2018_01@data$Learn),main="Планируете ли вы в течении года изучить какой-то язык программирования?")
+ x <- d2019_01@data$Learn
+ #x <- x[x!=""]
+ x <- table(x)
+ pie(x,main="Планируете ли вы в течении года изучить какой-то язык программирования?")
 dev.off()
 
-svg("learnlanguageHistory.svg", width=6.8, height=3.2)
-x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
-                             when=c("2017-01","2018-01"),
-                             plot.col=c("blue","green"),
-                             plot.title="Какие языки вы собираетесь изучать в следущем году ?",
-                             las=2
-                            )
-dev.off()
+#svg("learnlanguageHistory.svg", width=6.8, height=3.2)
+#x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
+#                             when=c("2017-01","2018-01","2019-01"),
+#                             plot.col=rainbow(3,start=0.2),
+#                             plot.title="What languages you plan to learn in the next year?",
+#                             las=2
+#                            )
+#dev.off()
 
 png("learnlanguageHistory.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
-                             when=c("2017-01","2018-01"),
-                             plot.col=c("blue","green"),
+                             when=c("2017-01","2018-01","2019-01"),
+                             plot.col=rainbow(3,start=0.2),
                              plot.title="Какие языки вы собираетесь изучать в следущем году ?",
                              las=2
 )
 dev.off()
+write.csv(x,file="../2019_01/LearnLanguageHistory.csv")
 
 
 
