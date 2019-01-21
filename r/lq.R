@@ -118,7 +118,9 @@ dev.off()
 
 
 
-significantChanges(sq,"NowLanguage","2019-01","2018-01")
+significant <- significantChanges(sq,"NowLanguage","2019-01","2018-01")
+write.csv(significant,file="../2019_01/Significant.csv")
+
 
 #significantChanges(sq,"NowLanguage","2011-07","2013-01")
 
@@ -263,7 +265,7 @@ dev.off()
 write.csv(x,file="../2019_01/PetProjectLanguagesHistory.csv")
 
 #png("age.png", width=400, height=320)
-#ageChart(sq,c("2012-05","2013-01","2014-01","2015-01","2017-01","2018-01"),toPlot=TRUE)
+#ageChart(sq,c("2012-05","2013-01","2014-01","2015-01","2017-01","2018-01","2019-01"),toPlot=TRUE)
 #dev.off()
 
 
@@ -280,6 +282,8 @@ q10 <- getQuestionnaire(sq,"2019-01")
 
 
 q <- q10
+
+
 
 cat("EXP\n")
 
@@ -302,7 +306,7 @@ dev.off()
 
 
 en <- c("< 1", "1","2","3","4","5","6","7","8","9","10+")
-t<-table(q@data$ExperienceInLanguage,q@data$ExperienceInProgramming)
+t<-table(q@data$ExperienceInLanguageYears,q@data$ExperienceInProgrammingYears)
   png(file="el.png")
   barplot(t,col=rainbow(11),legend=TRUE,args.legend=list(x=11,y=500))
   title("Опыт работы программистом/на выбранном языке")
@@ -363,11 +367,14 @@ x$NowLanguage <- factor(x$NowLanguage, levels=names(xm[order(xm)]))
 svg("ageAll.svg", width=6.8, height=3.2)
 #png("ageAll.png", width=680, height=320)
 par(cex.axis=0.8)
-boxplot(Age ~ NowLanguage, data=x, las=2, outline=FALSE)
-title('Возраст разработчиков в зависимости от языка');
+r <- boxplot(Age ~ NowLanguage, data=x, las=2, outline=FALSE)
+title('Age by programming language.');
 par(cex.axis=1)
 dev.off()
-
+s <- r$stats
+colnames(s) <- r$names
+rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whisker")
+write.csv(x,file="../2019_01/AgeByLanguage.csv")
 
 
 #svg("experienceInProgrammingByLanguage.svg", width=6.8, height=3.2)
