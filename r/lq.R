@@ -193,14 +193,14 @@ png("learnlanguageHistory.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
                              when=c("2017-01","2018-01","2019-01"),
                              plot.col=rainbow(3,start=0.2),
-                             plot.title="Какие языки вы собираетесь изучать в следущем году ?",
+                             plot.title="What languages you plan to learn in the next year?",
                              las=2
 )
 dev.off()
 write.csv(x,file="../2019_01/LearnLanguageHistory.csv")
 
 
-
+x <- summary(as.factor(d2019_01@data$LearnWay))
 
 svg("learnlanguagePie.svg", width=8.0, height=5.0)
 x <- languageColumnPieChart(sq,"2018-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
@@ -213,49 +213,54 @@ dev.off()
 
 cat("ADDITIONAL \n")
 
-#png("additionallanguageNow.png", width=680, height=320)
-svg("additionallanguageNow.svg", width=6.8, height=4.2)
+png("additionallanguageNow.png", width=680, height=320)
+#svg("additionallanguageNow.svg", width=6.8, height=4.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE,
-                             when=c("2018-01"),
+                             when=c("2019-01"),
                              plot.col=c("blue"),
-                             plot.title="Какие языки вы используете как дополнительные",
+                             plot.title="What additional languages you use for work?",
                              las=2
                             )
 dev.off()
+write.csv(x,file="../2019_01/AdditionalLanguages.csv")
 
 
 svg("additionallanguage.svg", width=6.8, height=3.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE, 
-                             when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
-                             plot.col=rainbow(8,start=0.2,end=0.8),
+                             #when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"),
+                             when=c("2017-01","2018-01","2019-01"),
+                             plot.col=rainbow(3,start=0.2,end=0.8),
                              plot.title="Какие языки вы используете как дополнительные",
                              las=2
 )
 dev.off()
+write.csv(x,file="../2019_01/AdditionalLanguagesHistory.csv")
+
 
 cat("PET(NOW) \n")
 
 png("petporjectslanguageNow.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
-                             when=c("2018-01"),
+                             when=c("2019-01"),
                              plot.col=c("blue"),
                              plot.title="Какие языки вы используете в своих проектах",
                              las=2
 )
 dev.off()
+write.csv(x,file="../2019_01/PetProjectLanguages.csv")
 
 cat("PET\n")
 
-##png("petporjectslanguage.png", width=680, height=320)
-svg("petporjectslanguage.svg", width=6.8, height=3.8)
+png("petporjectslanguage.png", width=680, height=320)
+#svg("petporjectslanguage.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
-                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"),
+                             when=c("2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"),
                              plot.col=rainbow(7,start=0.2,end=0.8),
-                             plot.title="Какие языки вы используете в своих проектах",
+                             plot.title="What languages you use in pet-projects?",
                              las=2
 )
 dev.off()
-
+write.csv(x,file="../2019_01/PetProjectLanguagesHistory.csv")
 
 #png("age.png", width=400, height=320)
 #ageChart(sq,c("2012-05","2013-01","2014-01","2015-01","2017-01","2018-01"),toPlot=TRUE)
@@ -271,8 +276,10 @@ q6 <- getQuestionnaire(sq,"2015-01")
 q7 <- getQuestionnaire(sq,"2016-01")
 q8 <- getQuestionnaire(sq,"2017-01")
 q9 <- getQuestionnaire(sq,"2018-01")
+q10 <- getQuestionnaire(sq,"2019-01")
 
-q <- q9
+
+q <- q10
 
 cat("EXP\n")
 
