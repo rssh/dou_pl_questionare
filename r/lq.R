@@ -321,6 +321,8 @@ plot(as.table(t), col=colorRampPalette(c("green","red"))(25),
      xlab="in programming", ylab="in current language", main="Experience",
      las=1)
 dev.off()
+write.csv(t,file="../2019_01/ExperienceMosaic.csv")
+
 
 png("ageDistribution.png", width=680, height=320)
 a <- summary(na.omit(as.factor(q@data$Age)))
