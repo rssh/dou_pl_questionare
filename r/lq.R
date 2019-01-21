@@ -324,6 +324,7 @@ dev.off()
 write.csv(t,file="../2019_01/ExperienceMosaic.csv")
 
 
+
 png("ageDistribution.png", width=680, height=320)
 a <- summary(na.omit(as.factor(q@data$Age)))
 a <- a/sum(a)
@@ -340,19 +341,28 @@ dev.off()
 write.csv(a,file="../2019_01/ExperienceDistribution.csv")
 
 
-t <- table(q@data$NowLanguage,q@data$InUA)
-t <- apply(t,2,function(x) { x/sum(x) })
-t <- t[c("Java","C#","JavaScript","PHP", "Python", "C++", "Ruby", "Swift","C","Go","TypeScript","Scala"),c("Да","Нет")]
-#t <- t[,c("Да","Нет")]
+t0 <- table(q9@data$NowLanguage,q9@data$InUA)
+t0 <- apply(t0,2,function(x) { x/sum(x) })
+t0 <- t0[c("Java","JavaScript","C#","PHP", "Python", "C++", "Ruby", "Swift","C","Go","TypeScript","Scala"),]
+t0 <- t0[,c("Да","Нет")]
+
+
+t1 <- table(q@data$NowLanguage,q@data$InUA)
+t1 <- apply(t1,2,function(x) { x/sum(x) })
+t1 <- t1[c("Java","JavaScript","C#","PHP", "Python", "C++", "Ruby", "Swift","C","Go","TypeScript","Scala"),]
+t1 <- t1[,c("Так /  Да","Ні / Нет")]
+
 
 #svg("languagesNowInUA.svg", width=8.2, height=4.3)
 png("languagesNowInUA.png", width=840, height=430)
- barplot(t,beside=TRUE, col=rainbow(12, start=0, end=0.8),axes=FALSE, 
-         names=c("в Украине", "не в Украине"), legend=rownames(t), 
-         args.legen=list(y=0.25))
+ barplot(t1,beside=TRUE, col=rainbow(12, start=0, end=0.8),axes=FALSE, 
+         names=c("in UA", "! in UA"), legend=rownames(t), 
+         args.legen=list(y=0.20))
 dev.off()
+write.csv(t,file="../2019_01/LanguageByCountry.csv")
 
-t <- table(q@data$InUA,q@data$ExperienceInProgramming)[c("Да","Нет"),]
+
+t <- table(q@data$InUA[q@data$InUA!=""],q@data$ExperienceInProgrammingYears[q@data$InUA!=""])
 t <- apply(t,1, function(x) { 100*x/sum(x) })
 png("experienceInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=TRUE,
