@@ -374,7 +374,7 @@ dev.off()
 s <- r$stats
 colnames(s) <- r$names
 rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whisker")
-write.csv(x,file="../2019_01/AgeByLanguage.csv")
+write.csv(s,file="../2019_01/AgeByLanguage.csv")
 
 
 #svg("experienceInProgrammingByLanguage.svg", width=6.8, height=3.2)
