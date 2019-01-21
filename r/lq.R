@@ -373,15 +373,18 @@ barplot(t,beside=TRUE, axes=TRUE,
 dev.off()
 
 
-t <- table(q@data$InUA,q@data$Age)[c("Да","Нет"),]
+t <- table(q@data$InUA,q@data$Age)[c("Так /  Да","Ні / Нет"),]
 t <- apply(t,1, function(x) { x/sum(x) })
-svg("ageInUA.svg", width=6.8, height=3.2)
+#svg("ageInUA.svg", width=6.8, height=3.2)
+png("ageInUA.png", width=680, height=320)
 barplot(t,beside=TRUE, axes=FALSE, 
          col=colorRampPalette(c("green","blue"))(48),
          names=c("в Украине", "не в Украине"),
-         legend=rownames(q6@data$Age)
+         legend=rownames(q@data$Age)
        )
 dev.off()
+write.csv(t,file="../2019_01/AgeByCountry.csv")
+
 
 ln <- languageColumnSummary(q@data$NowLanguage,top=22,barrier=5)
 x <- subset(q@data,q@data$NowLanguage %in% names(ln))
@@ -427,9 +430,9 @@ title('Возраст разработчиков в зависимости от 
 par(cex.axis=1)
 dev.off()
 
-#png("firstLanguageOfNovice.png", width=680, height=320)
-svg("firstLanguageOfNovice.svg", width=6.9, height=3.2)
-languageColumnSummaries(sq,
+png("firstLanguageOfNovice.png", width=680, height=320)
+#svg("firstLanguageOfNovice.svg", width=6.9, height=3.2)
+x <- languageColumnSummaries(sq,
         "FirstLanguage",
         toPlot=TRUE, 
         top=10, 
@@ -438,6 +441,8 @@ languageColumnSummaries(sq,
           subset(q@data,q@data$ExperienceInProgramming=='<1') 
           }, 
         plot.col=rainbow(6,start=0.2,end=0.8),
-        plot.title="Первый язык у разработчиков с опытом меньше года",
+        plot.title="First language of developers with experience < year",
         las=2)
 dev.off()
+write.csv(s,file="../2019_01/FirstLanguageOfJuniours.csv")
+
