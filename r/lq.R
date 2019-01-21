@@ -377,13 +377,19 @@ rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whi
 write.csv(s,file="../2019_01/AgeByLanguage.csv")
 
 
+xm <- sapply(names(ln),function(n) as.integer(summary(q@data$ExperienceInLanguageYears[q@data$NowLanguage==n])['Median']) )
+x$NowLanguage <- factor(x$NowLanguage, levels=names(xm[order(xm)]))
 #svg("experienceInProgrammingByLanguage.svg", width=6.8, height=3.2)
 png("experienceInProgrammingByLanguage.png", width=680, height=320)
 par(cex.axis=0.8)
-boxplot(as.integer(ExperienceInProgramming)-1 ~ NowLanguage, data=x, las=2, outline=FALSE)
-title("Опыт разработчика в зависимости от языка")
+r <- boxplot(ExperienceInProgrammingYears ~ NowLanguage, data=x, las=2, outline=FALSE)
+title("Experience by programming language")
 par(cex.axis=1)
 dev.off()
+s <- r$stats
+colnames(s) <- r$names
+rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whisker")
+write.csv(s,file="../2019_01/ExperienceByLanguage.csv")
 
 
 
@@ -404,11 +410,11 @@ languageColumnSummaries(sq,
         "FirstLanguage",
         toPlot=TRUE, 
         top=10, 
-        when=c("2014-01","2015-01","2016-01","2017-01","2018-01"), 
+        when=c("2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"), 
         filter=function(q){ 
           subset(q@data,q@data$ExperienceInProgramming=='<1') 
           }, 
-        plot.col=rainbow(5,start=0.2,end=0.8),
+        plot.col=rainbow(6,start=0.2,end=0.8),
         plot.title="Первый язык у разработчиков с опытом меньше года",
         las=2)
 dev.off()
