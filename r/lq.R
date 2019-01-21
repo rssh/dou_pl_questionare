@@ -312,20 +312,31 @@ t<-table(q@data$ExperienceInLanguageYears,q@data$ExperienceInProgrammingYears)
   title("Опыт работы программистом/на выбранном языке")
   dev.off()
 
-svg("experiencesMosaic.svg", width=6.8, height=3.2)
-##png("experiencesMosaic.png", width=680, height=320)
-t<-table(q@data$ExperienceInProgramming,q@data$ExperienceInLanguage)
-t1 <- t[,c("10+","9","8","7","6","5","4","3","2","1","<1")]
-colnames(t1) <- c("10+","","","","","","","","","","<1")
-plot(as.table(t1), col=colorRampPalette(c("blue","green"))(11), xlab="программистом", ylab="на выбранном языке", main="Опыт работы",las=1)
+#svg("experiencesMosaic.svg", width=6.8, height=3.2)
+png("experiencesMosaic.png", width=1040, height=570)
+epy <- q@data$ExperienceInProgrammingYears[q@data$ExperienceInProgrammingYears < 25]
+ely <- q@data$ExperienceInLanguageYears[q@data$ExperienceInProgrammingYears < 25]
+t<-table(as.integer(epy),as.integer(ely))
+plot(as.table(t), col=colorRampPalette(c("green","red"))(25), 
+     xlab="in programming", ylab="in current language", main="Experience",
+     las=1)
 dev.off()
 
 png("ageDistribution.png", width=680, height=320)
 a <- summary(na.omit(as.factor(q@data$Age)))
 a <- a/sum(a)
 barplot(a)
-title("Распределение возраста")
+title("Age distribution")
 dev.off()
+
+png("experienceDistribution.png", width=680, height=320)
+a <- summary(na.omit(as.factor(as.integer(q@data$ExperienceInProgrammingYears))))
+a <- a/sum(a)
+barplot(a)
+title("Experience distribution")
+dev.off()
+write.csv(a,file="../2019_01/ExperienceDistribution.csv")
+
 
 t <- table(q@data$NowLanguage,q@data$InUA)
 t <- apply(t,2,function(x) { x/sum(x) })
