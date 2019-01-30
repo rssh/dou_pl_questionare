@@ -6,6 +6,7 @@ source("LanguageQuestionnare_from2012.R")
 source("LanguageQuestionnare_from2015.R")
 source("LanguageQuestionnare_from2016.R")
 source("LanguageQuestionnare_from2017.R")
+source("LanguageQuestionnare_from2019.R")
 source("SetOfLanguageQuestionnaries.R")
 
 if (!exists("data.readed") || is.null(data.readed)) {
@@ -28,7 +29,7 @@ if (!exists("data.readed") || is.null(data.readed)) {
                         data=read.csv("../2017_01/questionnaire8_cleaned.csv", stringsAsFactor = FALSE))
   d2018_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2018-01-01"), 
                         data=read.csv("../2018_01/q9.csv", stringsAsFactor = FALSE))
-  d2019_01 <- new("LanguageQuestionnare_from2017",when=as.Date("2019-01-01"), 
+  d2019_01 <- new("LanguageQuestionnare_from2019",when=as.Date("2019-01-01"), 
                         data=read.csv("../2019_01/q10.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
@@ -444,5 +445,5 @@ x <- languageColumnSummaries(sq,
         plot.title="First language of developers with experience < year",
         las=2)
 dev.off()
-write.csv(s,file="../2019_01/FirstLanguageOfJuniours.csv")
+write.csv(x,file="../2019_01/FirstLanguageOfNovice.csv")
 
