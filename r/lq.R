@@ -31,6 +31,8 @@ if (!exists("data.readed") || is.null(data.readed)) {
                         data=read.csv("../2018_01/q9.csv", stringsAsFactor = FALSE))
   d2019_01 <- new("LanguageQuestionnare_from2019",when=as.Date("2019-01-01"), 
                         data=read.csv("../2019_01/q10.csv", stringsAsFactor = FALSE))
+  d2020_01 <- new("LanguageQuestionnare_from2019",when=as.Date("2020-01-01"), 
+                        data=read.csv("../2020_01/q11.csv", stringsAsFactor = FALSE))
   data.readed <- TRUE
 }
 
@@ -47,7 +49,8 @@ sq <- new("SetOfLanguageQuestionnaries",
               "2016-01" = d2016_01,
               "2017-01" = d2017_01,
               "2018-01" = d2018_01,
-              "2019-01" = d2019_01
+              "2019-01" = d2019_01,
+              "2019-01" = d2020_01
             )
           )
 
@@ -55,7 +58,7 @@ cat("FIRST LANGUAGE graph1\n")
 
 svg("firstlanguage.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
-                              when=c("2019-01"),
+                              when=c("2020-01"),
                               plot.col=rainbow(7, start=0.2, end=0.7),
                               plot.title="На каком языке вы написали свою первую программу ?",
                               las=2
@@ -68,8 +71,8 @@ cat("FIRST LANGUAGE graph2\n")
 svg("firstlanguageHist.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"FirstLanguage",top=12,toPlot=TRUE, 
                              when=c("2012-05","2013-01","2014-01","2015-01","2016-01",
-                                    "2017-01","2018-01","2019-01"),
-                              plot.col=rainbow(8, start=0.2, end=0.9),
+                                    "2017-01","2018-01","2019-01","2020-01"),
+                              plot.col=rainbow(9, start=0.2, end=0.9),
                               plot.title="На каком языке вы написали свою первую программу ?",
                               las=2
                             )
@@ -79,7 +82,7 @@ cat("NOW LANGUAGE graph\n")
 
 drawNowLanguage <- function() {
   languageColumnSummaries(sq,"NowLanguage",top=21,toPlot=TRUE, 
-                          when=c("2019-01"), las=2, plot.col=c("blue"),
+                          when=c("2020-01"), las=2, plot.col=c("blue"),
                           plot.title="What programming languages you use now for work?",
   )
 }
@@ -92,16 +95,16 @@ png("nowlanguage.png", width=680, height=340)
 par(mar=c(7,5,4,5))
 x <- drawNowLanguage()
 dev.off()
-write.csv(x,file="../2019_01/NowLanguage.csv",row.names = TRUE)
+write.csv(x,file="../2020_01/NowLanguage.csv",row.names = TRUE)
 
 cat("NOW LANGUAGE graph1\n")
 
 drawNowLanguageHistory <- function() {
 # 2011-08 decluded
    languageColumnSummaries(sq,"NowLanguage",
-                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"),
+                             when=c("2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01","2020-01"),
                              top=20,toPlot=TRUE, 
-                             plot.col=rainbow(8,start=0.2,end=0.8),
+                             plot.col=rainbow(9,start=0.2,end=0.8),
                              plot.title="What programming languages you use now for work?",
                              las=2
 )
@@ -110,7 +113,7 @@ drawNowLanguageHistory <- function() {
 png("nowlanguageInHistory.png", width=1020, height=570)
 x <- drawNowLanguageHistory()
 dev.off()
-write.csv(x,file="../2019_01/NowLanguageHistory.csv")
+write.csv(x,file="../2020_01/NowLanguageHistory.csv")
 
 
 svg("nowlanguageInHistory.svg", width=6.8, height=3.8)
@@ -120,7 +123,7 @@ dev.off()
 
 
 significant <- significantChanges(sq,"NowLanguage","2019-01","2018-01")
-write.csv(significant,file="../2019_01/Significant.csv")
+write.csv(significant,file="../2020_01/Significant.csv")
 
 
 #significantChanges(sq,"NowLanguage","2011-07","2013-01")
@@ -129,7 +132,7 @@ cat("NEXT LANGUAGE \n")
 
 drawNextLanguage <- function() {
   languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
-                          when=c("2019-01"),
+                          when=c("2020-01"),
                           plot.title="Если бы вы начинали сейчас коммерческий проект \n и у вас была бы свобода выбора",
                           las=2
   )
@@ -138,8 +141,8 @@ drawNextLanguage <- function() {
 
 drawNextLanguageHistory <- function() {
   languageColumnSummaries(sq,"NextLanguage",top=16,toPlot=TRUE, 
-                               when=c("2013-01","2014-01","2015-01","2016-01","2017-01","2018-01", "2019-01"),
-                               plot.col=rainbow(7,start=0.2,end=0.8),
+                               when=c("2013-01","2014-01","2015-01","2016-01","2017-01","2018-01", "2019-01", "2020-01"),
+                               plot.col=rainbow(8,start=0.2,end=0.8),
                                plot.title="Language of your choice for the next commercial project",
                                las=2
   )
@@ -153,22 +156,22 @@ png("nextlanguagehistory.png", width=1020, height=570)
 par(mar=c(7,5,4,5))
 x <- drawNextLanguageHistory() 
 dev.off()
-write.csv(x,file="../2019_01/NextLanguageHistory.csv")
+write.csv(x,file="../2020_01/NextLanguageHistory.csv")
 
 
 
 cat("SATISFACTION \n")
 
 svg("satisfaction.svg")
- x <- satisfactionIndex(getQuestionnaire(sq,"2019-01"), barrier=10)
+ x <- satisfactionIndex(getQuestionnaire(sq,"2020-01"), barrier=10)
  cr <- colorRampPalette(c('black','blue'))(length(x))
  dotchart(x[order(x)],col=cr)
 dev.off()
-write.csv(x[order(x)],file="../2019_01/Satisfaction.csv")
+write.csv(x[order(x)],file="../2020_01/Satisfaction.csv")
 
 
 png("satisfaction.png")
-x <- satisfactionIndex(getQuestionnaire(sq,"2019-01"), barrier=10)
+x <- satisfactionIndex(getQuestionnaire(sq,"2020-01"), barrier=10)
 cr <- colorRampPalette(c('black','blue'))(length(x))
 dotchart(x[order(x)],col=cr)
 dev.off()
@@ -185,7 +188,7 @@ dev.off()
 
 #svg("learnlanguageHistory.svg", width=6.8, height=3.2)
 #x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
-#                             when=c("2017-01","2018-01","2019-01"),
+#                             when=c("2018-01","2019-01","2020-01"),
 #                             plot.col=rainbow(3,start=0.2),
 #                             plot.title="What languages you plan to learn in the next year?",
 #                             las=2
@@ -194,23 +197,23 @@ dev.off()
 
 png("learnlanguageHistory.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"LearnLanguage",top=20,toPlot=TRUE,
-                             when=c("2017-01","2018-01","2019-01"),
-                             plot.col=rainbow(3,start=0.2),
+                             when=c("2017-01","2018-01","2019-01","2020-01"),
+                             plot.col=rainbow(4,start=0.2),
                              plot.title="What languages you plan to learn in the next year?",
                              las=2
 )
 dev.off()
-write.csv(x,file="../2019_01/LearnLanguageHistory.csv")
+write.csv(x,file="../2020_01/LearnLanguageHistory.csv")
 
 
 x <- summary(as.factor(d2019_01@data$LearnWay))
 
 svg("learnlanguagePie.svg", width=8.0, height=5.0)
-x <- languageColumnPieChart(sq,"2018-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
+x <- languageColumnPieChart(sq,"2020-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
 dev.off()
 
 png("learnlanguagePie.png", width=800, height=500)
-x <- languageColumnPieChart(sq,"2018-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
+x <- languageColumnPieChart(sq,"2020-01","LearnLanguage",title="Какие языки вы собираетесь изучать в следующем году ?",barrier=0.02,toPlot=TRUE)
 dev.off()
 
 
@@ -219,32 +222,32 @@ cat("ADDITIONAL \n")
 png("additionallanguageNow.png", width=680, height=320)
 #svg("additionallanguageNow.svg", width=6.8, height=4.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE,
-                             when=c("2019-01"),
+                             when=c("2020-01"),
                              plot.col=c("blue"),
                              plot.title="What additional languages you use for work?",
                              las=2
                             )
 dev.off()
-write.csv(x,file="../2019_01/AdditionalLanguages.csv")
+write.csv(x,file="../2020_01/AdditionalLanguages.csv")
 
 
 svg("additionallanguage.svg", width=6.8, height=3.2)
 x <- languageColumnSummaries(sq,"AdditionalLanguages",top=20,toPlot=TRUE, 
                              #when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"),
-                             when=c("2017-01","2018-01","2019-01"),
-                             plot.col=rainbow(3,start=0.2,end=0.8),
+                             when=c("2017-01","2018-01","2019-01","2020-01"),
+                             plot.col=rainbow(4,start=0.2,end=0.8),
                              plot.title="Какие языки вы используете как дополнительные",
                              las=2
 )
 dev.off()
-write.csv(x,file="../2019_01/AdditionalLanguagesHistory.csv")
+write.csv(x,file="../2020_01/AdditionalLanguagesHistory.csv")
 
 
 cat("PET(NOW) \n")
 
 png("petporjectslanguageNow.png", width=680, height=320)
 x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
-                             when=c("2019-01"),
+                             when=c("2020-01"),
                              plot.col=c("blue"),
                              plot.title="Какие языки вы используете в своих проектах",
                              las=2
@@ -257,16 +260,17 @@ cat("PET\n")
 png("petporjectslanguage.png", width=680, height=320)
 #svg("petporjectslanguage.svg", width=6.8, height=3.8)
 x <- languageColumnSummaries(sq,"PetProjectsLanguages",top=20,toPlot=TRUE,
-                             when=c("2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"),
-                             plot.col=rainbow(7,start=0.2,end=0.8),
+                             when=c("2013-01","2014-01","2015-01","2016-01","2017-01",
+                                    "2018-01","2019-01","2020-01"),
+                             plot.col=rainbow(8,start=0.2,end=0.8),
                              plot.title="What languages you use in pet-projects?",
                              las=2
 )
 dev.off()
-write.csv(x,file="../2019_01/PetProjectLanguagesHistory.csv")
+write.csv(x,file="../2020_01/PetProjectLanguagesHistory.csv")
 
 #png("age.png", width=400, height=320)
-#ageChart(sq,c("2012-05","2013-01","2014-01","2015-01","2017-01","2018-01","2019-01"),toPlot=TRUE)
+#ageChart(sq,c("2012-05","2013-01","2014-01","2015-01","2017-01","2018-01","2019-01","2010-01"),toPlot=TRUE)
 #dev.off()
 
 
@@ -280,9 +284,10 @@ q7 <- getQuestionnaire(sq,"2016-01")
 q8 <- getQuestionnaire(sq,"2017-01")
 q9 <- getQuestionnaire(sq,"2018-01")
 q10 <- getQuestionnaire(sq,"2019-01")
+q11 <- getQuestionnaire(sq,"2020-01")
 
 
-q <- q10
+q <- q11
 
 
 
@@ -290,7 +295,7 @@ cat("EXP\n")
 
 svg("experienceInProgramming.svg", width=6.8, height=4.4)
 #png("experienceInProgramming.png", width=680, height=440)
-d <- experienceChart(sq,"ExperienceInProgramming",when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01"))
+d <- experienceChart(sq,"ExperienceInProgramming",when=c("2011-07","2012-05","2013-01","2014-01","2015-01","2016-01","2017-01","2018-01","2019-01","2020-01"))
 # в 2011 мы смешали -1 и 1, приведем сие к общемк знаменателю.
 d[,"1"] <- d[,"<1"]+d[,"1"]
 d <- d[,c("1","2","3","4","5","6","7","8","9","10+")]
@@ -322,7 +327,7 @@ plot(as.table(t), col=colorRampPalette(c("green","red"))(25),
      xlab="in programming", ylab="in current language", main="Experience",
      las=1)
 dev.off()
-write.csv(t,file="../2019_01/ExperienceMosaic.csv")
+write.csv(t,file="../2020_01/ExperienceMosaic.csv")
 
 
 
@@ -339,7 +344,7 @@ a <- a/sum(a)
 barplot(a)
 title("Experience distribution")
 dev.off()
-write.csv(a,file="../2019_01/ExperienceDistribution.csv")
+write.csv(a,file="../2020_01/ExperienceDistribution.csv")
 
 
 t0 <- table(q9@data$NowLanguage,q9@data$InUA)
@@ -360,7 +365,7 @@ png("languagesNowInUA.png", width=840, height=430)
          names=c("in UA", "! in UA"), legend=rownames(t), 
          args.legen=list(y=0.20))
 dev.off()
-write.csv(t,file="../2019_01/LanguageByCountry.csv")
+write.csv(t,file="../2020_01/LanguageByCountry.csv")
 
 
 t <- table(q@data$InUA[q@data$InUA!=""],q@data$ExperienceInProgrammingYears[q@data$InUA!=""])
@@ -384,7 +389,7 @@ barplot(t,beside=TRUE, axes=FALSE,
          legend=rownames(q@data$Age)
        )
 dev.off()
-write.csv(t,file="../2019_01/AgeByCountry.csv")
+write.csv(t,file="../2020_01/AgeByCountry.csv")
 
 
 ln <- languageColumnSummary(q@data$NowLanguage,top=22,barrier=5)
@@ -401,7 +406,7 @@ dev.off()
 s <- r$stats
 colnames(s) <- r$names
 rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whisker")
-write.csv(s,file="../2019_01/AgeByLanguage.csv")
+write.csv(s,file="../2020_01/AgeByLanguage.csv")
 
 
 xm <- sapply(names(ln),function(n) as.integer(summary(q@data$ExperienceInLanguageYears[q@data$NowLanguage==n])['Median']) )
@@ -416,7 +421,7 @@ dev.off()
 s <- r$stats
 colnames(s) <- r$names
 rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whisker")
-write.csv(s,file="../2019_01/ExperienceByLanguage.csv")
+write.csv(s,file="../2020_01/ExperienceByLanguage.csv")
 
 
 
@@ -437,13 +442,13 @@ x <- languageColumnSummaries(sq,
         "FirstLanguage",
         toPlot=TRUE, 
         top=10, 
-        when=c("2014-01","2015-01","2016-01","2017-01","2018-01","2019-01"), 
+        when=c("2014-01","2015-01","2016-01","2017-01","2018-01","2019-01","2020-01"), 
         filter=function(q){ 
           subset(q@data,q@data$ExperienceInProgramming=='<1') 
           }, 
-        plot.col=rainbow(6,start=0.2,end=0.8),
+        plot.col=rainbow(7,start=0.2,end=0.8),
         plot.title="First language of developers with experience < year",
         las=2)
 dev.off()
-write.csv(x,file="../2019_01/FirstLanguageOfNovice.csv")
+write.csv(x,file="../2020_01/FirstLanguageOfNovice.csv")
 
