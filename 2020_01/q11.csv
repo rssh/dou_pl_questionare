@@ -120,7 +120,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/8/2020 10:23:12,Pascal/Delphi,Так,Java,,"JavaScript, Python, Unix Shell",Java,"Java, JavaScript, Python",Ні,,Онлайн-курси,5,5,27,Так,Не пам'ятаю
 1/8/2020 10:23:17,Java,Так,Java,,JavaScript,Java,Java,Так,JavaScript,Онлайн-курси,4,4,28,Так,Так
 1/8/2020 10:23:20,Pascal/Delphi,Так,Clojure,,"Python, Unix Shell, Ruby",Rust,Ruby,Так,Rust,Книги та документацію,8,2,29,Так,Так
-1/8/2020 10:23:29,PHP,Так,Swift,,Ruby,Flutter,,Так,Flutter,Книги та документацію,3,3,23,Так,Так
+1/8/2020 10:23:29,PHP,Так,Swift,,Ruby,Dart,,Так,Dart,Книги та документацію,3,3,23,Так,Так
 1/8/2020 10:23:48,Java,Так,TypeScript,,"JavaScript, TypeScript, Java, C#",TypeScript,"Java, TypeScript",Ні,,Книги та документацію,5,3,29,Так,Ні
 1/8/2020 10:23:52,Pascal/Delphi,Так,PHP,,"JavaScript, Python, TypeScript",PHP,,Так,Go,Онлайн-курси,12,12,31,Ні,Так
 1/8/2020 10:24:10,Basic,Так,Java,,"JavaScript, Kotlin, Scala",Scala,"Java, Kotlin, Scala",Так,Python,Онлайн-курси,10,10,39,Так,Не пам'ятаю
@@ -233,7 +233,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/8/2020 10:29:54,JavaScript,Так,JavaScript,,TypeScript,TypeScript,"JavaScript, TypeScript, Ruby",Ні,,Книги та документацію,2,2,23,Так,Ні
 1/8/2020 10:29:54,Java,Так,Java,,JavaScript,Java,,Так,JavaScript,Онлайн-курси,6,4,28,Так,Ні
 1/8/2020 10:30:04,C,Так,Java,,C++,Java,C++,Так,JavaScript,Книги та документацію,1.5,1,19,Так,Ні
-1/8/2020 10:30:04,Pascal/Delphi,Так,TypeScript,,JavaScript,TypeScript,"JavaScript, TypeScript, Dart (Flutter)",Так,Swift,Онлайн-курси,4,1,25,Так,Так
+1/8/2020 10:30:04,Pascal/Delphi,Так,TypeScript,,JavaScript,TypeScript,"JavaScript, TypeScript, Dart",Так,Swift,Онлайн-курси,4,1,25,Так,Так
 1/8/2020 10:30:09,C++,Так,C++,,C,C++,,Так,Python,Книги та документацію,1,3,18,Так,Ні
 1/8/2020 10:30:10,Pascal/Delphi,Так,Python,,"JavaScript, Python, TypeScript, PL-SQL, Go",Python,"JavaScript, Python, C++, TypeScript, Go, C",Так,Go,Книги та документацію,10,7,31,Так,Так
 1/8/2020 10:30:11,Swift,Так,Swift,,"Kotlin, Swift, R",Swift,,Ні,JavaScript,Книги та документацію,5,3,25,Так,Ні
@@ -1561,7 +1561,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/8/2020 12:09:08,C++,Так,Python,,"Unix Shell, C++",Python,"Python, C++, C",Так,Julia,Книги та документацію,2.5,5,27,Так,Ні
 1/8/2020 12:09:13,C++,Так,Python,,"Unix Shell, C++",Python,"Python, C++, C",Так,Julia,Книги та документацію,2.5,5,27,Так,Ні
 1/8/2020 12:09:13,PHP,Так,Go,,"JavaScript, PHP, Scala",Go,"PHP, Go",Так,Scala,Книги та документацію,2,2,29,Так,Не пам'ятаю
-1/8/2020 12:09:23,Swift,Так,Swift,,"Objective-C, Flutter",Swift,Flutter,Ні,,Книги та документацію,1.5,2,23,Так,Ні
+1/8/2020 12:09:23,Swift,Так,Swift,,"Objective-C, Dart",Swift,Dart,Ні,,Книги та документацію,1.5,2,23,Так,Ні
 1/8/2020 12:09:31,Pascal/Delphi,Так,C++,,"Python, Unix Shell",C++,,Ні,,Книги та документацію,12,12,34,Так,Так
 1/8/2020 12:09:32,Pascal/Delphi,Так,Java,,"Unix Shell, PL-SQL",Java,Java,Ні,,Онлайн-курси,2,2,24,Так,Ні
 1/8/2020 12:09:34,Pascal/Delphi,Так,C#,,"JavaScript, T-SQL",C#,,Ні,,Книги та документацію,9,9,31,Так,Так
@@ -2404,7 +2404,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/8/2020 15:15:13,PHP,Так,JavaScript,,"Python, TypeScript",JavaScript,,Ні,,Онлайн-курси,6,1,32,Так,Так
 1/8/2020 15:15:17,Basic,Так,Swift,,Objective-C,Swift,,Ні,,Книги та документацію,6,5,34,Так,Не пам'ятаю
 1/8/2020 15:15:39,C++,Так,C#,,"Java, C++",C#,"C#, C++",Так,Objective-C,Книги та документацію,2,1,24,Так,Не пам'ятаю
-1/8/2020 15:16:03,Basic,Так,Java,,"JavaScript, Java",Java,Java,Так,flutter,Книги та документацію,6,1,29,Так,Ні
+1/8/2020 15:16:03,Basic,Так,Java,,"JavaScript, Java",Java,Java,Так,Dart,Книги та документацію,6,1,29,Так,Ні
 1/8/2020 15:16:04,Pascal/Delphi,Так,C++,,"Python, Unix Shell, C",C++,"Python, C++",Ні,,Книги та документацію,4,4,28,Так,Ні
 1/8/2020 15:16:14,Basic,Так,Ruby,,"JavaScript, Python, Kotlin",Kotlin,,Так,Kotlin,Онлайн-курси,15,1,42,Так,Не пам'ятаю
 1/8/2020 15:16:40,Pascal/Delphi,Так,C,,JavaScript,Python,C,Так,JavaScript,Книги та документацію,1,1,18,Так,Ні
@@ -4100,7 +4100,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 8:08:51,Java,Так,PHP,,JavaScript,PHP,PHP,Ні,Ніяка,Книги та документацію,1,1,32,Так,Ні
 1/9/2020 8:15:35,Basic,Так,Python,,"JavaScript, Python",Python,"JavaScript, Python",Так,Go,Книги та документацію,5,5,36,Так,Ні
 1/9/2020 8:16:06,Pascal/Delphi,Так,Python,,Java,Python,,Ні,,Онлайн-курси,3,3,31,Ні,Так
-1/9/2020 8:18:37,Ruby,Так,Ruby,,"JavaScript, Dart.flutter",JavaScript,Dart.fluttet,Так,Go,Онлайн-курси,3,3,31,Так,Ні
+1/9/2020 8:18:37,Ruby,Так,Ruby,,"JavaScript, Dart",JavaScript,Dart.fluttet,Так,Go,Онлайн-курси,3,3,31,Так,Ні
 1/9/2020 8:20:35,Java,Так,Java,,"JavaScript, TypeScript",Java,Java,Так,Python,Книги та документацію,5,5,28,Так,Так
 1/9/2020 8:23:32,Java,Так,Java,,"JavaScript, Scala",Java,Java,Так,Scala,Книги та документацію,4,4,27,Так,Ні
 1/9/2020 8:23:54,Java,Так,Java,,JavaScript,Java,"Java, JavaScript",Ні,,Онлайн-курси,3,3,31,Так,Ні
@@ -4408,7 +4408,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 11:35:40,Pascal/Delphi,Ні,,"Pascal/Delphi, PL-SQL",,JavaScript,JavaScript,Так,JavaScript,Книги та документацію,4,4,26,Так,Не пам'ятаю
 1/9/2020 11:35:47,Pascal/Delphi,Так,Pascal/Delphi,,Objective-C,Pascal/Delphi,,Так,Python,Офлайн-курси,,1,16,Так,Ні
 1/9/2020 11:36:18,C++,Так,C++,,,C++,C++,Так,Java,Книги та документацію,1.5,1.5,26,Так,Ні
-1/9/2020 11:36:47,Swift,Так,Swift,,Objective-C,Swift,Swift,Так,Flutter,Книги та документацію,1,1,24,Так,Ні
+1/9/2020 11:36:47,Swift,Так,Swift,,Objective-C,Swift,Swift,Так,Dart,Книги та документацію,1,1,24,Так,Ні
 1/9/2020 11:37:25,Pascal/Delphi,Так,Java,,Java,Java,Java,Так,Swift,Онлайн-курси,10,9,28,Так,Так
 1/9/2020 11:37:32,С#,Так,Python,,"JavaScript, C#, R",Python,Python,Так,Python,Офлайн-курси,2,2,23,Так,Так
 1/9/2020 11:38:31,С#,Так,C#,,"JavaScript, T-SQL",C#,"JavaScript, C#, T-SQL",Ні,,,2,2,31,Так,Так
@@ -4947,7 +4947,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 13:40:02,Pascal/Delphi,Так,Go,,"Unix Shell, PL-SQL",Go,"Java, Python, Go",Так,Rust,Книги та документацію,1,1,21,Так,Так
 1/9/2020 13:40:02,FoxPro,Так,C++,,"Python, Unix Shell, PL-SQL, C, Nasm",C++,"C++, C, Nasm",Ні,,Книги та документацію,15,15,44,Так,Ні
 1/9/2020 13:40:27,JavaScript,Ні,,JavaScript,"JavaScript, TypeScript",TypeScript,"JavaScript, TypeScript",Так,JavaScript,,,,,,
-1/9/2020 13:40:33,Pascal/Delphi,Так,Scala,,,Scala,Flutter,Так,Dart,Книги та документацію,6,2,29,Так,Ні
+1/9/2020 13:40:33,Pascal/Delphi,Так,Scala,,,Scala,Dart,Так,Dart,Книги та документацію,6,2,29,Так,Ні
 1/9/2020 13:40:41,Java,Так,JavaScript,,,Java,,Так,JavaScript,Книги та документацію,3,2,39,Так,Ні
 1/9/2020 13:40:57,C,Ні,,"JavaScript, PHP",,Go,JavaScript,Ні,,Онлайн-курси,1,1,28,Так,Ні
 1/9/2020 13:41:01,Pascal/Delphi,Ні,,"Java, Python, C",JavaScript,Python,"Java, C",Ні,,Онлайн-курси,15,5,40,Так,Не пам'ятаю
@@ -5449,7 +5449,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 15:22:21,Java,Так,Java,,"JavaScript, Unix Shell, Java",Java,"Java, JavaScript",Так,JavaScript,Книги та документацію,6,5,30,Так,Так
 1/9/2020 15:22:42,Java,Ні,,"Java, JavaScript","JavaScript, Kotlin",Kotlin,"Java, JavaScript",Так,Go,,3,2,23,Так,Так
 1/9/2020 15:22:43,Pascal/Delphi,Так,Scala,,Unix Shell,Scala,"Scala, Haskell",Так,Rust,Книги та документацію,12,8,31,Так,Так
-1/9/2020 15:22:44,Swift,Так,Swift,,Objective-C,Swift,Swift,Так,Flutter,Онлайн-курси,1,1,29,Так,Не пам'ятаю
+1/9/2020 15:22:44,Swift,Так,Swift,,Objective-C,Swift,Swift,Так,Dart,Онлайн-курси,1,1,29,Так,Не пам'ятаю
 1/9/2020 15:23:14,C,Так,JavaScript,,C#,JavaScript,"JavaScript, C#",Ні,,Офлайн-курси,1,1,17,Так,Ні
 1/9/2020 15:23:17,Python,Так,Python,,Python,Python,Python,Так,Python,Онлайн-курси,,1,20,Так,Ні
 1/9/2020 15:23:22,Pascal/Delphi,Так,JavaScript,,"Unix Shell, C#",C#,"C#, Swift",Так,C#,Офлайн-курси,1,1,23,Так,Так
@@ -5480,7 +5480,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 15:34:10,Pascal/Delphi,Ні,,"JavaScript, Python, TypeScript",Go,TypeScript,"JavaScript, C#, Python, TypeScript, Kotlin, Go",Так,Swift,Книги та документацію,4,3,23,Так,Не пам'ятаю
 1/9/2020 15:34:28,JavaScript,Так,JavaScript,,,JavaScript,JavaScript,Ні,,Онлайн-курси,7,6,34,Так,Так
 1/9/2020 15:34:34,Pascal/Delphi,Так,JavaScript,,"TypeScript, PHP",JavaScript,"JavaScript, TypeScript",Так,C#,Книги та документацію,8,6,25,Так,Так
-1/9/2020 15:34:57,Ruby,Так,JavaScript,,"JavaScript, Ruby",JavaScript,Ruby,Так,Flutter,Онлайн-курси,3,3,22,Так,Ні
+1/9/2020 15:34:57,Ruby,Так,JavaScript,,"JavaScript, Ruby",JavaScript,Ruby,Так,Dart,Онлайн-курси,3,3,22,Так,Ні
 1/9/2020 15:35:11,C,Так,JavaScript,,"PHP, Ruby",JavaScript,"JavaScript, PHP, Ruby",Так,Python,Онлайн-курси,1,2,22,Так,Ні
 1/9/2020 15:35:19,Pascal/Delphi,Так,C#,,JavaScript,C#,C#,Так,TypeScript,Онлайн-курси,4,3,24,Так,Ні
 1/9/2020 15:35:22,C++,Так,Python,,"C++, PL-SQL, R",Julia,Python,Так,Julia,Книги та документацію,3,3,22,Так,Ні
@@ -5822,7 +5822,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 17:58:35,Pascal/Delphi,Так,TypeScript,,"JavaScript, Unix Shell, TypeScript",TypeScript,"JavaScript, TypeScript",Так,Go,Книги та документацію,3,3,27,Так,Так
 1/9/2020 17:58:58,JavaScript,Так,PHP,,Python,PHP,,Так,Go,Книги та документацію,1,1,23,Так,Ні
 1/9/2020 17:59:16,Pascal/Delphi,Так,C++,,"Python, Go",Rust,,Ні,,Книги та документацію,11,15,32,Так,Не пам'ятаю
-1/9/2020 18:00:33,PHP,Так,Go,,,Python,"Dart, Flutter",Так,Python,Онлайн-курси,9,3,31,Ні,Так
+1/9/2020 18:00:33,PHP,Так,Go,,,Python,"Dart, Dart",Так,Python,Онлайн-курси,9,3,31,Ні,Так
 1/9/2020 18:01:05,Pascal/Delphi,Так,Java,,"Unix Shell, Go",Java,"Java, JavaScript",Ні,Java,Онлайн-курси,6,6,27,Так,Не пам'ятаю
 1/9/2020 18:01:18,Pascal/Delphi,Так,Java,,"JavaScript, TypeScript, Java",TypeScript,,Ні,,,14,12,35,Так,Не пам'ятаю
 1/9/2020 18:01:28,Python,Ні,,"C#, Python",Python,C#,C#,Ні,,Книги та документацію,3,3,30,Так,Ні
@@ -6099,7 +6099,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/9/2020 21:08:20,Java,Так,Python,,Python,Python,Python,Так,Julia,Книги та документацію,2,2,22,Так,Так
 1/9/2020 21:09:35,C++,Ні,,"JavaScript, C++","JavaScript, C++, Lua",JavaScript,JavaScript,Так,Python,Книги та документацію,1,1.5,13,Так,Ні
 1/9/2020 21:09:57,Pascal/Delphi,Так,TypeScript,,"JavaScript, Unix Shell, TypeScript",TypeScript,"JavaScript, TypeScript",Так,Go,Книги та документацію,3,3,27,Так,Так
-1/9/2020 21:10:01,Java,Так,Java,,Java,Java,"Java, Flutter",Так,JavaScript,Книги та документацію,1.3,1.3,26,Так,Так
+1/9/2020 21:10:01,Java,Так,Java,,Java,Java,"Java, Dart",Так,JavaScript,Книги та документацію,1.3,1.3,26,Так,Так
 1/9/2020 21:10:13,Pascal/Delphi,Ні,,"Python, C++",C#,JavaScript,"JavaScript, Python",Так,Go,Книги та документацію,2,1,21,Так,Ні
 1/9/2020 21:10:14,PHP,Так,PL-SQL,,T-SQL,Python,,Так,Python,Онлайн-курси,10,2,36,Так,Ні
 1/9/2020 21:10:19,C,Так,C,,Python,C,C,Так,C++,Книги та документацію,8,5,39,Так,Ні
@@ -7343,8 +7343,8 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/11/2020 7:10:54,Pascal/Delphi,Так,C++,,Python,C++,C++,Ні,,Книги та документацію,10,9,28,Так,Так
 1/11/2020 7:14:52,Pascal/Delphi,Так,JavaScript,,"JavaScript, Unix Shell, TypeScript",JavaScript,"JavaScript, TypeScript",Ні,,Книги та документацію,4,4,26,Так,Так
 1/11/2020 7:19:27,Pascal/Delphi,Так,1C,,"JavaScript, PHP",1C,1C,Ні,Java,Офлайн-курси,30,20,40,Так,Не пам'ятаю
-1/11/2020 7:20:27,Basic,Так,TypeScript,,"JavaScript, Python, PHP, C++",Flutter,TypeScript,Так,Flutter,Онлайн-курси,3,1.5,41,Так,Не пам'ятаю
-1/11/2020 7:20:34,Basic,Так,TypeScript,,"JavaScript, Python, PHP, C++",Flutter,TypeScript,Так,Flutter,Онлайн-курси,3,1.5,41,Так,Не пам'ятаю
+1/11/2020 7:20:27,Basic,Так,TypeScript,,"JavaScript, Python, PHP, C++",Dart,TypeScript,Так,Dart,Онлайн-курси,3,1.5,41,Так,Не пам'ятаю
+1/11/2020 7:20:34,Basic,Так,TypeScript,,"JavaScript, Python, PHP, C++",Dart,TypeScript,Так,Dart,Онлайн-курси,3,1.5,41,Так,Не пам'ятаю
 1/11/2020 7:25:34,1C,Так,1C,,"Python, PHP",Python,"Python, 1C",Так,Python,,10,9,32,Так,Ні
 1/11/2020 7:31:48,PHP,Так,PHP,,"JavaScript, TypeScript",Go,"JavaScript, PHP, Go",Так,Go,Книги та документацію,4,4,21,Так,Ні
 1/11/2020 7:35:26,PHP,Так,PHP,,JavaScript,PHP,,Ні,,,1,1,22,Так,Ні
@@ -7885,7 +7885,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/12/2020 8:25:39,JavaScript,Так,JavaScript,,,JavaScript,JavaScript,Так,Python,Онлайн-курси,1,1,33,Так,Ні
 1/12/2020 8:27:34,JavaScript,Так,JavaScript,,"JavaScript, PHP",JavaScript,"JavaScript, PHP",Так,JavaScript,Офлайн-курси,7,7,32,Так,Так
 1/12/2020 8:27:42,JavaScript,Так,JavaScript,,"JavaScript, PHP",JavaScript,"JavaScript, PHP",Так,JavaScript,Офлайн-курси,7,7,32,Так,Так
-1/12/2020 8:35:09,C++,Так,JavaScript,,TypeScript,TypeScript,,Так,Flutter ,Онлайн-курси,6,1,32,Так,Не пам'ятаю
+1/12/2020 8:35:09,C++,Так,JavaScript,,TypeScript,TypeScript,,Так,Dart ,Онлайн-курси,6,1,32,Так,Не пам'ятаю
 1/12/2020 8:45:28,Pascal/Delphi,Ні,,"JavaScript, PHP",,PHP,"JavaScript, PHP, TypeScript",Ні,,Онлайн-курси,5,5,28,Так,Ні
 1/12/2020 8:50:51,Tcl,Так,Tcl,,Tcl,Tcl,Tcl,Ні,,Книги та документацію,28,20,52,Так,Ні
 1/12/2020 8:53:39,С#,Так,C#,,"JavaScript, Python, C++",Python,C#,Так,Julia,Офлайн-курси,2,1,19,Так,Ні
@@ -8123,7 +8123,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/13/2020 6:47:47,Pascal/Delphi,Так,PHP,,"JavaScript, Unix Shell, T-SQL",JavaScript,,Ні,,Книги та документацію,5,5,30,Ні,Ні
 1/13/2020 7:06:34,Basic,Так,JavaScript,,,JavaScript,,Ні,,Книги та документацію,2,2,34,Так,Не пам'ятаю
 1/13/2020 8:39:46,focal,Ні,,"JavaScript, Python","Unix Shell, Java",JavaScript,"JavaScript, Python",Так,Rust,Онлайн-курси,29,16,45,Ні,Не пам'ятаю
-1/13/2020 8:40:59,Basic,Так,Erlang,,"Unix Shell, Dart/Flutter",Erlang,"Erlang, Dart/Flutter",Ні,,Книги та документацію,20,3,44,Так,Не пам'ятаю
+1/13/2020 8:40:59,Basic,Так,Erlang,,"Unix Shell, Dart",Erlang,"Erlang, Dart",Ні,,Книги та документацію,20,3,44,Так,Не пам'ятаю
 1/13/2020 8:48:10,Basic,Так,TypeScript,,Ruby,TypeScript,,Ні,,,11,2,34,Так,Ні
 1/13/2020 8:52:42,Java,Так,Erlang,,Elixir,Elixir,,Так,Haskell,Книги та документацію,5,4,33,Так,Так
 1/13/2020 8:58:24,Erlang,Так,Erlang,,"JavaScript, PHP",Go,Erlang,Так,Go,Книги та документацію,1,1,36,Так,Ні
@@ -8690,7 +8690,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/15/2020 22:07:11,Pascal/Delphi,Так,C#,,"JavaScript, TypeScript",C#,,Ні,,Книги та документацію,10,9,32,Так,Ні
 1/15/2020 22:23:45,Pascal/Delphi,Так,JavaScript,,,JavaScript,"JavaScript, Pascal/Delphi",Так,C#,Онлайн-курси,6,2,36,Так,Ні
 1/15/2020 22:24:04,С#,Так,C#,,"Java, C",C#,Java,Так,Python,Книги та документацію,2,1,22,Так,Ні
-1/15/2020 22:25:58,C++,Так,Dart,,"JavaScript, Java",Flutter,"Java, JavaScript",Так,Dart,Книги та документацію,,,24,Так,Ні
+1/15/2020 22:25:58,C++,Так,Dart,,"JavaScript, Java",Dart,"Java, JavaScript",Так,Dart,Книги та документацію,,,24,Так,Ні
 1/15/2020 22:28:18,Pascal/Delphi,Так,1C,,T-SQL,1C,1C,Так,Java,Онлайн-курси,10,8,34,Так,Ні
 1/15/2020 22:39:13,C,Так,C,,"Python, C++",C,"C++, C",Ні,,Книги та документацію,4,4,23,Так,Ні
 1/15/2020 22:40:56,Pascal/Delphi,Так,Python,,Go,Go,"JavaScript, C#, TypeScript, Go",Так,C,Книги та документацію,5,1,27,Так,Не пам'ятаю
@@ -8952,7 +8952,7 @@ Timestamp,FirstLanguage,MainLanguage,NowLanguage,NowLanguages2,AdditionalLanguag
 1/17/2020 17:01:27,Pascal/Delphi,Так,C#,,"JavaScript, T-SQL",C#,C#,Так,TypeScript,Книги та документацію,13,3,34,Так,Ні
 1/17/2020 17:01:37,Python,Так,JavaScript,,,TypeScript,"JavaScript, Rust",Ні,,Книги та документацію,0.5,0.5,20,Так,Не пам'ятаю
 1/17/2020 17:01:38,С#,Так,JavaScript,,TypeScript,TypeScript,,Ні,,Онлайн-курси,2,2,23,Так,Ні
-1/17/2020 17:01:39,Java,Ні,,"Java, Go","Unix Shell, Java, Go",Go,Go,Так,Flutter,Книги та документацію,4,2.5,23,Так,Ні
+1/17/2020 17:01:39,Java,Ні,,"Java, Go","Unix Shell, Java, Go",Go,Go,Так,Dart,Книги та документацію,4,2.5,23,Так,Ні
 1/17/2020 17:01:41,C++,Так,Python,,"Unix Shell, C",Python,"Python, C",Ні,,Книги та документацію,2,2,25,Так,Не пам'ятаю
 1/17/2020 17:01:47,Українською,Так,Українською,,"У мене немає цілей в житті, я що Вам дибіл, чи шо?",Українську,Українською ,Ні,,Книги та документацію,1,30,29,Ні,Не пам'ятаю
 1/17/2020 17:01:48,Pascal/Delphi,Так,Python,,"JavaScript, C#",Python,Python,Так,Swift,Книги та документацію,2,2,23,Так,Ні
