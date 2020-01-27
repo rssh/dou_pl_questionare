@@ -216,7 +216,7 @@ setMethod(f="ageChart",
 
 
 
-languageColumnPie <- function(languageColumn, title, barrier = 0.01, toPlot=FALSE)
+languageColumnPie <- function(languageColumn, title, barrier = 0.01, toPlot=FALSE, noUnknown=FALSE)
 {
   rx <- languageColumn/sum(languageColumn)
   rownames(rx)[rownames(rx)=='none']<-'unknown'
@@ -224,6 +224,9 @@ languageColumnPie <- function(languageColumn, title, barrier = 0.01, toPlot=FALS
   other <- sum(rx[rx <= barrier])
   rx1['other'] <- other
   rx1 <- sort(rx1)
+  if (noUnknown) {
+    rx1 <- rx1[names(rx1)!='unknown']
+  }
   percents = round(100*rx1/sum(rx1),1)
   palette=rainbow(start=0.1,end=1,length(rx1))
   pie(rx1,labels=percents,col=palette,main=title)
@@ -231,13 +234,13 @@ languageColumnPie <- function(languageColumn, title, barrier = 0.01, toPlot=FALS
   rx1
 }
 
-setGeneric("languageColumnPieChart", function(object, when, columnName, title, barrier=0.03, toPlot=FALSE, ...) { standardGeneric("languageColumnPieChart") } )
+setGeneric("languageColumnPieChart", function(object, when, columnName, title, barrier=0.03, toPlot=FALSE, noUnknown=TRUE, ...) { standardGeneric("languageColumnPieChart") } )
 
 
 setMethod(f="languageColumnPieChart", 
           signature="SetOfLanguageQuestionnaries",
-          definition=function(object, when, columnName, title, barrier, toPlot, ...) {
+          definition=function(object, when, columnName, title, barrier, toPlot, noUnknown, ...) {
               tl <- table(getQuestionnaire(object,when)@data[columnName])
-              languageColumnPie(tl,title,barrier,toPlot)
+              languageColumnPie(tl,title,barrier,toPlot, noUnknown)
           }) 
 

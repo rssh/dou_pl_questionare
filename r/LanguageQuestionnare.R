@@ -139,6 +139,12 @@ languageColumnSummary <- function(x, top, barrier) {
   if (!is.na(match("none",names(r)))) {
     r <- r[-match("none",names(r))]
   }
+  if (!is.na(match("unknown",names(r)))) {
+    r <- r[-match("unknown",names(r))]
+  }
+  if (!is.na(match("unknown",names(r)))) {
+    r <- r[-match("unknown",names(r))]
+  }
   r <- r[r>barrier] 
   r <- r[order(r, decreasing=TRUE, na.last=NA)]
   if (top < length(r)) {
