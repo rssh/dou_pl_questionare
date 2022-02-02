@@ -16,13 +16,13 @@ setClass("SetOfLanguageQuestionnaries",
 setGeneric("languageColumnSummaries", function(object, columnName, top=100, barrier=2, 
                                                  when=NULL, main=NULL, toPlot=FALSE,
                                                  plot.col = NULL, plot.title=NULL, 
-                                                 filter = NULL,
+                                                 local.filter = NULL,
                                                  ...) { standardGerneric("languageColumnSummaries") }  
           )
                                                  
 
 setMethod(f="languageColumnSummaries",
-          definition=function(object,columnName, top, barrier, when, main, toPlot, plot.col, filter, ... ) {
+          definition=function(object,columnName, top, barrier, when, main, toPlot, plot.col, local.filter, ... ) {
              if (is.null(when)) {
                  when <- names(object@questionaries)
              }
@@ -34,12 +34,17 @@ setMethod(f="languageColumnSummaries",
              }
              data <- sapply(when,function(x) { 
                         q <- getQuestionnaire(object,x)
-                        languageColumn(q,columnName,barrier=barrier,filter=filter)
-                     })
+                        languageColumn(q,columnName,barrier=barrier,local.filter=local.filter)
+                     })        
              commonNames <- NULL
              allNames <- NULL
-             for(l in data) {
+             dimData = dim(data)
+             if (is.null(dimData)) {
+              for(l in data) {
                nl <- names(l)
+               if (is.null(nl)) {
+
+               }
                if (is.null(commonNames)) {
                   commonNames <- nl
                } else {
@@ -48,6 +53,10 @@ setMethod(f="languageColumnSummaries",
                   allNames <- union(allNames,nl)
                   cat("skipped names :",diffNames,"\n")
                }
+              }
+             } else {
+               commonNames <- rownames(data)
+               allNames <- commonNames
              }
              # now - set all diffNames to 0
              for(k in names(data)) {
