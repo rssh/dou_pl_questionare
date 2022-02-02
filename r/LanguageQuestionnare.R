@@ -158,16 +158,16 @@ languageColumnSummary <- function(x, top, barrier) {
 # barries - barries.
 
 setGeneric("languageColumn", 
-           function(object,columnName,top=100,barrier=0,filter=NULL) {
+           function(object,columnName,top=100,barrier=0,local.filter=NULL) {
              standardGeneric("languageColumn")
            }
           )
 
 setMethod("languageColumn",
           signature="LanguageQuestionnare",
-           definition=function(object,columnName,top=100,barrier=0,filter=NULL) {
-             if (is.null(filter)) {
-               filter = function(obj) { object@data }
+           definition=function(object,columnName,top=100,barrier=0,local.filter=NULL) {
+             if (is.null(local.filter)) {
+               local.filter = function(obj) { object@data }
              }
              if (columnName=="AdditionalLanguages"
                  || columnName=="PetProjectsLanguages"
@@ -175,7 +175,7 @@ setMethod("languageColumn",
                ) {
                cdata <- as.factor(unlist(object@additionalFields[[paste(columnName,"ById",sep="")]]))
              } else {
-               cdata <- filter(object)[[columnName]]
+               cdata <- local.filter(object)[[columnName]]
              }
              languageColumnSummary(cdata, top, barrier)
            }
