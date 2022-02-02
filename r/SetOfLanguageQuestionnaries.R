@@ -54,25 +54,30 @@ setMethod(f="languageColumnSummaries",
                   cat("skipped names :",diffNames,"\n")
                }
               }
-             } else {
-               commonNames <- rownames(data)
-               allNames <- commonNames
-             }
-             # now - set all diffNames to 0
-             for(k in names(data)) {
+              # now - set all diffNames to 0
+              for(k in names(data)) {
                  newNames <- setdiff(allNames, names(data[[k]]))
                  data[[k]][newNames] <- 0
-             }
-             if (length(when) > 1) {
+              }
+              if (length(when) > 1) {
                mainOrder <- data[[main]][allNames]
                allNames <- allNames[order(mainOrder,decreasing=TRUE)]
                data <- lapply(data, function(data) { 
                           data[allNames]/sum(data[allNames]) 
                        })
                data <- t(rbind(sapply(names(data),function(n){ data[[n]] } )))
-             } else {
+              } else {
                data <- t(data/sum(data))
                allNames <- colnames(data)
+              }
+             } else {
+               commonNames <- rownames(data)
+               allNames <- commonNames
+               if (length(when) > 1) {
+                  data <- t(sapply(when, function(w){ data[,w]/sum(data[,w]) }))
+               } else {
+                  data <- t(data/sum(data))
+               }
              }
              cat("allNames=",allNames,"\n");
              if (length(allNames) > top) {
