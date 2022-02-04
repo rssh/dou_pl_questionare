@@ -23,9 +23,15 @@ setMethod(f="initialize",
             # normalization procedures.
             #(check - that we in not empty initializer in class definition)
             if (nrow(data)!=0) {
-              .Object@data["FirstLanguage"] <- normalizeLanguageColumn(.Object,"FirstLanguage")
-              .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
-              .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")
+              if ('FirstLanguage' %in% colnames(.Object@originData))) {
+                .Object@data["FirstLanguage"] <- normalizeLanguageColumn(.Object,"FirstLanguage")
+              }
+              if ('NowLanguage' %in% colnames(.Object@originData))) {
+                .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
+              }
+              if ('NextLanguage' %in% colnames(.Object@originData))) {
+                .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")                
+              }              
               validObject(.Object)
               if ('AdditionalLanguages' %in% colnames(.Object@originData)) {
                  .Object@additionalFields["AdditionalLanguagesById"] <- normalizeLanguagesColumn(.Object,"AdditionalLanguages")

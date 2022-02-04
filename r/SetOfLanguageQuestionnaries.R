@@ -134,7 +134,7 @@ setMethod(f="significantChanges", definition = function(object, columnName,
  pv
 } )
 
-setGeneric("experienceChart", function(object, name, when=c("2013-01","2014-01"), toPlot=FALSE, ...) { standardGeneric("experienceChart") } )
+setGeneric("experienceChart", function(object, name, when=c("2013-01","2014-01"), toPlot=FALSE, rel=TRUE, ...) { standardGeneric("experienceChart") } )
 
 setMethod(f="experienceChart",
           definition=function(object,name, when, toPlot, ... ) {
@@ -142,10 +142,14 @@ setMethod(f="experienceChart",
                         q <- getQuestionnaire(object,x)
                         summary(na.omit(q@data[[name]]))
                      })
-             if (length(when) > 1) {
-               d <- t(apply(d, 2, function(x) { x*100/sum(x) }))
+             if (rel) {        
+              if (length(when) > 1) {
+                 d <- t(apply(d, 2, function(x) { x*100/sum(x) }))
+              } else {
+                 d <- t(d*100/sum(d))
+              }
              } else {
-               d <- t(d*100/sum(d))
+               d <- t(d)
              }
              if (toPlot) {
                barplot(d,beside=TRUE,cex.axis=0.8, cex=0.8, ...)
