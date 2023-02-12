@@ -11,7 +11,9 @@ setMethod(f="initialize",
             .Object <- callNextMethod(.Object, when, data)
             age <- 2015 - (strptime(data$Birthday,"%m/%d/%Y")$year + 1900)
             age[age < 16 | age > 90] <- NA
+            print("before age assign")
             .Object@data$Age <- age
+            print("after age assign")
             return(.Object)
           }
          )

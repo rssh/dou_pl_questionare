@@ -39,6 +39,8 @@ if (!exists("data.readed") || is.null(data.readed)) {
                         data=read.csv("../2021_01/q12.csv", stringsAsFactor = FALSE))
   d2022_01 <- new("LanguageQuestionnare_2022", when=as.Date("2022-01-01"),
                         data=read.csv("../2022_01/lang-2022-data.csv", sep = ';'))
+  d2023_01 <- new("LanguageQuestionnare_2022", when=as.Date("2023-01-01"),
+                        data=read.csv("../2023_01/lang-rating-2023.csv", sep = ';'))
   data.readed <- TRUE
 }
 
@@ -505,8 +507,8 @@ ln <- languageColumnSummary(q@data$NowLanguage,top=22,barrier=5)
 x <- subset(q@data,q@data$NowLanguage %in% names(ln))
 xm <- sapply(names(ln),function(n) as.integer(summary(q@data$Age[q@data$NowLanguage==n])['Median']) )
 x$NowLanguage <- factor(x$NowLanguage, levels=names(xm[order(xm)]))
-png("ageAll.svg", width=6.8, height=3.2)
-#png("ageAll.png", width=680, height=320)
+#png("ageAll.svg", width=6.8, height=3.2)
+png("ageAll.png", width=680, height=320)
 par(cex.axis=0.8)
 r <- boxplot(Age ~ NowLanguage, data=x, las=2, outline=FALSE)
 title('Age by programming language.');
@@ -518,12 +520,12 @@ rownames(s) <- c("lower whisker","lower hinge","median","upper hinge","upper whi
 write.csv(s,file="../2022_01/AgeByLanguage.csv")
 
 
-xm <- sapply(names(ln),function(n) as.integer(summary(q@data$ExperienceInLanguageYears[q@data$NowLanguage==n])['Median']) )
+xm <- sapply(names(ln),function(n) as.integer(summary(q@data$ExperienceInLanguage[q@data$NowLanguage==n])['Median']) )
 x$NowLanguage <- factor(x$NowLanguage, levels=names(xm[order(xm)]))
 #svg("experienceInProgrammingByLanguage.svg", width=6.8, height=3.2)
 png("experienceInProgrammingByLanguage.png", width=680, height=320)
 par(cex.axis=0.8)
-r <- boxplot(ExperienceInProgrammingYears ~ NowLanguage, data=x, las=2, outline=FALSE)
+r <- boxplot(ExperienceInProgramming ~ NowLanguage, data=x, las=2, outline=FALSE)
 title("Experience by programming language")
 par(cex.axis=1)
 dev.off()
@@ -551,15 +553,15 @@ x <- languageColumnSummaries(sq,
         "FirstLanguage",
         toPlot=TRUE, 
         top=10, 
-        when=c("2015-01","2016-01","2017-01","2018-01","2019-01","2020-01","2021-01"), 
+        when=c("2015-01","2016-01","2017-01","2018-01","2019-01","2020-01","2021-01","2022-01"), 
         filter=function(q){ 
           subset(q@data,q@data$ExperienceInProgramming=='<1') 
           }, 
-        plot.col=rainbow(7,start=0.2,end=0.8),
+        plot.col=rainbow(8,start=0.2,end=0.8),
         plot.title="First language of developers with experience < year",
         las=2)
 dev.off()
-write.csv(x,file="../2021_01/FirstLanguageOfNovice.csv")
+write.csv(x,file="../2022_01/FirstLanguageOfNovice.csv")
 
  
 

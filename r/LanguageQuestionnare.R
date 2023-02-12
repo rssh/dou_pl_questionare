@@ -23,13 +23,13 @@ setMethod(f="initialize",
             # normalization procedures.
             #(check - that we in not empty initializer in class definition)
             if (nrow(data)!=0) {
-              if ('FirstLanguage' %in% colnames(.Object@originData))) {
+              if ('FirstLanguage' %in% colnames(.Object@originData)) {
                 .Object@data["FirstLanguage"] <- normalizeLanguageColumn(.Object,"FirstLanguage")
               }
-              if ('NowLanguage' %in% colnames(.Object@originData))) {
+              if ('NowLanguage' %in% colnames(.Object@originData)) {
                 .Object@data["NowLanguage"] <- normalizeLanguageColumn(.Object,"NowLanguage")
               }
-              if ('NextLanguage' %in% colnames(.Object@originData))) {
+              if ('NextLanguage' %in% colnames(.Object@originData)) {
                 .Object@data["NextLanguage"] <- normalizeLanguageColumn(.Object,"NextLanguage")                
               }              
               validObject(.Object)

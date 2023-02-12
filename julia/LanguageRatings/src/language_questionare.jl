@@ -62,6 +62,26 @@ function prepare_dataset_2019(fname::String = "../../2019_01/q10.csv")::DataFram
 end
 
 function prepare_dataset_2018(fname::String = "../../2018_01/q9.csv")::DataFrame
+   prepare_dataset_2013(fname)
+end
+
+function prepare_dataset_2017(fname::String = "../../2017_01/q8.csv")::DataFrame
+    prepare_dataset_2013(fname)
+end
+
+function prepare_dataset_2016(fname::String = "../../2016_01/q7.csv")::DataFrame
+    prepare_dataset_2013(fname)
+end
+
+function prepare_dataset_2015(fname::String = "../../2015_01/questionnaire6_cleaned.csv")::DataFrame
+    prepare_dataset_2013(fname)
+end
+
+function prepare_dataset_2014(fname::String = "../../2014_01/questionnaire5_cleaned.csv")::DataFrame
+    prepare_dataset_2013(fname)
+end
+
+function prepare_dataset_2013(fname::String = "../../2013_01/questionnaire4_cleaned.csv")::DataFrame
     df = CSV.read(fname, DataFrame)
     filter!( :NowLanguage => x -> !ismissing(x), df)
     transform!(df,

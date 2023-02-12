@@ -6,7 +6,12 @@ function prepare_all(baseDir::String = "../..")
     df2020 = LanguageRatings.prepare_dataset_2020("$baseDir/2020_01/q11.csv")
     df2019 = LanguageRatings.prepare_dataset_2019("$baseDir/2019_01/q10.csv")
     df2018 = LanguageRatings.prepare_dataset_2018("$baseDir/2018_01/q9.csv")
-    return [df2023, df2022, df2021, df2020, df2019, df2018]
+    df2017 = LanguageRatings.prepare_dataset_2017("$baseDir/2017_01/questionnaire8_cleaned.csv")
+    df2016 = LanguageRatings.prepare_dataset_2016("$baseDir/2016_01/questionnaire7_cleaned.csv")
+    df2015 = LanguageRatings.prepare_dataset_2015("$baseDir/2015_01/questionnaire6_cleaned.csv")
+    df2014 = LanguageRatings.prepare_dataset_2014("$baseDir/2014_01/questionnaire5_cleaned.csv")
+    df2013 = LanguageRatings.prepare_dataset_2013("$baseDir/2013_01/questionnaire4_cleaned.csv")
+    return [df2023, df2022, df2021, df2020, df2019, df2018, df2017, df2016, df2015, df2014, df2013]
 end
 
 function run_all(baseDir::String = "../..")

@@ -25,10 +25,10 @@ setMethod(f="initialize",
 
 setMethod("languageColumn",
           signature="LanguageQuestionnare_from2012",
-           definition=function(object,columnName,top=100,barrier=0,filter=NULL) {
+           definition=function(object,columnName,top=100,barrier=0,local.filter=NULL) {
              if (columnName == "AdditionalLanguages") {
                 x <- as.factor(unlist(object@additionalFields$AdditionalLanguagesById))
-                languageColumnSummary(x,top,barrier)
+                languageColumnSummary(x,top,barrier,local.filter)
              } else {
                 callNextMethod()
              }
