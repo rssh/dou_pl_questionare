@@ -18,7 +18,7 @@ function language_freq(df::DataFrame, columnName::Symbol; limit::Int=100, barrie
 end
 
 
-function freqBarPlot(lc::DataFrame, title::String; fname::Union{String,Missing}; limit=30) 
+function freqBarPlot(lc::DataFrame, title::String; fname::Union{String,Missing}, limit=30) 
 
   currentLen = size(lc)[1]
   if (limit < currentLen) 
@@ -76,12 +76,14 @@ end
 #
 # usually glc is an outer join of language_freq datasets
 # glc = outerjoin(select(lc2022,Not(:cnt)),select(lc2023,Not(:cnt)),on=:language,makeunique=true)
-function freqHistoryBarPlot(glc::DataFrame; plotTitle::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5)
-  #TODO: add legend
+function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5)
   groupedbar(Matrix(glc[:,2:size(glc)[2]]), xticks=(1:size(glc)[1], glc.language), 
-            xrotation=90, size=plotSize,
-            title=plotTitle,
-            labels = hcat((2022-nYears+1):2022)           
+            xrotation=90, size=plotSize, title=title,
+            labels = hcat((2022-nYears+1):2022...)           
   )
+  if (!ismissing(fname))
+    png(fname)
+    CSV.write("$fname.cvs",glc)
+  end
 end
 

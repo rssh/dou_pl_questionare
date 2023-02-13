@@ -13,6 +13,12 @@ function normalize_language_2023(x::Union{Missing,String})::Union{Missing,String
     if (x == "C# / .NET") 
         return "C#"
     end
+    if (x == "1С")
+        return "1C"
+    end
+    if (x == "Salesforce Apex")
+        return "Apex"
+    end
     return x
 end
 
@@ -33,7 +39,9 @@ languageNamePatterns =Dict(
     "SAP ABAP" => r"^SAP$|ABAP$",
     ##patterns["Shell"]="^sh$|^bash$|^shell$|Shell Script|linux shell|bash( |-)scripting|C-Shell$|^ksh$|sh / bash|UNIX shell"
     ## checked cleaned 2016-01, 
-    "T-SQL" => r"^T-SQL$|Transact-SQL$|^TSQL$|^T-SQL;",
+    #"T-SQL" => r"^T-SQL$|Transact-SQL$|^TSQL$|^T-SQL;",
+    #"PL-SQL" => r"^pl/sql$",
+    "DB" => r"^T-SQL$|Transact-SQL$|^TSQL$|^T-SQL;|ˆPL/SQL$|ˆPL-SQL$|^pl/sql$",
     "Matlab" => r"^MATLAB$|^matlab|Matlab$",
     "Clojure" => r"^clojure$|^Clojure$",
     "Python" => r"^python$|^jython$",
@@ -42,7 +50,6 @@ languageNamePatterns =Dict(
     "Erlang" => r"erlang",
     "Go"=> r"^Google Go$|^golang$|^GoLang$|^go$",
     "OCaml"=> r"^ocaml$",
-    "PL-SQL" => r"^pl/sql$",
     "Lua" => r"^LUA$|ˆlua$"
 )
 

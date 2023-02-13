@@ -14,6 +14,8 @@ end
 
 include("language_questionare.jl")
 include("normalize_language.jl")
+include("normalize_platform.jl")
+include("normalize_specialization.jl")
 include("language_freq.jl")
 include("run_all.jl")
 

@@ -18,18 +18,20 @@ function prepare_dataset_2023(fname::String = "../../2023_01/lang-rating-2023.cs
         names(df)[26]=>"NowLanguage",
         names(df)[27]=>"ExperienceLanguage",
         names(df)[28]=>"AdditionalLanguages",
-        names(df)[29]=>"Platforms"
+        names(df)[29]=>"Platforms",
+        names(df)[30]=>"Specialization"
     ])
     # ask only developers
     filter!( :NowLanguage => x -> !ismissing(x), df)
-    categorize_dataset!(df)
+    normalize_dataset!(df)
 end;
 
 function prepare_platform(x::Union{Missing,String}, allPlatforms::Set{String})::Array{String}
     if ismissing(x)
         return []
     else
-        variants = map(rstrip,map(lstrip,split(x,",")))
+        variants = map(x -> String(x), map(rstrip,map(lstrip,split(x,","))))
+        normalize_platform.(variants)
         union!(allPlatforms, variants)
         return variants
     end
@@ -43,10 +45,11 @@ function prepare_dataset_2022(fname::String = "../../2022_01/lang-2022-data.csv"
         "Основна мова програмування"=>"NowLanguage",
         names(df)[34]=>"ExperienceLanguage",
         names(df)[36]=>"AdditionalLanguages",
-        names(df)[37]=>"Platforms"
+        names(df)[37]=>"Platforms",
+        names(df)[38]=>"Specialization"
     ])
     filter!( :NowLanguage => x -> !ismissing(x), df)
-    categorize_dataset!(df)
+    normalize_dataset!(df)
 end
 
 function prepare_dataset_2021(fname::String = "../../2021_01/q12.csv")::DataFrame
@@ -93,19 +96,22 @@ end
 
 
 
-function categorize_dataset!(df::DataFrame)
+function normalize_dataset!(df::DataFrame)
     allPlatforms::Set{String} = Set{String}()
     transform!(df,
         [ 
             "Platforms" => x -> prepare_platform.(x,Ref(allPlatforms)),
-            "NowLanguage" => x -> normalize_language_2023.(x) 
+            #"Platforms" => x -> normalize_platform.(x)
+            "NowLanguage" => x -> normalize_language_2023.(x),
+            "Specialization" => x -> normalize_specialization.(x) 
         ],
         renamecols=false 
     )
-    transform!(df,
-       [ "Platforms" => x -> categorical.(x,levels=[allPlatforms...]) ],
-       renamecols=false 
-    )
+    #transform!(df,
+    #   [ "Platforms" => x -> categorical.(x,levels=[allPlatforms...]) ],
+    #   renamecols=false 
+    #)
+    #
 end
 
 
