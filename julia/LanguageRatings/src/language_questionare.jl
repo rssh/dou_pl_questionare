@@ -19,7 +19,8 @@ function prepare_dataset_2023(fname::String = "../../2023_01/lang-rating-2023.cs
         names(df)[27]=>"ExperienceLanguage",
         names(df)[28]=>"AdditionalLanguages",
         names(df)[29]=>"Platforms",
-        names(df)[30]=>"Specialization"
+        names(df)[30]=>"Specialization",
+        names(df)[37]=>"NextLanguage"
     ])
     # ask only developers
     filter!( :NowLanguage => x -> !ismissing(x), df)
@@ -46,7 +47,8 @@ function prepare_dataset_2022(fname::String = "../../2022_01/lang-2022-data.csv"
         names(df)[34]=>"ExperienceLanguage",
         names(df)[36]=>"AdditionalLanguages",
         names(df)[37]=>"Platforms",
-        names(df)[38]=>"Specialization"
+        names(df)[38]=>"Specialization",
+        names(df)[45]=>"NextLanguage"
     ])
     filter!( :NowLanguage => x -> !ismissing(x), df)
     normalize_dataset!(df)
@@ -89,6 +91,7 @@ function prepare_dataset_2013(fname::String = "../../2013_01/questionnaire4_clea
     filter!( :NowLanguage => x -> !ismissing(x), df)
     transform!(df,
        [ "NowLanguage" => x -> normalize_language_gen.(x) ],
+       [ "NextLanguage" => x -> normalize_language_gen.(x) ],
        renamecols = false
     )
     filter!( :NowLanguage => x -> !ismissing(x), df)
@@ -103,7 +106,8 @@ function normalize_dataset!(df::DataFrame)
             "Platforms" => x -> prepare_platform.(x,Ref(allPlatforms)),
             #"Platforms" => x -> normalize_platform.(x)
             "NowLanguage" => x -> normalize_language_2023.(x),
-            "Specialization" => x -> normalize_specialization.(x) 
+            "Specialization" => x -> normalize_specialization.(x),
+            "NextLanguage" => x -> normalize_language_2023.(x),
         ],
         renamecols=false 
     )

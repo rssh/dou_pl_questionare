@@ -19,4 +19,14 @@ function run_all(baseDir::String = "../..")
     dfs = prepare_all()
     lfh = freqHistory(:NowLanguage, dfs..., limit=15)
 
+    # How specialization is changed
+    glc = LanguageRatings.freqHistory(:Specialization, dfs..., nYears=2, filterExpr=(x -> !ismissing(x.Specialization) && !(x.Specialization in ["GameDev","QA","Other"]) ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="Specializations", nYears=2)
+    
+    # hostory by specialization:
+    # Backend:
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=2, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
+    
+    
+
 end
