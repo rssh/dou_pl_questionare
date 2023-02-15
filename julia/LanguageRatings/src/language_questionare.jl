@@ -16,11 +16,13 @@ function prepare_dataset_2023(fname::String = "../../2023_01/lang-rating-2023.cs
     rename!(df,[
         names(df)[25]=>"FirstLanguage",
         names(df)[26]=>"NowLanguage",
-        names(df)[27]=>"ExperienceLanguage",
+        names(df)[27]=>"ExperienceInLanguageYears",
         names(df)[28]=>"AdditionalLanguages",
         names(df)[29]=>"Platforms",
         names(df)[30]=>"Specialization",
-        names(df)[37]=>"NextLanguage"
+        names(df)[37]=>"NextLanguage",
+        names(df)[40]=>"LearnLanguage",
+        names(df)[46]=>"ExperienceInProgrammingYears"
     ])
     # ask only developers
     filter!( :NowLanguage => x -> !ismissing(x), df)
@@ -44,18 +46,25 @@ function prepare_dataset_2022(fname::String = "../../2022_01/lang-2022-data.csv"
     rename!(df,[
         names(df)[32]=>"FirstLanguage",
         "Основна мова програмування"=>"NowLanguage",
-        names(df)[34]=>"ExperienceLanguage",
+        names(df)[34]=>"ExperienceInLanguageYears",
         names(df)[36]=>"AdditionalLanguages",
         names(df)[37]=>"Platforms",
         names(df)[38]=>"Specialization",
-        names(df)[45]=>"NextLanguage"
+        names(df)[45]=>"NextLanguage",
+        names(df)[47]=>"LearnLanguage",
+        names(df)[54]=>"ExperienceInProgrammingYears"
     ])
     filter!( :NowLanguage => x -> !ismissing(x), df)
     normalize_dataset!(df)
 end
 
 function prepare_dataset_2021(fname::String = "../../2021_01/q12.csv")::DataFrame
-    prepare_dataset_2019(fname)
+    df = prepare_dataset_2019(fname)
+    transform!(df,
+       [ :ExperienceInProgrammingYears => x -> tryparse.(Float32, x)  ],
+       renamecols = false
+    )
+    return df
 end
 
 function prepare_dataset_2020(fname::String = "../../2020_01/q11.csv")::DataFrame
@@ -107,7 +116,10 @@ function normalize_dataset!(df::DataFrame)
             #"Platforms" => x -> normalize_platform.(x)
             "NowLanguage" => x -> normalize_language_2023.(x),
             "Specialization" => x -> normalize_specialization.(x),
+            "LearnLanguage" => x -> normalize_language_2023.(x),
             "NextLanguage" => x -> normalize_language_2023.(x),
+            "ExperienceInProgrammingYears" => x -> normalize_experience_2023.(x),
+            "ExperienceInLanguageYears" => x -> normalize_experience_2023.(x)
         ],
         renamecols=false 
     )

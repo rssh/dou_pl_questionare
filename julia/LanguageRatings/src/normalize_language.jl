@@ -4,7 +4,8 @@ function normalize_language_2023(x::Union{Missing,String})::Union{Missing,String
     if ismissing(x)
         return missing
     end
-    if (x in ["Не можу обрати одну основну мову", "Інша мова", "Важко сказати, не знаю"]) 
+    if (x in ["Не можу обрати одну основну мову", "Інша мова", "Важко сказати, не знаю",
+        "Важко сказати, ще не визначився (-лась)"]) 
         return missing
     end
     if (x in ["Мови розробки БД (PL/SQL, Transact-SQL)", "SQL"]) 

@@ -18,7 +18,7 @@ function language_freq(df::DataFrame, columnName::Symbol; limit::Int=100, barrie
 end
 
 
-function freqBarPlot(lc::DataFrame, title::String; fname::Union{String,Missing}, limit=30) 
+function freqBarPlot(lc::DataFrame, title::String; fname::Union{String,Missing}=missing, limit=30) 
 
   currentLen = size(lc)[1]
   if (limit < currentLen) 
