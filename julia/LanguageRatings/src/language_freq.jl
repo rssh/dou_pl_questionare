@@ -34,7 +34,7 @@ end
 #
 # dataframes - list of data frames,  the last is first.
 #   
-function languageFreqHistory(columnName::Symbol, dataframes::DataFrame ... ; limit::Int = 30, nYears=5)::DataFrame 
+function freqHistory(columnName::Symbol, dataframes::DataFrame ... ; limit::Int = 30, nYears=5, filterExpr = missing)::DataFrame 
   dfs = collect(dataframes)
 
   if (nYears > length(dfs))
@@ -45,6 +45,9 @@ function languageFreqHistory(columnName::Symbol, dataframes::DataFrame ... ; lim
   rData = DataFrame()
   for i in 1:nYears
     df = dfs[i]
+    if (!ismissing(filterExpr)) 
+      df = filter(filterExpr, df)
+    end
     currentYear = startYear+nYears-i
     cData = language_freq(df,columnName)
     cData = select(cData,Not(:cnt))
@@ -85,5 +88,19 @@ function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{Strin
     png(fname)
     CSV.write("$fname.cvs",glc)
   end
+end
+
+function languagesBySpecialization(columnName, dfs::DataFrame...; nYears = 2 )
+  #allSpecializations = union!(Set(), dfs[1..nYears])
+  allSpecializations = Set()
+  for i in 1..nYears
+    df = dfs[i]
+    if ("Specialization" in names(df))
+        union!(a, names(freqtable(df,"Specialization")))
+    end   
+  end
+
+  rData = DataFrame()
+
 end
 

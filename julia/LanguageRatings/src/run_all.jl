@@ -17,6 +17,6 @@ end
 function run_all(baseDir::String = "../..")
 
     dfs = prepare_all()
-    lfh = languageFreqHistory(:NowLanguage, dfs..., limit=15)
+    lfh = freqHistory(:NowLanguage, dfs..., limit=15)
 
 end

@@ -1,5 +1,5 @@
 
-function normalize_specialization(x::Union{Missing,String})::Union{Missing,String}
+function normalize_specialization(x::Union{Missing,String}; unknownAsOther = true)::Union{Missing,String}
     if ismissing(x)
         return missing
     end
@@ -18,7 +18,7 @@ function normalize_specialization(x::Union{Missing,String})::Union{Missing,Strin
     if (x == "Full Stack розробка")
         return "Full Stack"
     end
-    if (x == "Робота з даними, аналіз даних")
+    if (x in [ "Робота з даними, аналіз даних", "DS, AI, ML", "Data Analysis" ] )
         return "Data Analysis"
     end
     if (x == "QA")
@@ -33,8 +33,21 @@ function normalize_specialization(x::Union{Missing,String})::Union{Missing,Strin
     if (x == "DevOps/SRE")
         return "DevOps"
     end
-    if (x == "gamedev")
+    if (x == "gamedev" || x=="GameDev")
         return "GameDev"
     end
-    return x
+    if (x == "AOSP, RTOS")
+        return "Embedded"
+    end
+    if (x in [ "DevOps", "devops" ] )
+        return "DevOps"
+    end
+    if (x in [ "QA", "qa" ])
+        return "QA"
+    end
+    if (unknownAsOther)
+        return "Other"
+    else
+        return x
+    end
 end
