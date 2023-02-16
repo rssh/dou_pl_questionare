@@ -132,5 +132,34 @@ function normalize_dataset!(df::DataFrame)
     #
 end
 
+function final_table(dfs::DataFrame...; fname=missing) 
+    df=dfs[1]
+    lcNow=LanguageRatings.language_freq(df,:NowLanguage; limit=30)
+    dfPrev=dfs[2]
+    lcPrev=LanguageRatings.language_freq(dfPrev,:NowLanguage,limit=50)
+    select!(lcPrev,[:language,:freq])
+    x=leftjoin(lcNow,lcPrev,on=:language, makeunique=true, renamecols=("" => "_prev"))
+    x=coalesce.(x, 0.0)
+    x.diff = (x.freq - x.freq_prev)*100
+    lcAdditional=LanguageRatings.multi_language_freq(df,:AdditionalLanguages,limit=50)
+    select!(lcAdditional,[:language,:cnt])
+    x=leftjoin(x,lcAdditional,on=:language,makeunique=true,renamecols=(""=>"_additional"))
+    lcPetProjects = LanguageRatings.multi_language_freq(df,:PetProjectLanguages,limit=50)
+    select!(lcPetProjects,[:language,:cnt])
+    x=leftjoin(x,lcPetProjects,on=:language,makeunique=true,renamecols=(""=>"_pet_projects"))
+    si=LanguageRatings.satisfaction_index(df,limit=50)
+    dfsi=DataFrame([:language=>vcat(names(si)...),:si=>values(si)])
+    x=leftjoin(x,dfsi,on=:language)
+    sort!(x,:freq, rev=true)
+    select!(x,Not(:freq_prev))
+    x.freq=x.freq*100
+    x.freq= (x -> if x<1 missing else round(x*100)/100 end).(x.freq)
+    x.diff = (x -> if (abs(x)<0.1) missing else round(x*100)/100 end ).( x.diff)
+    x.si = (x -> round(x*1000)/10).(coalesce.(x.si,0.0))
+    if (!ismissing(fname))
+        CSV.write("$fname.csv",x)
+    end
+    return x
+  end 
 
 

@@ -86,7 +86,7 @@ function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{Strin
   )
   if (!ismissing(fname))
     png(fname)
-    CSV.write("$fname.cvs",glc)
+    CSV.write("$fname.csv",glc)
   end
 end
 
@@ -122,3 +122,4 @@ function  multi_language_freq(df::DataFrame, columnName::Symbol; limit::Int=30, 
   end 
   return rData
 end
+

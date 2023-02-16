@@ -23,5 +23,6 @@ include("run_all.jl")
 
 export prepare_all
 export run_all
+export final_table
 
 end

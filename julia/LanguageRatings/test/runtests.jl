@@ -28,6 +28,12 @@ using Test
         mlc = LanguageRatings.multi_language_freq(df2023, :AdditionalLanguages)
         size(mlc)[1] > 0
     end
+
+    @test begin
+        ft = LanguageRatings.final_table(dfs...)
+        ft.language[1] == "JavaScript"
+    end
+
 end
 
 
