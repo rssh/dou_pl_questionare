@@ -24,6 +24,10 @@ using Test
 
     @test df2021.NowLanguage[2] == "C#"
 
+    @test begin
+        mlc = LanguageRatings.multi_language_freq(df2023, :AdditionalLanguages)
+        size(mlc)[1] > 0
+    end
 end
 
 

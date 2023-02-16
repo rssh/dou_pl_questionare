@@ -90,17 +90,35 @@ function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{Strin
   end
 end
 
-function languagesBySpecialization(columnName, dfs::DataFrame...; nYears = 2 )
-  #allSpecializations = union!(Set(), dfs[1..nYears])
-  allSpecializations = Set()
-  for i in 1..nYears
-    df = dfs[i]
-    if ("Specialization" in names(df))
-        union!(a, names(freqtable(df,"Specialization")))
-    end   
+#
+# accept column with multiplelanguages 
+function  multi_language_freq(df::DataFrame, columnName::Symbol; limit::Int=30, barrier=1, normalizeFun=missing)
+  if ismissing(normalizeFun) 
+    normalizeFun = normalize_language_2023
   end
-
-  rData = DataFrame()
-
+  dict = Dict{String,Int}()
+  for r in eachrow(df)
+    if (ismissing(r[columnName]))
+      continue
+    end
+    a = map(x -> normalizeFun(String(lstrip(rstrip(x)))), split(r[columnName],","))
+    for i in 1:length(a)
+      name=a[i]
+      if (ismissing(name)) 
+        continue 
+      end
+      dict[name]=get(dict,name,0)+1
+    end
+  end 
+  rData=DataFrame(language=collect(keys(dict)),cnt=collect(values(dict)))
+  sort!(rData,:cnt,rev=true)
+  transform!(rData, :cnt => (x -> x/sum(rData.cnt)) => :freq )
+  if (barrier > 1)
+    rData = filter(x -> x.cnt >= barrier, rData)
+  end 
+  currentLen = size(rData)[1]
+  if (limit < currentLen)
+    rData = rData[1:limit,:]
+  end 
+  return rData
 end
-

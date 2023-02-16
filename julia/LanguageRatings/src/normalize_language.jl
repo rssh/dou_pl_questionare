@@ -5,11 +5,14 @@ function normalize_language_2023(x::Union{Missing,String})::Union{Missing,String
         return missing
     end
     if (x in ["Не можу обрати одну основну мову", "Інша мова", "Важко сказати, не знаю",
-        "Важко сказати, ще не визначився (-лась)"]) 
+        "Важко сказати, ще не визначився (-лась)", "Не використовую" ]) 
         return missing
     end
-    if (x in ["Мови розробки БД (PL/SQL, Transact-SQL)", "SQL"]) 
+    if (x in ["Мови розробки БД (PL/SQL, Transact-SQL)", "SQL", "Мови розробки БД (PL/SQL"]) 
         return "DB"
+    end
+    if (x == "Transact-SQL)") # hack agains error in using split without quotinv commas in strings.
+        return missing
     end
     if (x == "C# / .NET") 
         return "C#"
@@ -74,3 +77,4 @@ function normalize_language_gen(x::Union{Missing,String})::Union{Missing,String}
     #not found.  TODO: warning (?)
     return x
 end
+
