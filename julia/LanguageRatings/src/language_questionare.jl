@@ -21,6 +21,7 @@ function prepare_dataset_2023(fname::String = "../../2023_01/lang-rating-2023.cs
         names(df)[29]=>"Platforms",
         names(df)[30]=>"Specialization",
         names(df)[37]=>"NextLanguage",
+        names(df)[38]=>"PetProjectLanguages",
         names(df)[40]=>"LearnLanguage",
         names(df)[46]=>"ExperienceInProgrammingYears"
     ])
@@ -51,6 +52,7 @@ function prepare_dataset_2022(fname::String = "../../2022_01/lang-2022-data.csv"
         names(df)[37]=>"Platforms",
         names(df)[38]=>"Specialization",
         names(df)[45]=>"NextLanguage",
+        names(df)[46]=>"PetProjectsLanguages",
         names(df)[47]=>"LearnLanguage",
         names(df)[54]=>"ExperienceInProgrammingYears"
     ])
