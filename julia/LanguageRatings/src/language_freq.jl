@@ -101,6 +101,9 @@ function  multi_language_freq(df::DataFrame, columnName::Symbol; limit::Int=30, 
     if (ismissing(r[columnName]))
       continue
     end
+    if occursin("Немає", r[columnName]) 
+      continue;
+    end;
     a = map(x -> normalizeFun(String(lstrip(rstrip(x)))), split(r[columnName],","))
     for i in 1:length(a)
       name=a[i]
