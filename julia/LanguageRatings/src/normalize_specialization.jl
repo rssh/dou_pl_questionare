@@ -1,5 +1,5 @@
 
-function normalize_specialization(x::Union{Missing,String}; unknownAsOther = true)::Union{Missing,String}
+function normalize_specialization(x::Union{Missing,AbstractString}; unknownAsOther = true)::Union{Missing,AbstractString}
     if ismissing(x)
         return missing
     end

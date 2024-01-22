@@ -24,7 +24,7 @@ function freqBarPlot(lc::DataFrame, title::String; fname::Union{String,Missing}=
   if (limit < currentLen) 
     lc = lc[1:limit,:]
   end
-  bar(lc.freq, xticks=(1:size(lc)[1], lc.language), xrotation=90, legend=false, title=title)
+  bar(Array(lc.freq), xticks=(1:size(lc)[1], lc.language), xrotation=90, legend=false, title=title)
   if !ismissing(fname)
     png(fname)
     CSV.write("$fname.csv",lc)
@@ -40,7 +40,7 @@ function freqHistory(columnName::Symbol, dataframes::DataFrame ... ; limit::Int 
   if (nYears > length(dfs))
     nYears = length(dfs)
   end
-  startYear=2023-nYears
+  startYear=2024-nYears
 
   rData = DataFrame()
   for i in 1:nYears

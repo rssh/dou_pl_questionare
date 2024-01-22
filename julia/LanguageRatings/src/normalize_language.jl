@@ -1,6 +1,6 @@
 
 
-function normalize_language_2023(x::Union{Missing,String})::Union{Missing,String}
+function normalize_language_2023(x::Union{Missing,AbstractString})::Union{Missing,AbstractString}
     if ismissing(x)
         return missing
     end
@@ -17,11 +17,20 @@ function normalize_language_2023(x::Union{Missing,String})::Union{Missing,String
     if (x == "C# / .NET") 
         return "C#"
     end
+    if ( x == "Unity/C#")
+        return "C#"
+    end
     if (x == "1С")
         return "1C"
     end
     if (x == "Salesforce Apex")
         return "Apex"
+    end
+    if (x == "C++ / Qt")
+        return "C++"
+    end
+    if (x == "lua") 
+        return "Lua"
     end
     return x
 end
@@ -59,7 +68,7 @@ languageNamePatterns =Dict(
 
 missingLanguagePatterns = Set([r"(Н|н)е пишу",r"Сыроварня",r"Не работаю|^no$"])
 
-function normalize_language_gen(x::Union{Missing,String})::Union{Missing,String}
+function normalize_language_gen(x::Union{Missing,AbstractString})::Union{Missing,AbstractString}
     if (ismissing(x)) 
         return missing
     end

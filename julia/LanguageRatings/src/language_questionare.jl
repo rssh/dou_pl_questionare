@@ -10,6 +10,29 @@ struct LanguageQuestionare
     originDF :: DataFrame
 end;
 
+function prepare_dataset_2024(fname::String = "../../2024_01/dec2023_programming_languages.csv")::DataFrame
+    df = CSV.read(fname, DataFrame, delim=",")
+    rename!(df,[
+        names(df)[6]=>"FirstLanguage",
+        names(df)[7]=>"NowLanguage",
+        names(df)[8]=>"ExperienceInLanguageYears",
+        names(df)[9]=>"AdditionalLanguages",
+        names(df)[10]=>"Platforms",
+        names(df)[11]=>"Specialization",
+        names(df)[12]=>"Frameworks/Frontend",
+        names(df)[13]=>"Frameworks/Fullstack",
+        names(df)[14]=>"Frameworks/Backend",
+        names(df)[15]=>"Frameworks/Mobile",
+        names(df)[16]=>"Frameworks/QA",
+        names(df)[17]=>"Frameworks/Data",
+        names(df)[18]=>"NextLanguage",
+        names(df)[19]=>"PetProjectLanguages",
+        names(df)[21]=>"LearnLanguage",
+        names(df)[22]=>"LearnWay"
+    ])
+    filter!( :NowLanguage => x -> !ismissing(x), df)
+    normalize_dataset!(df)
+end;
 
 function prepare_dataset_2023(fname::String = "../../2023_01/lang-rating-2023.csv")::DataFrame
     df = CSV.read(fname, DataFrame, delim=";")
@@ -120,11 +143,23 @@ function normalize_dataset!(df::DataFrame)
             "Specialization" => x -> normalize_specialization.(x),
             "LearnLanguage" => x -> normalize_language_2023.(x),
             "NextLanguage" => x -> normalize_language_2023.(x),
-            "ExperienceInProgrammingYears" => x -> normalize_experience_2023.(x),
-            "ExperienceInLanguageYears" => x -> normalize_experience_2023.(x)
+            #"ExperienceInProgrammingYears" => x -> normalize_experience_2023.(x),
+            #"ExperienceInLanguageYears" => x -> normalize_experience_2023.(x)
         ],
         renamecols=false 
     )
+    if (columnindex(df,:ExperienceInProgrammingYears) > 0)
+        transform!(df,
+            [ "ExperienceInProgrammingYears" => x -> normalize_experience_2023.(x) ],
+            renamecols=false 
+        )
+    end
+    if (columnindex(df,:ExperienceInLanguageYears) > 0)
+        transform!(df,
+            [ "ExperienceInLanguageYears" => x -> normalize_experience_2023.(x) ],
+            renamecols=false 
+        )
+    end
     #transform!(df,
     #   [ "Platforms" => x -> categorical.(x,levels=[allPlatforms...]) ],
     #   renamecols=false 
