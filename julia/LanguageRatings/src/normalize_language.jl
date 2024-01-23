@@ -32,6 +32,9 @@ function normalize_language_2023(x::Union{Missing,AbstractString})::Union{Missin
     if (x == "lua") 
         return "Lua"
     end
+    if (x == "Brightscript") 
+        return "BrightScript"
+    end
     return x
 end
 
