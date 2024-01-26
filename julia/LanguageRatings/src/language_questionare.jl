@@ -32,6 +32,17 @@ function prepare_dataset_2024(fname::String = "../../2024_01/dec2023_programming
     ])
     filter!( :NowLanguage => x -> !ismissing(x), df)
     normalize_dataset!(df)
+    # Next language is multi-column.  It's error but we miss one :(  will fix nect year.
+    transform!(df,
+        [ :NextLanguage => ByRow( x -> 
+           if (ismissing(x)) 
+              missing 
+            else 
+              map(l -> normalize_language_2023(lstrip(rstrip(l))), split(x,",")) 
+            end 
+         ) => :NextLanguages],
+        renamecols = false
+    )
 end;
 
 function prepare_dataset_2023(fname::String = "../../2023_01/lang-rating-2023.csv")::DataFrame
