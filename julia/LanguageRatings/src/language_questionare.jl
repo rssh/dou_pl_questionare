@@ -13,22 +13,24 @@ end;
 function prepare_dataset_2024(fname::String = "../../2024_01/dec2023_programming_languages.csv")::DataFrame
     df = CSV.read(fname, DataFrame, delim=",")
     rename!(df,[
-        names(df)[6]=>"FirstLanguage",
-        names(df)[7]=>"NowLanguage",
-        names(df)[8]=>"ExperienceInLanguageYears",
-        names(df)[9]=>"AdditionalLanguages",
-        names(df)[10]=>"Platforms",
-        names(df)[11]=>"Specialization",
-        names(df)[12]=>"Frameworks/Frontend",
-        names(df)[13]=>"Frameworks/Fullstack",
-        names(df)[14]=>"Frameworks/Backend",
-        names(df)[15]=>"Frameworks/Mobile",
-        names(df)[16]=>"Frameworks/QA",
-        names(df)[17]=>"Frameworks/Data",
-        names(df)[18]=>"NextLanguage",
-        names(df)[19]=>"PetProjectLanguages",
-        names(df)[21]=>"LearnLanguage",
-        names(df)[22]=>"LearnWay"
+        names(df)[20]=>"FirstLanguage",
+        names(df)[21]=>"NowLanguage",
+        names(df)[22]=>"ExperienceInLanguageYears",
+        names(df)[23]=>"AdditionalLanguages",
+        names(df)[24]=>"Platforms",
+        names(df)[25]=>"Specialization",
+        names(df)[26]=>"Frameworks/Frontend",
+        names(df)[27]=>"Frameworks/Fullstack",
+        names(df)[28]=>"Frameworks/Backend",
+        names(df)[29]=>"Frameworks/Mobile",
+        names(df)[30]=>"Frameworks/QA",
+        names(df)[31]=>"Frameworks/Data",
+        names(df)[32]=>"NextLanguage",
+        names(df)[33]=>"PetProject  Languages",
+        names(df)[35]=>"LearnLanguage",
+        names(df)[36]=>"LearnWay",
+        names(df)[37]=>"Area",
+        names(df)[41]=>"ExperienceInProgrammingYears"
     ])
     filter!( :NowLanguage => x -> !ismissing(x), df)
     normalize_dataset!(df)

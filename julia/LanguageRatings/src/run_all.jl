@@ -18,7 +18,14 @@ end
 function run_all(baseDir::String = "../..")
 
     dfs = prepare_all()
+
+    df = dfs[1]
+    ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, barrier=10)
+    LanguageRatings.freqBarPlot(ls, "2024", fname="../../2024_01/NowLanguage", limit=23)
+
     lfh = freqHistory(:NowLanguage, dfs..., limit=15)
+
+
 
     # How specialization is changed
     glc = LanguageRatings.freqHistory(:Specialization, dfs..., nYears=2, filterExpr=(x -> !ismissing(x.Specialization) && !(x.Specialization in ["GameDev","QA","Other"]) ))
