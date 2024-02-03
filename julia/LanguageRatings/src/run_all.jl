@@ -21,15 +21,15 @@ function run_all(baseDir::String = "../..")
 
     df = dfs[1]
     ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, barrier=10)
-    LanguageRatings.freqBarPlot(ls, "2024", fname="../../2024_01/NowLanguage", limit=23)
+    LanguageRatings.freqBarPlot(ls, "Основна мова програмування", fname="../../2024_01/NowLanguage", limit=23)
 
     lfh = freqHistory(:NowLanguage, dfs..., limit=15)
-
+    LanguageRatings.freqHistoryBarPlot(lfh; fname="../../2024_01/NowLanguageHistory", nYears=2)
 
 
     # How specialization is changed
-    glc = LanguageRatings.freqHistory(:Specialization, dfs..., nYears=2, filterExpr=(x -> !ismissing(x.Specialization) && !(x.Specialization in ["GameDev","QA","Other"]) ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="Specializations", nYears=2)
+    glc = LanguageRatings.freqHistory(:Specialization, dfs..., nYears=3, filterExpr=(x -> !ismissing(x.Specialization) && !(x.Specialization in ["GameDev","QA","Other","Embedded"]) ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/Specializations", nYears=3)
     
     # hostory by specialization:
     # Backend:
