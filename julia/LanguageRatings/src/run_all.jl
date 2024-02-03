@@ -33,7 +33,7 @@ function run_all(baseDir::String = "../..")
     
     # hostory by specialization:
     # Backend:
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=2, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
     
     
 
