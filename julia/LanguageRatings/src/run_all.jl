@@ -34,8 +34,13 @@ function run_all(baseDir::String = "../..")
     # hostory by specialization:
     # Backend:
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageBackend", nYears=3)
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageBackendHistory", nYears=3)
     
-    
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Frontend") ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageFrontendHistory", nYears=3)
+
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Full Stack") ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageFullStackHistory", nYears=3)
+
 
 end
