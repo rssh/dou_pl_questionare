@@ -42,5 +42,9 @@ function run_all(baseDir::String = "../..")
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Full Stack") ))
     LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageFullStackHistory", nYears=3)
 
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Mobile") ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageMobileHistory", nYears=3)
+
+
 
 end
