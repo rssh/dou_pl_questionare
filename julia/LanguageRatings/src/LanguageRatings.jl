@@ -19,6 +19,7 @@ include("normalize_specialization.jl")
 include("normalize_experience.jl")
 include("satisfaction_index.jl")
 include("language_freq.jl")
+include("experience_plots.jl")
 include("run_all.jl")
 
 export prepare_all
