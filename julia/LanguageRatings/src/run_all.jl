@@ -98,5 +98,8 @@ function run_all(baseDir::String = "../..")
 
 
     # Final table
+    ls = LanguageRatings.language_freq(df,:LearnLanguage, limit=30, barrier=10)
+    LanguageRatings.freqBarPlot(ls, "Яку мову програмування плануєтк вивчити", fname="../../2024_01/LearnLanguage", limit=23)
+
     
 end
