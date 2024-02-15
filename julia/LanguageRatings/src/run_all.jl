@@ -96,10 +96,15 @@ function run_all(baseDir::String = "../..")
     glc = LanguageRatings.multi_language_freq(df, :PetProjectLanguages, limit=20) 
     LanguageRatings.freqBarPlot(glc, "PetProjectLanguages", fname="../../2024_01/PetProjectLanguages", limit=19)
 
-
-    # Final table
+    # Learn Language
     ls = LanguageRatings.language_freq(df,:LearnLanguage, limit=30, barrier=10)
     LanguageRatings.freqBarPlot(ls, "Яку мову програмування плануєтк вивчити", fname="../../2024_01/LearnLanguage", limit=23)
+
+    # Final table
+  
+    # experience
+    ft=LanguageRatings.plot_experience_freq_by_lang(df, ["JavaScript","TypeScript", "Python", "Java", "C#","PHP"], title="Досвід у програмуванні", fname="../../2024_01/ExpirienceInProgramming")
+    
 
     
 end
