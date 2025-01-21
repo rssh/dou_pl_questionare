@@ -1,5 +1,6 @@
 
 function prepare_all(baseDir::String = "../..")
+    df2025 = LanguageRatings.prepare_dataset_2025("$baseDir/2025_01/dec2024_programming_languages.csv")
     df2024 = LanguageRatings.prepare_dataset_2024("$baseDir/2024_01/lang-rating-dec2023.csv")
     df2023 = LanguageRatings.prepare_dataset_2023("$baseDir/2023_01/lang-rating-2023.csv")
     df2022 = LanguageRatings.prepare_dataset_2022("$baseDir/2022_01/lang-2022-data.csv")
@@ -12,7 +13,7 @@ function prepare_all(baseDir::String = "../..")
     df2015 = LanguageRatings.prepare_dataset_2015("$baseDir/2015_01/questionnaire6_cleaned.csv")
     df2014 = LanguageRatings.prepare_dataset_2014("$baseDir/2014_01/questionnaire5_cleaned.csv")
     df2013 = LanguageRatings.prepare_dataset_2013("$baseDir/2013_01/questionnaire4_cleaned.csv")
-    return [df2024, df2023, df2022, df2021, df2020, df2019, df2018, df2017, df2016, df2015, df2014, df2013]
+    return [df2025, df2024, df2023, df2022, df2021, df2020, df2019, df2018, df2017, df2016, df2015, df2014, df2013]
 end
 
 function run_all(baseDir::String = "../..")
@@ -21,7 +22,7 @@ function run_all(baseDir::String = "../..")
 
     df = dfs[1]
     ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, barrier=10)
-    LanguageRatings.freqBarPlot(ls, "Основна мова програмування", fname="../../2024_01/NowLanguage", limit=23)
+    LanguageRatings.freqBarPlot(ls, "Основна мова програмування", fname="../../2025_01/NowLanguage", limit=23)
 
     lfh = freqHistory(:NowLanguage, dfs..., limit=15)
     LanguageRatings.freqHistoryBarPlot(lfh; fname="../../2024_01/NowLanguageHistory", nYears=2)
@@ -99,6 +100,10 @@ function run_all(baseDir::String = "../..")
     # Learn Language
     ls = LanguageRatings.language_freq(df,:LearnLanguage, limit=30, barrier=10)
     LanguageRatings.freqBarPlot(ls, "Яку мову програмування плануєтк вивчити", fname="../../2024_01/LearnLanguage", limit=23)
+
+    # Additional Languages
+    af = LanguageRatings.multi_language_freq(df, :AdditionalLanguages, limit=20, normalizeFun=LanguageRatings.normalize_language_2023)
+    LanguageRatings.freqBarPlot(af, "Додаткові мови", fname="../../2024_01/AdditionalLanguages")
 
     # Final table
   

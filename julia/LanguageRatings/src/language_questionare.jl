@@ -10,6 +10,50 @@ struct LanguageQuestionare
     originDF :: DataFrame
 end;
 
+function prepare_dataset_2025(fname::String = ".../../2025_01/dec2024_programming_languages.csv")::DataFrame
+    df = CSV.read(fname, DataFrame, delim=",")
+    rename!(df,[
+        names(df)[4]  => "Employment",
+        names(df)[5]  => "Title",
+        names(df)[8]  => "Specialization",
+        names(df)[9]  => "FirstLanguage",
+        names(df)[10] => "NowLanguage",
+        names(df)[11] => "ExperienceInLanguageYears",
+        names(df)[12] => "FactAdditionalLanguages",
+        names(df)[13] => "AdditionalLanguages",
+        names(df)[14] => "NextLanguage",
+        names(df)[15] => "FactOpenSourceNow",
+        names(df)[16] => "OpenSourceLanguageNow", 
+        names(df)[17] => "FactPetProjectsLanguage",
+        names(df)[18] => "PetProjectsLanguages",
+        names(df)[19] => "FactLearn",
+        names(df)[20] => "LearnLanguage",
+        names(df)[21] => "FrameworksDevelopment",
+        names(df)[22] => "FrameworksQA",
+        names(df)[23] => "FrameworksDataAnalysis",
+        names(df)[24] => "LearnWay",
+        names(df)[25] => "Platforms",
+        names(df)[26] => "Area",
+        names(df)[27] => "ExperienceInTitleYears",
+        names(df)[28] => "ExperienceInProgrammingYears"
+    ])
+    filter!( :NowLanguage => x -> !ismissing(x), df)
+    normalize_dataset!(df)
+    # Next language is multi-column.  It's error but we miss one :(  will fix nect year.
+    # not fixed yet.
+    transform!(df,
+        [ :NextLanguage => ByRow( x -> 
+           if (ismissing(x)) 
+              missing 
+            else 
+              map(l -> normalize_language_2023(lstrip(rstrip(l))), split(x,",")) 
+            end 
+         ) => :NextLanguages],
+        renamecols = false
+    )    
+end
+
+
 function prepare_dataset_2024(fname::String = "../../2024_01/dec2023_programming_languages.csv")::DataFrame
     df = CSV.read(fname, DataFrame, delim=",")
     rename!(df,[

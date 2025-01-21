@@ -2,19 +2,22 @@ using DataFrames
 using StatsPlots
 using CSV
 
-function language_freq(df::DataFrame, columnName::Symbol; limit::Int=100, barrier::Int=1)::DataFrame
-   rTable = freqtable(df,columnName)
-   rData = dropmissing(DataFrame(language=names(rTable)[1],cnt=rTable))
-   sort!(rData,"cnt",rev=true)
-   transform!(rData, :cnt => (x -> x/sum(rData.cnt)) => :freq )
-   if (barrier > 1)
-    rData = filter(x -> x.cnt >= barrier, rData)
-   end 
-   currentLen = size(rData)[1]
-   if (limit < currentLen)
+function language_freq(df::DataFrame, columnName::Symbol; limit::Int=100, barrier::Int=1, filterExpr=missing)::DataFrame
+  if (!ismissing(filterExpr)) 
+    df = filter(filterExpr, df)
+  end
+  rTable = freqtable(df,columnName)
+  rData = dropmissing(DataFrame(language=names(rTable)[1],cnt=rTable))
+  sort!(rData,"cnt",rev=true)
+  transform!(rData, :cnt => (x -> x/sum(rData.cnt)) => :freq )
+  if (barrier > 1)
+      rData = filter(x -> x.cnt >= barrier, rData)
+  end 
+  currentLen = size(rData)[1]
+  if (limit < currentLen)
      rData = rData[1:limit,:]
-   end 
-   return rData
+  end 
+  return rData
 end
 
 
