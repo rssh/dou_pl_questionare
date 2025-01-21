@@ -2,9 +2,11 @@ using DataFrames
 using StatsPlots
 using CSV
 
-function language_freq(df::DataFrame, columnName::Symbol; limit::Int=100, barrier::Int=1, filterExpr=missing)::DataFrame
+function language_freq(df0::DataFrame, columnName::Symbol; limit::Int=100, barrier::Int=1, filterExpr=missing)::DataFrame
   if (!ismissing(filterExpr)) 
-    df = filter(filterExpr, df)
+    df = filter(filterExpr, df0)
+  else
+    df = df0  
   end
   rTable = freqtable(df,columnName)
   rData = dropmissing(DataFrame(language=names(rTable)[1],cnt=rTable))
@@ -43,7 +45,7 @@ function freqHistory(columnName::Symbol, dataframes::DataFrame ... ; limit::Int 
   if (nYears > length(dfs))
     nYears = length(dfs)
   end
-  startYear=2024-nYears
+  startYear=2025-nYears
 
   rData = DataFrame()
   for i in 1:nYears
@@ -82,7 +84,7 @@ end
 #
 # usually glc is an outer join of language_freq datasets
 # glc = outerjoin(select(lc2022,Not(:cnt)),select(lc2023,Not(:cnt)),on=:language,makeunique=true)
-function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5, nowYear=2023)
+function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5, nowYear=2024)
   groupedbar(Matrix(glc[:,2:size(glc)[2]]), xticks=(1:size(glc)[1], glc.language), 
             xrotation=90, size=plotSize, title=title,
             labels = hcat((nowYear-nYears+1):nowYear...)           
