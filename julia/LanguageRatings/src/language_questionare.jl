@@ -24,8 +24,8 @@ function prepare_dataset_2025(fname::String = ".../../2025_01/dec2024_programmin
         names(df)[14] => "NextLanguage",
         names(df)[15] => "FactOpenSourceNow",
         names(df)[16] => "OpenSourceLanguageNow", 
-        names(df)[17] => "FactPetProjectsLanguage",
-        names(df)[18] => "PetProjectsLanguages",
+        names(df)[17] => "FactPetProjectLanguage",
+        names(df)[18] => "PetProjectLanguages",
         names(df)[19] => "FactLearn",
         names(df)[20] => "LearnLanguage",
         names(df)[21] => "FrameworksDevelopment",
@@ -236,9 +236,9 @@ function final_table(dfs::DataFrame...; fname=missing)
     lcAdditional=LanguageRatings.multi_language_freq(df,:AdditionalLanguages,limit=50)
     select!(lcAdditional,[:language,:cnt])
     x=leftjoin(x,lcAdditional,on=:language,makeunique=true,renamecols=(""=>"_additional"))
-    lcPetProjects = LanguageRatings.multi_language_freq(df,:PetProjectLanguages,limit=50)
-    select!(lcPetProjects,[:language,:cnt])
-    x=leftjoin(x,lcPetProjects,on=:language,makeunique=true,renamecols=(""=>"_pet_projects"))
+    lcOpenSource = LanguageRatings.multi_language_freq(df,:OpenSourceLanguageNow,limit=50)
+    select!(lcOpenSource,[:language,:cnt])
+    x=leftjoin(x,lcOpenSource,on=:language,makeunique=true,renamecols=(""=>"_open_source"))
     si=LanguageRatings.satisfaction_index2024(df,limit=50)
     dfsi=DataFrame([:language=>vcat(names(si)...),:si=>values(si)])
     x=leftjoin(x,dfsi,on=:language)

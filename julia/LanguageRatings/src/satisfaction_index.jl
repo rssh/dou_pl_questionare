@@ -24,8 +24,8 @@ function plot_index(si; fname=missing, limit=15)
 end
 
 # in 2024 and 2025 can be more that one language in next languages
-function satisfaction_index2024(df::DataFrame; limit=15)
-    lf = language_freq(df,:NowLanguage,limit=limit) 
+function satisfaction_index2024(df::DataFrame; limit=15, filterExpr=missing)
+    lf = language_freq(df,:NowLanguage,limit=limit, filterExpr=filterExpr) 
     dlf = DataFrame(:language => vec(lf.language), :cnt=>vec(lf.cnt))
     nn = filter(x -> !ismissing(x.NowLanguage) && !ismissing(x.NextLanguages) ,  df)[!,[:NowLanguage,:NextLanguages]]
     nn = innerjoin(nn, dlf, on = :NowLanguage => :language)

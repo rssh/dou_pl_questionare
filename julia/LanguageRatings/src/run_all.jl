@@ -81,21 +81,27 @@ function run_all(baseDir::String = "../..")
     LanguageRatings.freqBarPlot(glc, "NextLanguage/Backend", fname="../../2025_01/NextLanguageBackend", limit=15)
 
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Frontend") ))
-    LanguageRatings.freqBarPlot(glc, "NextLanguage/Frontend", fname="../../2024_01/NextLanguageFrontend", limit=10)
+    LanguageRatings.freqBarPlot(glc, "NextLanguage/Frontend", fname="../../2025_01/NextLanguageFrontend", limit=10)
 
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Full Stack") ))
     LanguageRatings.freqBarPlot(glc, "NextLanguage/FullStack", fname="../../2025_01/NextLanguageFullStack", limit=20)
 
-    glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Platforms) && ("Microcontrollers / Embedded / IoT" in x.Platforms) ))
-    LanguageRatings.freqBarPlot(glc, "NextLanguage/Embedded", fname="../../2024_01/NextLanguageEmbedded", limit=20)
+    ## glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Platforms) && ("Microcontrollers / Embedded / IoT" in x.Platforms) ))
+    glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Embedded") ))   
+    LanguageRatings.freqBarPlot(glc, "NextLanguage/Embedded", fname="../../2025_01/NextLanguageEmbedded", limit=10)
+
 
     # Satisfaction index
     si = LanguageRatings.satisfaction_index2024(df, limit=19)
-    LanguageRatings.plot_index(si, fname="../../2024_01/SatisfactionIndex")
+    LanguageRatings.plot_index(si, fname="../../2025_01/SatisfactionIndex")
 
     # Open Source
     glc = LanguageRatings.multi_language_freq(df, :PetProjectLanguages, limit=20) 
-    LanguageRatings.freqBarPlot(glc, "PetProjectLanguages", fname="../../2024_01/PetProjectLanguages", limit=19)
+    LanguageRatings.freqBarPlot(glc, "PetProjectLanguages", fname="../../2025_01/PetProjectLanguages", limit=19)
+
+    glc = LanguageRatings.multi_language_freq(df, :OpenSourceLanguageNow, limit=20)
+    LanguageRatings.freqBarPlot(glc, "OpenSourceLanguagesNow", fname="../../2025_01/OpenSourceNowLanguages", limit=19)
+
 
     # Learn Language
     ls = LanguageRatings.language_freq(df,:LearnLanguage, limit=30, barrier=10)
