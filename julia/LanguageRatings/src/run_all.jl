@@ -56,35 +56,35 @@ function run_all(baseDir::String = "../..")
     glc = LanguageRatings.multi_platform_freq(df, :Platforms)
     LanguageRatings.freqBarPlot(glc, "Платформи", fname="../../2024_01/Platforms")
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Desktop" in x.Platforms) ))
-    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Desktop", fname="../../2025_01/NowLanguagePlatformDesktop", nYears=3)
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Desktop" in x.Platforms) ))
+    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Desktop", fname="../../2025_01/NowLanguagePlatformDesktop", nYears=4)
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile cross-platform" in x.Platforms) ))
-    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/MobileCross", fname="../../2024_01/NowLanguagePlatformMobileCross", nYears=3)
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile cross-platform" in x.Platforms) ))
+    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/MobileCross", fname="../../2025_01/NowLanguagePlatformMobileCross", nYears=4)
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile Android" in x.Platforms) ))
-    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/MobileAndroid", fname="../../2024_01/NowLanguagePlatformMobileAndroid", nYears=3)
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile Android" in x.Platforms) ))
+    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/MobileAndroid", fname="../../2025_01/NowLanguagePlatformMobileAndroid", nYears=4)
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile iOS" in x.Platforms) ))
-    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Mobile/IOS", fname="../../2024_01/NowLanguagePlatformMobileIOS", nYears=3)
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile iOS" in x.Platforms) ))
+    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Mobile/IOS", fname="../../2025_01/NowLanguagePlatformMobileIOS", nYears=4)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Microcontrollers / Embedded / IoT" in x.Platforms) ))
     LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Embedded", fname="../../2024_01/NowLanguagePlatformEmbedded", nYears=3)
 
     # Next Language.
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage)
-    LanguageRatings.freqBarPlot(glc, "NextLanguage", fname="../../2024_01/NextLanguage", limit=19)
+    LanguageRatings.freqBarPlot(glc, "NextLanguage", fname="../../2025_01/NextLanguage", limit=19)
 
 
     # Next Language By Specialization
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
-    LanguageRatings.freqBarPlot(glc, "NextLanguage/Backend", fname="../../2024_01/NextLanguageBackend", limit=19)
+    LanguageRatings.freqBarPlot(glc, "NextLanguage/Backend", fname="../../2025_01/NextLanguageBackend", limit=15)
 
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Frontend") ))
     LanguageRatings.freqBarPlot(glc, "NextLanguage/Frontend", fname="../../2024_01/NextLanguageFrontend", limit=10)
 
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Full Stack") ))
-    LanguageRatings.freqBarPlot(glc, "NextLanguage/FullStack", fname="../../2024_01/NextLanguageFullStack", limit=20)
+    LanguageRatings.freqBarPlot(glc, "NextLanguage/FullStack", fname="../../2025_01/NextLanguageFullStack", limit=20)
 
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Platforms) && ("Microcontrollers / Embedded / IoT" in x.Platforms) ))
     LanguageRatings.freqBarPlot(glc, "NextLanguage/Embedded", fname="../../2024_01/NextLanguageEmbedded", limit=20)

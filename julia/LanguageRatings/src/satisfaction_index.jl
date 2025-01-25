@@ -23,7 +23,7 @@ function plot_index(si; fname=missing, limit=15)
     end
 end
 
-# in 2024 can be more that one language in next languages
+# in 2024 and 2025 can be more that one language in next languages
 function satisfaction_index2024(df::DataFrame; limit=15)
     lf = language_freq(df,:NowLanguage,limit=limit) 
     dlf = DataFrame(:language => vec(lf.language), :cnt=>vec(lf.cnt))
