@@ -49,7 +49,7 @@ function run_all(baseDir::String = "../..")
     LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageDataAnalysisHistory", nYears=3)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "DevOps") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageDevOpsHistory", nYears=3)
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDevOpsHistory", nYears=3)
 
     # Platforms
     df = dfs[1]
@@ -57,7 +57,7 @@ function run_all(baseDir::String = "../..")
     LanguageRatings.freqBarPlot(glc, "Платформи", fname="../../2024_01/Platforms")
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Desktop" in x.Platforms) ))
-    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Desktop", fname="../../2024_01/NowLanguagePlatformDesktop", nYears=3)
+    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Desktop", fname="../../2025_01/NowLanguagePlatformDesktop", nYears=3)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Mobile cross-platform" in x.Platforms) ))
     LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/MobileCross", fname="../../2024_01/NowLanguagePlatformMobileCross", nYears=3)
