@@ -105,11 +105,11 @@ function run_all(baseDir::String = "../..")
 
     # Learn Language
     ls = LanguageRatings.language_freq(df,:LearnLanguage, limit=30, barrier=10)
-    LanguageRatings.freqBarPlot(ls, "Яку мову програмування плануєтк вивчити", fname="../../2024_01/LearnLanguage", limit=23)
+    LanguageRatings.freqBarPlot(ls, "Яку мову програмування плануєтк вивчити", fname="../../2025_01/LearnLanguage", limit=23)
 
     # Additional Languages
     af = LanguageRatings.multi_language_freq(df, :AdditionalLanguages, limit=20, normalizeFun=LanguageRatings.normalize_language_2023)
-    LanguageRatings.freqBarPlot(af, "Додаткові мови", fname="../../2024_01/AdditionalLanguages")
+    LanguageRatings.freqBarPlot(af, "Додаткові мови", fname="../../2025_01/AdditionalLanguages")
 
     # Final table
   
