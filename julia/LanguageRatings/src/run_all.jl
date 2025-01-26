@@ -41,7 +41,7 @@ function run_all(baseDir::String = "../..")
     
     # hostory by specialization:
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageBackendHistory", nYears=3)
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageBackendHistory", nYears=3)
     
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Frontend") ))
     LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageFrontendHistory", nYears=3)
@@ -62,6 +62,9 @@ function run_all(baseDir::String = "../..")
     df = dfs[1]
     glc = LanguageRatings.multi_platform_freq(df, :Platforms)
     LanguageRatings.freqBarPlot(glc, "Платформи", fname="../../2024_01/Platforms")
+
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Web" in x.Platforms) ))
+    LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Web", fname="../../2025_01/NowLanguagePlatformWeb", nYears=4)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Desktop" in x.Platforms) ))
     LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Desktop", fname="../../2025_01/NowLanguagePlatformDesktop", nYears=4)
