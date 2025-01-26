@@ -177,7 +177,7 @@ function multi_freq_history(columnName::Symbol, dataframes::DataFrame ... ; limi
   if (nYears > length(dfs))
     nYears = length(dfs)
   end
-  startYear=2024-nYears
+  startYear=2025-nYears
 
   rData = DataFrame()
   for i in 1:nYears

@@ -24,9 +24,16 @@ function run_all(baseDir::String = "../..")
     ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, barrier=10)
     LanguageRatings.freqBarPlot(ls, "Основна мова програмування", fname="../../2025_01/NowLanguage", limit=23)
 
+    ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, filterExpr = (x -> x.Categories == "SE"))
+    LanguageRatings.freqBarPlot(ls, "Основна мова програмування/SE", fname="../../2025_01/NowLanguageSE", limit=23)
+
+    ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, filterExpr = (x -> x.Categories == "Analyst"))
+    LanguageRatings.freqBarPlot(ls, "Основна мова програмування/Analyst", fname="../../2025_01/NowLanguageAnalyst", limit=23)
+
     lfh = freqHistory(:NowLanguage, dfs..., limit=15)
     LanguageRatings.freqHistoryBarPlot(lfh; fname="../../2025_01/NowLanguageHistory", nYears=2)
 
+    cf = freqtable_categories(df ; fname="../../2025_01/Categories")
 
     # How specialization is changed
     glc = LanguageRatings.freqHistory(:Specialization, dfs..., nYears=3, filterExpr=(x -> !ismissing(x.Specialization) && !(x.Specialization in ["GameDev","QA","Other","Embedded"]) ))
