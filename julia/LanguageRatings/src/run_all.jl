@@ -43,17 +43,17 @@ function run_all(baseDir::String = "../..")
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Backend") ))
     LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageBackendHistory", nYears=3)
     
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Frontend") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageFrontendHistory", nYears=3)
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Frontend") ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageFrontendHistory", nYears=3)
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Full Stack") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageFullStackHistory", nYears=3)
+    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=4, limit=15, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Full Stack") ))
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageFullStackHistory", nYears=4)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Mobile") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageMobileHistory", nYears=3)
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageMobileHistory", nYears=4)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Data Analysis") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2024_01/NowLanguageDataAnalysisHistory", nYears=3)
+    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDataAnalysisHistory", nYears=3)
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "DevOps") ))
     LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDevOpsHistory", nYears=3)
@@ -124,8 +124,12 @@ function run_all(baseDir::String = "../..")
     # Final table
   
     # experience
-    ft=LanguageRatings.plot_experience_freq_by_lang(df, ["JavaScript","TypeScript", "Python", "Java", "C#","PHP"], title="Досвід у програмуванні", fname="../../2024_01/ExpirienceInProgramming")
-    
+    ft=LanguageRatings.plot_experience_freq_by_lang(df, ["JavaScript","TypeScript", "Python", "Java", "C#","PHP", "Go"], title="Досвід у програмуванні", fname="../../2024_01/ExpirienceInProgramming")
+
+    # frameworks:
+    bckTypeScript = LanguageRatings.multi_language_freq(df, :FrameworksDevelopment, filterExpr=(x ->
+             !ismissing(x.Specialization) && !ismissing(x.NowLanguage) && 
+             x.NowLanguage=="TypeScript" && x.Specialization=="Backend" ), limit=10)
 
     
 end

@@ -12,7 +12,10 @@ function normalize_specialization(x::Union{Missing,AbstractString}; unknownAsOth
     if (x == "Front-end  розробка")
         return "Frontend"
     end
-    if (x == "Mobile  розробка")
+    if (x in [ "Mobile  розробка", "Mobile розробка" ] )
+        return "Mobile"
+    end
+    if (x == "Mobile")
         return "Mobile"
     end
     if (x == "Full Stack розробка")
