@@ -52,11 +52,17 @@ function run_all(baseDir::String = "../..")
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Mobile") ))
     LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageMobileHistory", nYears=4)
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Data Analysis") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDataAnalysisHistory", nYears=3)
+    # desktop is new, so not historu
+    ls = LanguageRatings.language_freq(df,:NowLanguage, limit=30, filterExpr = (x -> !ismissing(x.Specialization) && x.Specialization == "Desktop"))
+    LanguageRatings.freqBarPlot(ls, "Основна мова програмування/Desktop", fname="../../2025_01/NowLanguageDesktop", limit=23)
 
-    glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "DevOps") ))
-    LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDevOpsHistory", nYears=3)
+
+    #glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Data Analysis") ))
+    #LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDataAnalysisHistory", nYears=3)
+
+    #in 2024 this was in categories
+    # glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "DevOps") ))
+    #LanguageRatings.freqHistoryBarPlot(glc; fname="../../2025_01/NowLanguageDevOpsHistory", nYears=3)
 
     # Platforms
     df = dfs[1]
@@ -80,6 +86,28 @@ function run_all(baseDir::String = "../..")
 
     glc = LanguageRatings.freqHistory(:NowLanguage, dfs..., nYears=3, limit=10, filterExpr=(x -> !ismissing(x.Platforms) && ("Microcontrollers / Embedded / IoT" in x.Platforms) ))
     LanguageRatings.freqHistoryBarPlot(glc; title="NowLanguage/Platform/Embedded", fname="../../2024_01/NowLanguagePlatformEmbedded", nYears=3)
+
+
+    # Specialization
+    glc = LanguageRatings.language_freq(df, :Specialization, filterExpr=(x -> !ismissing(x.Specialization) ))
+    LanguageRatings.freqBarPlot(glc, "Спеціалізація", fname="../../2025_01/Specialization")
+
+    # Specialization freqHistory
+
+    s1 = freqtable(map(x -> x=="Desktop" ? "Other" : x == "Embedded" ? "Other" : x, filter(x -> !ismissing(x), df.Specialization)))
+    s1 = s1/sum(s1)
+    ds1 = DataFrame(names=names(s1,1), values=s1)
+    s2 = freqtable(map(x -> x=="Desktop" ? "Other" : x, filter(x -> !ismissing(x) && x!="QA" && x!="DevOps" && x!="Data Analysis", dfs[2].Specialization)))
+    s2 = s2/sum(s2)
+    ds2 = DataFrame(names=names(s2,1), values=s2)
+    s3 = freqtable(map(x -> x=="Embedded" ? "Other" : x, filter(x-> !ismissing(x) && x!="Data Analysis"  && x!="DevOps" && x!="QA", dfs[3].Specialization ) ))
+    s3 = s3/sum(s3)
+    ds3 = DataFrame(names=names(s3,1), values=s3)
+    s4 = freqtable(map(x -> x=="Embedded" || x=="GameDev" || x=="Desktop" ? "Other" : x, filter(x-> !ismissing(x) && x!="Data Analysis"  && x!="DevOps" && x!="QA", dfs[4].Specialization ) ))
+    s4 = s4/sum(s4)
+    ds4 = DataFrame(names=names(s4,1), values=s4)
+    sh = outerjoin(ds4,ds3,ds2,ds1,on=:names, makeunique=true)
+
 
     # Next Language.
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage)

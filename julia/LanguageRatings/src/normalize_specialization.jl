@@ -48,6 +48,9 @@ function normalize_specialization(x::Union{Missing,AbstractString}; unknownAsOth
     if (x in [ "QA", "qa" ])
         return "QA"
     end
+    if (x == "Desktop")
+        return "Desktop"
+    end
     if (unknownAsOther)
         return "Other"
     else

@@ -84,8 +84,8 @@ end
 #
 # usually glc is an outer join of language_freq datasets
 # glc = outerjoin(select(lc2022,Not(:cnt)),select(lc2023,Not(:cnt)),on=:language,makeunique=true)
-function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5, nowYear=2024)
-  groupedbar(Matrix(glc[:,2:size(glc)[2]]), xticks=(1:size(glc)[1], glc.language), 
+function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5, nowYear=2024, column="language")
+  groupedbar(Matrix(glc[:,2:size(glc)[2]]), xticks=(1:size(glc)[1], glc[!,column]), 
             xrotation=90, size=plotSize, title=title,
             labels = hcat((nowYear-nYears+1):nowYear...)           
   )
