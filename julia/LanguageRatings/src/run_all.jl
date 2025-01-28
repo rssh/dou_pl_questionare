@@ -128,6 +128,9 @@ function run_all(baseDir::String = "../..")
     glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Embedded") ))   
     LanguageRatings.freqBarPlot(glc, "NextLanguage/Embedded", fname="../../2025_01/NextLanguageEmbedded", limit=10)
 
+    glc = LanguageRatings.multi_language_freq(df, :NextLanguage, filterExpr=(x -> !ismissing(x.Specialization) && (x.Specialization == "Mobile") ))   
+    LanguageRatings.freqBarPlot(glc, "NextLanguage/Mobile", fname="../../2025_01/NextLanguageMobile", limit=10)
+ 
 
     # Satisfaction index
     si = LanguageRatings.satisfaction_index2024(df, limit=19)
@@ -148,6 +151,11 @@ function run_all(baseDir::String = "../..")
     # Additional Languages
     af = LanguageRatings.multi_language_freq(df, :AdditionalLanguages, limit=20, normalizeFun=LanguageRatings.normalize_language_2023)
     LanguageRatings.freqBarPlot(af, "Додаткові мови", fname="../../2025_01/AdditionalLanguages")
+
+    ## by specialization
+    af = LanguageRatings.multi_language_freq(df, :AdditionalLanguages, limit=20, normalizeFun=LanguageRatings.normalize_language_2023, 
+               filterExpr=(x -> !ismissing(x.Specialization) && x.Specialization == "Desktop" ))
+
 
     # Final table
   
