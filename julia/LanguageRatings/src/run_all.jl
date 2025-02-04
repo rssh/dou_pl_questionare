@@ -159,6 +159,10 @@ function run_all(baseDir::String = "../..")
 
     # Final table
   
+    # First language for 1-st year interns
+    glc=LanguageRatings.freqHistory(:FirstLanguage, dfs..., nYears=4, limit=10, filterExpr=(x -> !ismissing(x.FirstLanguage) && !ismissing(x.ExperienceInProgrammingYears) && x.ExperienceInProgrammingYears <= 1 ))
+
+
     # experience
     ft=LanguageRatings.plot_experience_freq_by_lang(df, ["JavaScript","TypeScript", "Python", "Java", "C#","PHP", "Go"], title="Досвід у програмуванні", fname="../../2024_01/ExpirienceInProgramming")
 
