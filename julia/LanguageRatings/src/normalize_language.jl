@@ -6,16 +6,18 @@ function normalize_language_2023(x::Union{Missing,AbstractString})::Union{Missin
         return missing
     end
     if (x in ["Не можу обрати одну основну мову", "Інша мова", "Важко сказати, не знаю",
-        "Важко сказати, ще не визначився (-лась)", "Не використовую", "Немає" ]) 
+        "Важко сказати, ще не визначився (-лась)", "Важко сказати ще не визначився (-лась)",
+        "Не використовую", "Немає" ])
         return missing
     end
-    if (x in ["Мови розробки БД (PL/SQL, Transact-SQL)", "SQL", "Мови розробки БД (PL/SQL"]) 
+    if (x in ["Мови розробки БД (PL/SQL, Transact-SQL)", "SQL", "Мови розробки БД (PL/SQL",
+        "Мови розробки БД (PLSQL Transact-SQL)"])
         return "DB"
     end
     if (x == "Transact-SQL)") # hack agains error in using split without quotinv commas in strings.
         return missing
     end
-    if (x == "C# / .NET") 
+    if (x in ["C# / .NET", "C#/.NET", "C#  NET"])
         return "C#"
     end
     if ( x == "Unity/C#")
@@ -33,8 +35,14 @@ function normalize_language_2023(x::Union{Missing,AbstractString})::Union{Missin
     if (x == "lua") 
         return "Lua"
     end
-    if (x == "Brightscript") 
+    if (x == "Brightscript")
         return "BrightScript"
+    end
+    if (x in ["Bash", "bash", "BASH", "Bash/Shell", "Bash  Shell", "Shell", "shell", "Unix Shell", "sh"])
+        return "Bash / Shell"
+    end
+    if (x == "PascalDelphi")
+        return "Pascal/Delphi"
     end
     return x
 end
@@ -54,7 +62,7 @@ languageNamePatterns =Dict(
     "C++" =>  r"c\\+\\+|С\\+\\+|С\\+\\+",
     "C" => r"^c$|^С$|^С$",
     "SAP ABAP" => r"^SAP$|ABAP$",
-    ##patterns["Shell"]="^sh$|^bash$|^shell$|Shell Script|linux shell|bash( |-)scripting|C-Shell$|^ksh$|sh / bash|UNIX shell"
+    "Bash / Shell" => r"^sh$|^bash$|^BASH$|^shell$|^Shell$|Shell Script|linux shell|bash( |-)scripting|C-Shell$|^ksh$|sh / bash|UNIX shell|Unix Shell|Bash/Shell",
     ## checked cleaned 2016-01, 
     #"T-SQL" => r"^T-SQL$|Transact-SQL$|^TSQL$|^T-SQL;",
     #"PL-SQL" => r"^pl/sql$",

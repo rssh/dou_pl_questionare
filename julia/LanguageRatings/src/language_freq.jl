@@ -45,7 +45,7 @@ function freqHistory(columnName::Symbol, dataframes::DataFrame ... ; limit::Int 
   if (nYears > length(dfs))
     nYears = length(dfs)
   end
-  startYear=2025-nYears
+  startYear=2026-nYears
 
   rData = DataFrame()
   for i in 1:nYears
@@ -84,7 +84,7 @@ end
 #
 # usually glc is an outer join of language_freq datasets
 # glc = outerjoin(select(lc2022,Not(:cnt)),select(lc2023,Not(:cnt)),on=:language,makeunique=true)
-function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5, nowYear=2024, column="language")
+function freqHistoryBarPlot(glc::DataFrame; title::String="", fname::Union{String,Missing} = missing, plotSize=(800,600), nYears=5, nowYear=2025, column="language")
   groupedbar(Matrix(glc[:,2:size(glc)[2]]), xticks=(1:size(glc)[1], glc[!,column]), 
             xrotation=90, size=plotSize, title=title,
             labels = hcat((nowYear-nYears+1):nowYear...)           
@@ -171,13 +171,52 @@ function  multi_platform_freq(df::DataFrame, columnName::Symbol; limit::Int=30, 
   return rData
 end
 
-function multi_freq_history(columnName::Symbol, dataframes::DataFrame ... ; limit::Int = 30, nYears=5, filterExpr = missing)::DataFrame 
+function multi_platform_freq_history(columnName::Symbol, dataframes::DataFrame ... ; limit::Int = 30, nYears=5, filterExpr = missing)::DataFrame
   dfs = collect(dataframes)
 
   if (nYears > length(dfs))
     nYears = length(dfs)
   end
-  startYear=2025-nYears
+  startYear=2026-nYears
+
+  rData = DataFrame()
+  for i in 1:nYears
+    df = dfs[i]
+    if (!ismissing(filterExpr))
+      df = filter(filterExpr, df)
+    end
+    currentYear = startYear+nYears-i
+    cData = multi_platform_freq(df,columnName)
+    cData = select(cData,Not(:cnt))
+    if i==1
+      rData = rename(cData, ["freq"=> "freq$(currentYear)"])
+    else
+      rData = outerjoin(rData,cData,on=:language,makeunique=true,renamecols= ""=> "$(currentYear)" )
+    end
+  end
+
+  rData = coalesce.(rData,0.0)
+  sort!(rData, [ "freq$(startYear+nYears-1)" ], rev=true)
+
+  #: reverse colums
+  ns = names(rData)
+  orderedNames = append!([ns[1]],reverse(ns[2:length(ns)]))
+  rData = rData[!,orderedNames]
+  currentLen = size(rData)[1]
+  if (limit < currentLen)
+    rData = rData[1:limit,:]
+  end
+
+  return rData
+end
+
+function multi_freq_history(columnName::Symbol, dataframes::DataFrame ... ; limit::Int = 30, nYears=5, filterExpr = missing)::DataFrame
+  dfs = collect(dataframes)
+
+  if (nYears > length(dfs))
+    nYears = length(dfs)
+  end
+  startYear=2026-nYears
 
   rData = DataFrame()
   for i in 1:nYears

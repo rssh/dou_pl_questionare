@@ -6,10 +6,10 @@ function normalize_specialization(x::Union{Missing,AbstractString}; unknownAsOth
     if (x in ["Embedded", "Embedded ", "embedded", "embedded "])
         return "Embedded"
     end
-    if (x == "Back-end  розробка")
+    if (x in ["Back-end  розробка", "Back-end розробка"])
         return "Backend"
     end
-    if (x == "Front-end  розробка")
+    if (x in ["Front-end  розробка", "Front-end розробка"])
         return "Frontend"
     end
     if (x in [ "Mobile  розробка", "Mobile розробка" ] )
@@ -30,7 +30,16 @@ function normalize_specialization(x::Union{Missing,AbstractString}; unknownAsOth
     if (x == "Системне програмування")
         return "Other"
     end
+    if (x == "Немає відповіді")
+        return missing
+    end
     if (x == "Інше")
+        return "Other"
+    end
+    if (x in ["Database розробка", "Systems & Infrastructure"])
+        return "Other"
+    end
+    if (startswith(x, "Платформна"))
         return "Other"
     end
     if (x == "DevOps/SRE")

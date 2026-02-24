@@ -10,6 +10,102 @@ struct LanguageQuestionare
     originDF :: DataFrame
 end;
 
+function normalize_categories_2026(x::Union{Missing,AbstractString})::Union{Missing,AbstractString}
+    if ismissing(x)
+        return missing
+    end
+    if startswith(x, "Software Engineer")
+        return "SE"
+    end
+    if x == "DevOps & SRE"
+        return "DevOps/SRE"
+    end
+    if x == "Data Science"
+        return "DS/ML/AI"
+    end
+    return x
+end
+
+# 2026 questionnaire exports multi-choice Platforms as space-separated values.
+# Multi-word platform names need special handling before space-splitting.
+function space_separated_platforms_2026(x::Union{Missing,AbstractString})::Union{Missing,AbstractString}
+    if ismissing(x)
+        return missing
+    end
+    s = x
+    # Replace known multi-word platform names with single-word placeholders
+    s = replace(s, "Multimedia (VoiceBots ChatBots)" => "Multimedia_VoiceBots_ChatBots")
+    s = replace(s, "Microcontrollers  Embedded  IoT" => "Microcontrollers_Embedded_IoT")
+    s = replace(s, "Mobile cross-platform" => "Mobile_cross-platform")
+    s = replace(s, "Mobile Android" => "Mobile_Android")
+    s = replace(s, "Mobile iOS" => "Mobile_iOS")
+    s = replace(s, "Mobile other" => "Mobile_other")
+    s = replace(s, "Voice (IVR)" => "Voice_IVR")
+    s = replace(s, "Smart TV" => "Smart_TV")
+    s = replace(s, "Game Consoles" => "Game_Consoles")
+    parts = filter(p -> p != "", map(String, split(strip(s))))
+    # Convert placeholders back to proper names
+    result = map(parts) do p
+        p = replace(p, "Multimedia_VoiceBots_ChatBots" => "Multimedia (VoiceBots ChatBots)")
+        p = replace(p, "Microcontrollers_Embedded_IoT" => "Microcontrollers / Embedded / IoT")
+        p = replace(p, "Mobile_cross-platform" => "Mobile cross-platform")
+        p = replace(p, "Mobile_Android" => "Mobile Android")
+        p = replace(p, "Mobile_iOS" => "Mobile iOS")
+        p = replace(p, "Mobile_other" => "Mobile other")
+        p = replace(p, "Voice_IVR" => "Voice (IVR)")
+        p = replace(p, "Smart_TV" => "Smart TV")
+        p = replace(p, "Game_Consoles" => "Game Consoles")
+        p
+    end
+    isempty(result) ? missing : join(result, ",")
+end
+
+# 2026 questionnaire exports multi-choice fields as space-separated values
+# with special characters stripped. This function restores comma-separated format.
+function space_separated_to_csv_2026(x::Union{Missing,AbstractString})::Union{Missing,AbstractString}
+    if ismissing(x)
+        return missing
+    end
+    s = x
+    # Replace known multi-word tokens before splitting by space
+    s = replace(s, "Мови розробки БД (PLSQL Transact-SQL)" => "DB")
+    s = replace(s, "Важко сказати не знаю" => "")
+    s = replace(s, "C#  NET" => "C#/.NET")
+    s = replace(s, "Bash  Shell" => "Bash/Shell")
+    s = replace(s, "PascalDelphi" => "Pascal/Delphi")
+    s = replace(s, "Verilog VHDL" => "Verilog/VHDL")
+    parts = filter(p -> p != "", map(String, split(strip(s))))
+    isempty(parts) ? missing : join(parts, ",")
+end
+
+function prepare_dataset_2026(fname::String = "../../2026_01/dec2025_programming_languages.csv")::DataFrame
+    df = CSV.read(fname, DataFrame, delim=",")
+    # Categories normalization
+    transform!(df, :Categories => ByRow(normalize_categories_2026) => :Categories, renamecols=false)
+    # Fix space-separated multi-choice fields
+    for col in [:NextLanguage, :AdditionalLanguages, :PetProjectLanguages]
+        if hasproperty(df, col)
+            transform!(df, col => ByRow(space_separated_to_csv_2026) => col, renamecols=false)
+        end
+    end
+    # Fix space-separated Platforms (has multi-word names like "Mobile Android")
+    if hasproperty(df, :Platforms)
+        transform!(df, :Platforms => ByRow(space_separated_platforms_2026) => :Platforms, renamecols=false)
+    end
+    filter!( :NowLanguage => x -> !ismissing(x), df)
+    normalize_dataset!(df)
+    transform!(df,
+        [ :NextLanguage => ByRow( x ->
+           if (ismissing(x))
+              missing
+            else
+              map(l -> normalize_language_2023(lstrip(rstrip(l))), split(x,","))
+            end
+         ) => :NextLanguages],
+        renamecols = false
+    )
+end
+
 function prepare_dataset_2025(fname::String = ".../../2025_01/dec2024_programming_languages.csv")::DataFrame
     df = CSV.read(fname, DataFrame, delim=",")
     rename!(df,[
@@ -197,6 +293,7 @@ function normalize_dataset!(df::DataFrame)
             "Platforms" => x -> prepare_platform.(x,Ref(allPlatforms)),
             #"Platforms" => x -> normalize_platform.(x)
             "NowLanguage" => x -> normalize_language_2023.(x),
+            "FirstLanguage" => x -> normalize_language_2023.(x),
             "Specialization" => x -> normalize_specialization.(x),
             "LearnLanguage" => x -> normalize_language_2023.(x),
             "NextLanguage" => x -> normalize_language_2023.(x),
@@ -236,9 +333,11 @@ function final_table(dfs::DataFrame...; fname=missing)
     lcAdditional=LanguageRatings.multi_language_freq(df,:AdditionalLanguages,limit=50)
     select!(lcAdditional,[:language,:cnt])
     x=leftjoin(x,lcAdditional,on=:language,makeunique=true,renamecols=(""=>"_additional"))
-    lcOpenSource = LanguageRatings.multi_language_freq(df,:OpenSourceLanguageNow,limit=50)
-    select!(lcOpenSource,[:language,:cnt])
-    x=leftjoin(x,lcOpenSource,on=:language,makeunique=true,renamecols=(""=>"_open_source"))
+    if hasproperty(df, :OpenSourceLanguageNow)
+        lcOpenSource = LanguageRatings.multi_language_freq(df,:OpenSourceLanguageNow,limit=50)
+        select!(lcOpenSource,[:language,:cnt])
+        x=leftjoin(x,lcOpenSource,on=:language,makeunique=true,renamecols=(""=>"_open_source"))
+    end
     si=LanguageRatings.satisfaction_index2024(df,limit=50)
     dfsi=DataFrame([:language=>vcat(names(si)...),:si=>values(si)])
     x=leftjoin(x,dfsi,on=:language)

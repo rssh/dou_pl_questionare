@@ -44,6 +44,14 @@ function normalize_experience_2023(x)
     elseif x=="15 і більше років"
         return 20
     else
-        return x  
+        # new format: already numeric, possibly with comma as decimal separator
+        if isa(x, AbstractString)
+            sx = replace(x, "," => ".")
+            v = tryparse(Float64, sx)
+            if !isnothing(v)
+                return v
+            end
+        end
+        return x
     end
 end
